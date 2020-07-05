@@ -63,8 +63,5 @@ namespace HK.Ferry.Database
             }
         }
         private Dictionary<int, R> cachedRecordTable = null;
-
-
-        protected abstract string ResourcePath { get; }
     }
 }
