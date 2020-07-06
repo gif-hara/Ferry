@@ -16,9 +16,15 @@ MonoBehaviour:
   - id: 1
     status:
       Name: "\u30C6\u30B9\u30C8\u304F\u3093"
+      HitPointMax:
+        value: 0
       HitPoint:
         value: 100
       Attack:
         value: 10
       Defense:
         value: 0
+      Speed:
+        value: 1
+      modelPrefab: {fileID: 1326203887096612561, guid: 708538b416f0f4c178da1aae8ac96ecf,
+        type: 3}

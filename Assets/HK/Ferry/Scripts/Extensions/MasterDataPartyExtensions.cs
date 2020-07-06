@@ -23,7 +23,8 @@ namespace HK.Ferry.Extensions
             var position = count == 1 ? 0.0f : -(interval / 2) - ((interval / 2) * count - 2);
             foreach (var record in self.ActorIds.Select(x => MasterDataActor.Get.GetRecord(x)))
             {
-                var actor = Object.Instantiate(actorPrefab, parent);
+                var actor = actorPrefab.Clone(record.Status);
+                actor.transform.SetParent(parent);
                 actor.transform.localPosition = new Vector3(position, 0.0f, 0.0f);
                 result.Add(actor);
                 position += interval;
