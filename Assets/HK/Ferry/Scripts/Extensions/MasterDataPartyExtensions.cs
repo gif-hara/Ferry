@@ -18,13 +18,15 @@ namespace HK.Ferry.Extensions
         public static List<Actor> CreateActors(this MasterDataParty.Record self, Actor actorPrefab, Transform parent)
         {
             var result = new List<Actor>();
-            var index = 0;
+            var interval = 2.0f;
+            var count = self.ActorIds.Count;
+            var position = count == 1 ? 0.0f : -(interval / 2) - ((interval / 2) * count - 2);
             foreach (var record in self.ActorIds.Select(x => MasterDataActor.Get.GetRecord(x)))
             {
                 var actor = Object.Instantiate(actorPrefab, parent);
-                actor.transform.localPosition = new Vector3(index * 2.0f, 0.0f, 0.0f);
+                actor.transform.localPosition = new Vector3(position, 0.0f, 0.0f);
                 result.Add(actor);
-                index++;
+                position += interval;
             }
 
             return result;
