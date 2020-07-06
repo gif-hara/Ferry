@@ -7,7 +7,7 @@ namespace HK.Ferry.StateControllers
     /// </summary>
     public interface IState
     {
-        void Enter();
+        void Enter(StateController owner);
 
         void Exit();
 

@@ -30,7 +30,7 @@ namespace HK.Ferry.StateControllers
 
             Assert.IsTrue(this.states.ContainsKey(stateName), $"{stateName}という{nameof(IState)}は存在しません");
             this.current = this.states[stateName];
-            this.current.Enter();
+            this.current.Enter(this);
         }
     }
 }

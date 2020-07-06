@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:HK.Ferry.Database:MasterDataActor
   records:
   - id: 1
-    Status:
-      Name: "\u30C6\u30B9\u30C8\u30A2\u30AF\u30BF\u30FC00"
+    status:
+      Name: "\u30C6\u30B9\u30C8\u304F\u3093"
       HitPoint:
         value: 100
       Attack:
         value: 10
       Defense:
-        value: 1
+        value: 0
