@@ -14,17 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:HK.Ferry.Database:MasterDataActor
   records:
   - id: 1
-    status:
-      Name: "\u30C6\u30B9\u30C8\u304F\u3093"
-      HitPointMax:
-        value: 0
-      HitPoint:
-        value: 100
-      Attack:
-        value: 10
-      Defense:
-        value: 0
-      Speed:
-        value: 1
+    spec:
+      name: "\u30C6\u30B9\u30C8\u304F\u3093"
+      hitPoint: 100
+      attack: 10
+      defense: 1
+      speed: 1
       modelPrefab: {fileID: 1326203887096612561, guid: 708538b416f0f4c178da1aae8ac96ecf,
         type: 3}

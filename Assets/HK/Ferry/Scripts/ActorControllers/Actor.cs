@@ -11,13 +11,13 @@ namespace HK.Ferry.ActorControllers
     {
         public readonly IMessageBroker Broker = new MessageBroker();
 
-        public ActorStatus BaseStatus
+        public ActorSpec Spec
         {
             get;
             private set;
         }
 
-        public ActorStatus InstanceStatus
+        public ActorStatus Status
         {
             get;
             private set;
@@ -29,12 +29,12 @@ namespace HK.Ferry.ActorControllers
             private set;
         }
 
-        public Actor Clone(ActorStatus status)
+        public Actor Clone(ActorSpec spec)
         {
             var instance = Instantiate(this);
-            instance.BaseStatus = status;
-            instance.InstanceStatus = status.Clone;
-            instance.Model = Instantiate(status.ModelPrefab, instance.transform);
+            instance.Spec = spec;
+            instance.Status = new ActorStatus(spec);
+            instance.Model = Instantiate(spec.ModelPrefab, instance.transform);
             instance.Model.transform.localPosition = Vector3.zero;
             instance.Model.transform.localRotation = Quaternion.identity;
 

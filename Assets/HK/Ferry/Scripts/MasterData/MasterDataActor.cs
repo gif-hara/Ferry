@@ -18,11 +18,11 @@ namespace HK.Ferry.Database
             private int id = 0;
 
             [SerializeField]
-            private ActorStatus status = default;
+            private ActorSpec spec = default;
 
             public int Id => this.id;
 
-            public ActorStatus Status => status;
+            public ActorSpec Spec => spec;
         }
     }
 }

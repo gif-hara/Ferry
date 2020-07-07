@@ -1,47 +1,55 @@
-﻿using UnityEngine;
+﻿using UniRx;
+using UnityEngine;
 using UnityEngine.Assertions;
-using UniRx;
-using System;
 
 namespace HK.Ferry.ActorControllers
 {
     /// <summary>
     /// <see cref="Actor"/>のステータス
     /// </summary>
-    [Serializable]
     public sealed class ActorStatus
     {
-        public string Name;
+        private readonly ReactiveProperty<int> hitPoint;
+        public readonly PropertyGetter<int> HitPoint;
 
-        [HideInInspector]
-        public IntReactiveProperty HitPointMax = new IntReactiveProperty();
+        private readonly ReactiveProperty<int> hitPointMax;
+        public readonly PropertyGetter<int> HitPointMax;
 
-        public IntReactiveProperty HitPoint = new IntReactiveProperty();
+        private readonly ReactiveProperty<int> attack;
+        public readonly PropertyGetter<int> Attack;
 
-        public IntReactiveProperty Attack = new IntReactiveProperty();
+        private readonly ReactiveProperty<int> defense;
+        public readonly PropertyGetter<int> Defense;
 
-        public IntReactiveProperty Defense = new IntReactiveProperty();
+        private readonly ReactiveProperty<int> speed;
+        public readonly PropertyGetter<int> Speed;
 
-        public IntReactiveProperty Speed = new IntReactiveProperty();
-
-        [HideInInspector]
-        public FloatReactiveProperty TurnCharge = new FloatReactiveProperty();
-
-        [SerializeField]
-        private ActorModel modelPrefab = default;
-
-        public ActorModel ModelPrefab => this.modelPrefab;
-
-        public ActorStatus Clone => new ActorStatus()
+        public ActorStatus(ActorSpec actorSpec)
         {
-            Name = this.Name,
-            HitPointMax = new IntReactiveProperty(this.HitPoint.Value),
-            HitPoint = new IntReactiveProperty(this.HitPoint.Value),
-            Attack = new IntReactiveProperty(this.Attack.Value),
-            Defense = new IntReactiveProperty(this.Defense.Value),
-            Speed = new IntReactiveProperty(this.Speed.Value),
-            TurnCharge = new FloatReactiveProperty(),
-            modelPrefab = this.modelPrefab
-        };
+            this.hitPoint = new ReactiveProperty<int>(actorSpec.HitPoint);
+            this.HitPoint = new PropertyGetter<int>(this.hitPoint);
+            this.hitPointMax = new ReactiveProperty<int>(actorSpec.HitPoint);
+            this.HitPointMax = new PropertyGetter<int>(this.hitPointMax);
+            this.attack = new ReactiveProperty<int>(actorSpec.Attack);
+            this.Attack = new PropertyGetter<int>(this.attack);
+            this.defense = new ReactiveProperty<int>(actorSpec.Defense);
+            this.Defense = new PropertyGetter<int>(this.defense);
+            this.speed = new ReactiveProperty<int>(actorSpec.Speed);
+            this.Speed = new PropertyGetter<int>(this.speed);
+        }
+
+        public class PropertyGetter<T>
+        {
+            private readonly ReactiveProperty<T> stream;
+
+            public IReactiveProperty<T> AsObservable() => this.stream;
+
+            public T Get => this.stream.Value;
+
+            public PropertyGetter(ReactiveProperty<T> stream)
+            {
+                this.stream = stream;
+            }
+        }
     }
 }
