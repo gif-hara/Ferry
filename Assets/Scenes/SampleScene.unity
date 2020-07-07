@@ -561,6 +561,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1765896589}
   - component: {fileID: 1765896588}
+  - component: {fileID: 1765896591}
+  - component: {fileID: 1765896590}
   m_Layer: 0
   m_Name: BattleSystems
   m_TagString: Untagged
@@ -580,14 +582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd2c89180077496286811e06e926f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateController:
-    debugBattleSetup:
-      playerPartyId: 1
-      enemyPartyId: 1
-    playerParent: {fileID: 1798919394}
-    enemyParent: {fileID: 1245421198}
-    actorPrefab: {fileID: 4824599915050793693, guid: 6aaeeab31937b4bea875cb08f8c5f578,
-      type: 3}
 --- !u!4 &1765896589
 Transform:
   m_ObjectHideFlags: 0
@@ -602,6 +596,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1765896590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765896587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98613f7e070024d859c644f05d9a51ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugBattleSetup:
+    playerPartyId: 1
+    enemyPartyId: 1
+  battleEnvironment: {fileID: 1765896591}
+  actorPrefab: {fileID: 4824599915050793693, guid: 6aaeeab31937b4bea875cb08f8c5f578,
+    type: 3}
+--- !u!114 &1765896591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765896587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21018892dd87412a9e6e279dc8fd5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerParent: {fileID: 1798919394}
+  enemyParent: {fileID: 1245421198}
 --- !u!1 &1798919393
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using HK.Ferry.Database;
 using HK.Ferry.Extensions;
 using HK.Ferry.StateControllers;
+using HK.Framework.EventSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -46,8 +47,11 @@ namespace HK.Ferry.BattleControllers.States
 
         public void Enter(StateController owner)
         {
-            this.playerParty.CreateActors(this.actorPrefab, this.playerParent);
-            this.enemyParty.CreateActors(this.actorPrefab, this.enemyParent);
+            var playerParty = new Party(this.playerParty.CreateActors(this.actorPrefab, this.playerParent));
+            var enemyParty = new Party(this.enemyParty.CreateActors(this.actorPrefab, this.enemyParent));
+
+            Broker.Global.Publish(BattleEvents.CreatedPlayerParty.Get(playerParty));
+            Broker.Global.Publish(BattleEvents.CreatedEnemyParty.Get(enemyParty));
 
             owner.Change(nameof(BattleStart));
         }

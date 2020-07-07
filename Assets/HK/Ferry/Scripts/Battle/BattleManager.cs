@@ -8,12 +8,5 @@ namespace HK.Ferry.BattleControllers
     /// </summary>
     public sealed class BattleManager : MonoBehaviour
     {
-        [SerializeField]
-        private BattleStateController stateController = default;
-
-        private void Start()
-        {
-            this.stateController.Setup();
-        }
     }
 }

@@ -11,33 +11,29 @@ namespace HK.Ferry.BattleControllers
     /// <summary>
     /// バトルのステートを管理するクラス
     /// </summary>
-    [Serializable]
-    public sealed class BattleStateController
+    public sealed class BattleStateController : MonoBehaviour
     {
         [SerializeField]
         private BattleSetup debugBattleSetup = default;
 
         [SerializeField]
-        private Transform playerParent = default;
-
-        [SerializeField]
-        private Transform enemyParent = default;
+        private BattleEnvironment battleEnvironment = default;
 
         [SerializeField]
         private Actor actorPrefab = default;
 
         private StateController stateController;
 
-        public void Setup()
+        private void Start()
         {
             this.stateController = new StateController(
                 new List<IState>
                 {
                     new CreateParties(
                         this.debugBattleSetup.PlayerParty,
-                        this.playerParent,
+                        this.battleEnvironment.PlayerParent,
                         this.debugBattleSetup.EnemyParty,
-                        this.enemyParent,
+                        this.battleEnvironment.EnemyParent,
                         this.actorPrefab
                         ),
                     new BattleStart()
