@@ -30,7 +30,6 @@ namespace HK.Ferry.BattleControllers.States
             Observable.EveryGameObjectUpdate()
                 .Subscribe(_ =>
                 {
-                    Debug.Log("Update");
                     var playerActors = this.battleEnvironment.PlayerParty.Actors;
                     var enemyActors = this.battleEnvironment.EnemyParty.Actors;
                     UpdateTurnCharge(playerActors);
