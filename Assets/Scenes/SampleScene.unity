@@ -577,16 +577,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765896587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98613f7e070024d859c644f05d9a51ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bd2c89180077496286811e06e926f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugBattleSetup:
-    playerPartyId: 1
-    enemyPartyId: 1
-  playerParent: {fileID: 1798919394}
-  enemyParent: {fileID: 1245421198}
-  actorPrefab: {fileID: 4824599915050793693, guid: 6aaeeab31937b4bea875cb08f8c5f578,
-    type: 3}
+  stateController:
+    debugBattleSetup:
+      playerPartyId: 1
+      enemyPartyId: 1
+    playerParent: {fileID: 1798919394}
+    enemyParent: {fileID: 1245421198}
+    actorPrefab: {fileID: 4824599915050793693, guid: 6aaeeab31937b4bea875cb08f8c5f578,
+      type: 3}
 --- !u!4 &1765896589
 Transform:
   m_ObjectHideFlags: 0

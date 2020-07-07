@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HK.Ferry.ActorControllers;
 using HK.Ferry.BattleControllers.States;
 using HK.Ferry.StateControllers;
@@ -10,7 +11,8 @@ namespace HK.Ferry.BattleControllers
     /// <summary>
     /// バトルのステートを管理するクラス
     /// </summary>
-    public sealed class BattleStateController : MonoBehaviour
+    [Serializable]
+    public sealed class BattleStateController
     {
         [SerializeField]
         private BattleSetup debugBattleSetup = default;
@@ -26,7 +28,7 @@ namespace HK.Ferry.BattleControllers
 
         private StateController stateController;
 
-        private void Start()
+        public void Setup()
         {
             this.stateController = new StateController(
                 new List<IState>

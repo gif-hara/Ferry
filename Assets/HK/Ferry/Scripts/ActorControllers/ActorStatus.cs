@@ -24,6 +24,9 @@ namespace HK.Ferry.ActorControllers
         private readonly ReactiveProperty<int> speed;
         public readonly PropertyGetter<int> Speed;
 
+        private readonly ReactiveProperty<float> turnCharge;
+        public readonly PropertyGetter<float> TurnCharge;
+
         public ActorStatus(ActorSpec actorSpec)
         {
             this.hitPoint = new ReactiveProperty<int>(actorSpec.HitPoint);
@@ -36,6 +39,8 @@ namespace HK.Ferry.ActorControllers
             this.Defense = new PropertyGetter<int>(this.defense);
             this.speed = new ReactiveProperty<int>(actorSpec.Speed);
             this.Speed = new PropertyGetter<int>(this.speed);
+            this.turnCharge = new ReactiveProperty<float>(0.0f);
+            this.TurnCharge = new PropertyGetter<float>(this.turnCharge);
         }
 
         public class PropertyGetter<T>
