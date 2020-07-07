@@ -36,7 +36,8 @@ namespace HK.Ferry.BattleControllers
                         this.battleEnvironment.EnemyParent,
                         this.actorPrefab
                         ),
-                    new BattleStart()
+                    new BattleStart(),
+                    new ProgressTurnCharge(this.battleEnvironment)
                 },
                 nameof(CreateParties)
                 );

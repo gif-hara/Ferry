@@ -10,15 +10,13 @@ namespace HK.Ferry.BattleControllers.States
     /// </summary>
     public sealed class BattleStart : IState
     {
-        private readonly CompositeDisposable disposables = new CompositeDisposable();
-
-        public CompositeDisposable Disposables => disposables;
+        public CompositeDisposable Disposables { get; } = new CompositeDisposable();
 
         public string StateName => nameof(BattleStart);
 
         public void Enter(StateController owner)
         {
-            Debug.Log(nameof(BattleStart));
+            owner.Change(nameof(ProgressTurnCharge));
         }
 
         public void Exit()

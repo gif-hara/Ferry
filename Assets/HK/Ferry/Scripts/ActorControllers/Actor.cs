@@ -33,7 +33,7 @@ namespace HK.Ferry.ActorControllers
         {
             var instance = Instantiate(this);
             instance.Spec = spec;
-            instance.Status = new ActorStatus(spec);
+            instance.Status = new ActorStatus(instance, spec);
             instance.Model = Instantiate(spec.ModelPrefab, instance.transform);
             instance.Model.transform.localPosition = Vector3.zero;
             instance.Model.transform.localRotation = Quaternion.identity;
