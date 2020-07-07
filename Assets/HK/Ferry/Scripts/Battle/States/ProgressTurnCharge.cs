@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using HK.Ferry.ActorControllers;
 using HK.Ferry.StateControllers;
 using UniRx;
@@ -29,8 +30,16 @@ namespace HK.Ferry.BattleControllers.States
             Observable.EveryGameObjectUpdate()
                 .Subscribe(_ =>
                 {
-                    UpdateTurnCharge(this.battleEnvironment.PlayerParty.Actors);
-                    UpdateTurnCharge(this.battleEnvironment.EnemyParty.Actors);
+                    Debug.Log("Update");
+                    var playerActors = this.battleEnvironment.PlayerParty.Actors;
+                    var enemyActors = this.battleEnvironment.EnemyParty.Actors;
+                    UpdateTurnCharge(playerActors);
+                    UpdateTurnCharge(enemyActors);
+
+                    if (playerActors.Any(x => x.Status.IsEnoughTurnCharge) || enemyActors.Any(x => x.Status.IsEnoughTurnCharge))
+                    {
+                        owner.Change(nameof(InvokeCommand));
+                    }
                 })
                 .AddTo(this.Disposables);
         }

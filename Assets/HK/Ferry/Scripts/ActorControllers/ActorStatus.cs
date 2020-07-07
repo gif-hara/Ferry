@@ -51,6 +51,13 @@ namespace HK.Ferry.ActorControllers
             this.turnCharge.Value += this.speed.Value * Time.deltaTime;
         }
 
+        public bool IsEnoughTurnCharge => this.turnCharge.Value >= 1.0f;
+
+        public void ResetTurnCharge()
+        {
+            this.turnCharge.Value = 0.0f;
+        }
+
         public class PropertyGetter<T>
         {
             private readonly ReactiveProperty<T> stream;
