@@ -2,6 +2,8 @@
 using UnityEngine.Assertions;
 using UniRx;
 using System;
+using HK.Ferry.CommandData;
+using HK.Ferry.Database;
 
 namespace HK.Ferry.ActorControllers
 {
@@ -34,5 +36,9 @@ namespace HK.Ferry.ActorControllers
         [SerializeField]
         private ActorModel modelPrefab = default;
         public ActorModel ModelPrefab => this.modelPrefab;
+
+        [SerializeField]
+        private int blueprintId = default;
+        public CommandBlueprint Blueprint => MasterDataCommandBlueprint.Get.GetRecord(this.blueprintId).Blueprint;
     }
 }

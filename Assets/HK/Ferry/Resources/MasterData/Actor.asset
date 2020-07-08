@@ -22,3 +22,4 @@ MonoBehaviour:
       speed: 1
       modelPrefab: {fileID: 1326203887096612561, guid: 708538b416f0f4c178da1aae8ac96ecf,
         type: 3}
+      blueprintId: 1

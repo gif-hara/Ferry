@@ -14,11 +14,11 @@ namespace HK.Ferry.CommandData
     public sealed class CommandNode
     {
         [SerializeField]
-        private int termId;
+        private int termId = default;
         public ITerm Term => MasterDataCommandTerm.Get.GetRecord(this.termId).Term;
 
         [SerializeField]
-        private int commandId;
+        private int commandId = default;
         public ICommand Command => MasterDataCommand.Get.GetRecord(this.commandId).Command;
     }
 }
