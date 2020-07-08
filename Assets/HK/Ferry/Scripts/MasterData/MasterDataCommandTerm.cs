@@ -17,7 +17,7 @@ namespace HK.Ferry.Database
             private int id = 0;
 
             [SerializeReference, SubclassSelector]
-            private ITerm condition = default;
+            private Term condition = default;
 
             public int Id => this.id;
 

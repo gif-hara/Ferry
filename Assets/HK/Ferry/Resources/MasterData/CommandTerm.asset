@@ -19,6 +19,6 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: Constant, ns: HK.Ferry.CommandData.Terms, asm: Assembly-CSharp}
+      type: {class: RandomOpponent, ns: HK.Ferry.CommandData.Terms, asm: Assembly-CSharp}
       data:
-        constant: 1
+        descriptionLocalizeKey: CommandTerm/RandomOpponent

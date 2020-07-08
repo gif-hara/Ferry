@@ -25,6 +25,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: CommandTerm/RandomOpponent
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30E9\u30F3\u30C0\u30E0\u306A\u6575\u306B"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

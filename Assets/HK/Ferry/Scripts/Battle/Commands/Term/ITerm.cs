@@ -8,5 +8,6 @@ namespace HK.Ferry.CommandData.Terms
     /// </summary>
     public interface ITerm
     {
+        string Description { get; }
     }
 }
