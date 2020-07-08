@@ -9,7 +9,7 @@ namespace HK.Ferry.Database
     /// <summary>
     /// コマンド実行条件のデータを持つ<see cref="MasterData{T, R}"/>
     /// </summary>
-    [CreateAssetMenu(menuName = "Ferry/MasterData/CommandComdition")]
+    [CreateAssetMenu(menuName = "Ferry/MasterData/CommandCondition")]
     public sealed class MasterDataCommandCondition : MasterData<MasterDataCommandCondition, MasterDataCommandCondition.Record>
     {
         [Serializable]
