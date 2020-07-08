@@ -17,11 +17,11 @@ namespace HK.Ferry.Database
             private int id = 0;
 
             [SerializeReference, SubclassSelector]
-            private Term condition = default;
+            private Term term = default;
 
             public int Id => this.id;
 
-            public ITerm Condition => this.condition;
+            public ITerm Term => this.term;
         }
     }
 }

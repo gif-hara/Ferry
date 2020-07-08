@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   records:
   - id: 1
-    condition:
+    term:
       id: 0
   references:
     version: 1
