@@ -21,13 +21,17 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
+      - "\u901A\u5E38\u653B\u6483"
       - 
-      Flags: 00
+      Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
     mLanguages:
+    - Name: Japanese
+      Code: ja
+      Flags: 0
     - Name: English
       Code: en
       Flags: 0

@@ -4,7 +4,7 @@ using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HK.Ferry.BattleControllers
+namespace HK.Ferry.CommandData.Commands
 {
     /// <summary>
     /// コマンドの抽象クラス

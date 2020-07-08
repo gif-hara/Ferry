@@ -1,16 +1,14 @@
 ﻿using System;
-using HK.Ferry.ActorControllers;
-using HK.Ferry.BattleControllers;
+using HK.Ferry.CommandData.Terms;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace HK.Ferry.Database
 {
     /// <summary>
     /// コマンド実行条件のデータを持つ<see cref="MasterData{T, R}"/>
     /// </summary>
-    [CreateAssetMenu(menuName = "Ferry/MasterData/CommandCondition")]
-    public sealed class MasterDataCommandCondition : MasterData<MasterDataCommandCondition, MasterDataCommandCondition.Record>
+    [CreateAssetMenu(menuName = "Ferry/MasterData/CommandTerm")]
+    public sealed class MasterDataCommandTerm : MasterData<MasterDataCommandTerm, MasterDataCommandTerm.Record>
     {
         [Serializable]
         public sealed class Record : IIdHolder
@@ -19,11 +17,11 @@ namespace HK.Ferry.Database
             private int id = 0;
 
             [SerializeReference, SubclassSelector]
-            private ICommandCondition condition = default;
+            private ITerm condition = default;
 
             public int Id => this.id;
 
-            public ICommandCondition Condition => this.condition;
+            public ITerm Condition => this.condition;
         }
     }
 }

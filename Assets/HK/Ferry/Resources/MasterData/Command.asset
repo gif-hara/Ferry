@@ -19,7 +19,7 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: Attack, ns: HK.Ferry.BattleControllers, asm: Assembly-CSharp}
+      type: {class: Attack, ns: HK.Ferry.CommandData.Commands, asm: Assembly-CSharp}
       data:
-        nameLocalizeKey: 
+        nameLocalizeKey: CommandName/Attack01
         rate: 1

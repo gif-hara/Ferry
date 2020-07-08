@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using HK.Ferry.ActorControllers;
-using UnityEngine;
-using UnityEngine.Assertions;
 
-namespace HK.Ferry.BattleControllers
+namespace HK.Ferry.CommandData.Commands
 {
     /// <summary>
     /// コマンドのデータを持つインターフェイス

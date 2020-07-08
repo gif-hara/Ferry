@@ -3,7 +3,7 @@ using HK.Ferry.ActorControllers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HK.Ferry.BattleControllers
+namespace HK.Ferry.CommandData.Commands
 {
     /// <summary>
     /// 攻撃を行う<see cref="ICommand"/>
