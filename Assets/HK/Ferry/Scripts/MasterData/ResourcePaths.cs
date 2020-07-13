@@ -13,6 +13,9 @@ namespace HK.Ferry.Database
         {
             if (type == typeof(MasterDataParty)) return "MasterData/Party";
             if (type == typeof(MasterDataActor)) return "MasterData/Actor";
+            if (type == typeof(MasterDataCommandBlueprint)) return "MasterData/CommandBlueprint";
+            if (type == typeof(MasterDataCommand)) return "MasterData/Command";
+            if (type == typeof(MasterDataCommandTerm)) return "MasterData/CommandTerm";
 
             Assert.IsTrue(false, $"{type}は未対応です");
             return "";

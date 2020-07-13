@@ -27,6 +27,9 @@ namespace HK.Ferry.ActorControllers
         private readonly ReactiveProperty<float> turnCharge;
         public readonly PropertyGetter<float> TurnCharge;
 
+        private readonly ReactiveProperty<bool> isDead;
+        public readonly PropertyGetter<bool> IsDead;
+
         private readonly Actor owner;
 
         public ActorStatus(Actor owner, ActorSpec actorSpec)
@@ -43,6 +46,8 @@ namespace HK.Ferry.ActorControllers
             this.Speed = new PropertyGetter<int>(this.speed);
             this.turnCharge = new ReactiveProperty<float>(0.0f);
             this.TurnCharge = new PropertyGetter<float>(this.turnCharge);
+            this.isDead = new ReactiveProperty<bool>(false);
+            this.IsDead = new PropertyGetter<bool>(this.isDead);
             this.owner = owner;
         }
 
@@ -56,6 +61,30 @@ namespace HK.Ferry.ActorControllers
         public void ResetTurnCharge()
         {
             this.turnCharge.Value = 0.0f;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            var result = Mathf.Max(this.hitPoint.Value - damage, 0);
+            this.hitPoint.Value = result;
+
+            Debug.Log($"TakeDamage! {this.hitPoint.Value}");
+
+            if (result <= 0)
+            {
+                this.Dead();
+            }
+        }
+
+        private void Dead()
+        {
+            if (this.isDead.Value)
+            {
+                return;
+            }
+
+            this.isDead.Value = true;
+            this.owner.gameObject.SetActive(false);
         }
 
         public class PropertyGetter<T>

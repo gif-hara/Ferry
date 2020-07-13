@@ -29,6 +29,12 @@ namespace HK.Ferry.ActorControllers
             private set;
         }
 
+        public ActorCommandController CommandController
+        {
+            get;
+            private set;
+        }
+
         public Actor Clone(ActorSpec spec)
         {
             var instance = Instantiate(this);
@@ -37,6 +43,7 @@ namespace HK.Ferry.ActorControllers
             instance.Model = Instantiate(spec.ModelPrefab, instance.transform);
             instance.Model.transform.localPosition = Vector3.zero;
             instance.Model.transform.localRotation = Quaternion.identity;
+            instance.CommandController = new ActorCommandController(instance);
 
             return instance;
         }

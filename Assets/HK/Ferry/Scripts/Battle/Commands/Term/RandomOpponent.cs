@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using HK.Ferry.ActorControllers;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -10,5 +12,9 @@ namespace HK.Ferry.CommandData.Terms
     [Serializable]
     public sealed class RandomOpponent : Term
     {
+        public override IReadOnlyList<Actor> GetTargets(IReadOnlyList<Actor> targets)
+        {
+            return new List<Actor> { targets[UnityEngine.Random.Range(0, targets.Count)] };
+        }
     }
 }

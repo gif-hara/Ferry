@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using HK.Ferry.ActorControllers;
+using HK.Ferry.BattleControllers;
+using HK.Ferry.CommandData.Terms;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace HK.Ferry.CommandData.Commands
 {
@@ -16,9 +18,17 @@ namespace HK.Ferry.CommandData.Commands
         [SerializeField]
         private float rate;
 
-        public override void Invoke(IReadOnlyList<Actor> targets)
+        public override void Invoke(Actor invoker, IReadOnlyList<Actor> targets)
         {
-            Debug.Log("Attack!");
+            foreach (var target in targets)
+            {
+                target.Status.TakeDamage(BattleCalculator.GetDamage(invoker, target));
+            }
+        }
+
+        public override IReadOnlyList<Actor> GetAvailableTargets(ITerm term, Actor invoker, BattleEnvironment battleEnvironment)
+        {
+            return battleEnvironment.GetActors(invoker, term.TargetType).Where(x => !x.Status.IsDead.Get).ToArray();
         }
     }
 }

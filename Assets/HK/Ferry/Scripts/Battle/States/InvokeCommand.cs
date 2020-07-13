@@ -33,7 +33,7 @@ namespace HK.Ferry.BattleControllers.States
 
             Assert.IsNotNull(actor, $"チャージ完了していないのに{nameof(InvokeCommand)}のステートになりました");
 
-            actor.Status.ResetTurnCharge();
+            actor.CommandController.Invoke(battleEnvironment);
 
             var playerActors = this.battleEnvironment.PlayerParty.Actors;
             var enemyActors = this.battleEnvironment.EnemyParty.Actors;

@@ -3,6 +3,9 @@ using HK.Framework.EventSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UniRx;
+using HK.Ferry.ActorControllers;
+using System.Collections.Generic;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry.BattleControllers
 {
@@ -34,6 +37,39 @@ namespace HK.Ferry.BattleControllers
             Broker.Global.Receive<BattleEvents.CreatedEnemyParty>()
                 .Subscribe(x => this.EnemyParty = x.Party)
                 .AddTo(this);
+        }
+
+        /// <summary>
+        /// <paramref name="targetType"/>からターゲットとなる<see cref="Actor"/>を返す
+        /// </summary>
+        public List<Actor> GetActors(Actor actor, TargetType targetType)
+        {
+            switch (targetType)
+            {
+                case TargetType.Ally:
+                    if (this.PlayerParty.Actors.IndexOf(actor) >= 0)
+                    {
+                        return this.PlayerParty.Actors;
+                    }
+                    else
+                    {
+                        return this.EnemyParty.Actors;
+                    }
+                case TargetType.Opponent:
+                    if (this.PlayerParty.Actors.IndexOf(actor) >= 0)
+                    {
+                        return this.EnemyParty.Actors;
+                    }
+                    else
+                    {
+                        return this.PlayerParty.Actors;
+                    }
+                case TargetType.My:
+                    return new List<Actor> { actor };
+                default:
+                    Assert.IsTrue(false, $"{targetType}は未対応です");
+                    return null;
+            }
         }
     }
 }

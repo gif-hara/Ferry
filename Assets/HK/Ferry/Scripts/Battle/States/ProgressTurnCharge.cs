@@ -49,7 +49,7 @@ namespace HK.Ferry.BattleControllers.States
 
         private static void UpdateTurnCharge(IEnumerable<Actor> actors)
         {
-            foreach (var a in actors)
+            foreach (var a in actors.Where(x => !x.Status.IsDead.Get))
             {
                 a.Status.UpdateTurnCharge();
             }
