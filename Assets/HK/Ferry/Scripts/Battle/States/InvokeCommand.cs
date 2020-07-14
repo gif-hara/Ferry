@@ -33,19 +33,20 @@ namespace HK.Ferry.BattleControllers.States
 
             Assert.IsNotNull(actor, $"チャージ完了していないのに{nameof(InvokeCommand)}のステートになりました");
 
-            actor.CommandController.Invoke(battleEnvironment);
-
-            var playerActors = this.battleEnvironment.PlayerParty.Actors;
-            var enemyActors = this.battleEnvironment.EnemyParty.Actors;
-            if (playerActors.Any(x => x.Status.IsEnoughTurnCharge) || enemyActors.Any(x => x.Status.IsEnoughTurnCharge))
-            {
-                owner.Change(nameof(InvokeCommand));
-            }
-            else
-            {
-                owner.Change(nameof(ProgressTurnCharge));
-            }
-
+            actor.CommandController.Invoke(battleEnvironment)
+                .Subscribe(_ =>
+                {
+                    var playerActors = this.battleEnvironment.PlayerParty.Actors;
+                    var enemyActors = this.battleEnvironment.EnemyParty.Actors;
+                    if (playerActors.Any(x => x.Status.IsEnoughTurnCharge) || enemyActors.Any(x => x.Status.IsEnoughTurnCharge))
+                    {
+                        owner.Change(nameof(InvokeCommand));
+                    }
+                    else
+                    {
+                        owner.Change(nameof(ProgressTurnCharge));
+                    }
+                });
         }
 
         public void Exit()

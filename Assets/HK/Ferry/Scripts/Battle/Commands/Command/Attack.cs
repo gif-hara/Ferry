@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HK.Ferry.ActorControllers;
 using HK.Ferry.BattleControllers;
 using HK.Ferry.CommandData.Terms;
+using UniRx;
 using UnityEngine;
 
 namespace HK.Ferry.CommandData.Commands
@@ -18,12 +20,14 @@ namespace HK.Ferry.CommandData.Commands
         [SerializeField]
         private float rate;
 
-        public override void Invoke(Actor invoker, IReadOnlyList<Actor> targets)
+        public override IObservable<Unit> Invoke(Actor invoker, IReadOnlyList<Actor> targets)
         {
             foreach (var target in targets)
             {
                 target.Status.TakeDamage(BattleCalculator.GetDamage(invoker, target));
             }
+
+            return Observable.Return(Unit.Default);
         }
 
         public override IReadOnlyList<Actor> GetAvailableTargets(ITerm term, Actor invoker, BattleEnvironment battleEnvironment)

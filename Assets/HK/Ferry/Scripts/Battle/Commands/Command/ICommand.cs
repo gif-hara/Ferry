@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HK.Ferry.ActorControllers;
 using HK.Ferry.BattleControllers;
 using HK.Ferry.CommandData.Terms;
+using UniRx;
 
 namespace HK.Ferry.CommandData.Commands
 {
@@ -13,7 +15,7 @@ namespace HK.Ferry.CommandData.Commands
         /// <summary>
         /// コマンドを実行する
         /// </summary>
-        void Invoke(Actor invoker, IReadOnlyList<Actor> targets);
+        IObservable<Unit> Invoke(Actor invoker, IReadOnlyList<Actor> targets);
 
         /// <summary>
         /// このコマンドを実行可能なターゲットを返す

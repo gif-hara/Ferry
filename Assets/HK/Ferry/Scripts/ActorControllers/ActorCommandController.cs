@@ -1,6 +1,8 @@
-﻿using HK.Ferry.BattleControllers;
+﻿using System;
+using HK.Ferry.BattleControllers;
 using HK.Ferry.CommandData;
 using HK.Ferry.Extensions;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -25,8 +27,11 @@ namespace HK.Ferry.ActorControllers
             this.blueprint = this.owner.Spec.Blueprint;
         }
 
-        public void Invoke(BattleEnvironment battleEnvironment)
+        public IObservable<Unit> Invoke(BattleEnvironment battleEnvironment)
         {
+            var stream = default(IObservable<Unit>);
+            var disposable = new CompositeDisposable();
+
             foreach (var node in this.blueprint.Nodes)
             {
                 var targets = node.Command.GetAvailableTargets(node.Term, this.owner, battleEnvironment);
@@ -35,11 +40,20 @@ namespace HK.Ferry.ActorControllers
                     continue;
                 }
 
-                node.Command.Invoke(this.owner, node.Term.GetTargets(targets));
+                stream = node.Command.Invoke(this.owner, node.Term.GetTargets(targets));
                 break;
             }
 
-            this.owner.Status.ResetTurnCharge();
+            if (stream == null)
+            {
+                stream = Observable.Return(Unit.Default);
+            }
+
+            return stream
+                .Do(_ =>
+                {
+                    this.owner.Status.ResetTurnCharge();
+                });
         }
     }
 }
