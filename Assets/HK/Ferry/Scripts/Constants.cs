@@ -14,5 +14,32 @@ namespace HK.Ferry
             Opponent,
             My,
         }
+
+        /// <summary>
+        /// 攻撃属性
+        /// </summary>
+        public enum AttackAttribute
+        {
+            /// <summary>
+            /// 物理
+            /// </summary>
+            Physical,
+
+            /// <summary>
+            /// 魔法
+            /// </summary>
+            Magic,
+        }
+
+        /// <summary>
+        /// 属性
+        /// </summary>
+        public enum ElementAttribute
+        {
+            No,
+            Fire,
+            Water,
+            Wood,
+        }
     }
 }

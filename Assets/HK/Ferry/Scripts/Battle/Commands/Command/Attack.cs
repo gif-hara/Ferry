@@ -6,6 +6,7 @@ using HK.Ferry.BattleControllers;
 using HK.Ferry.CommandData.Terms;
 using UniRx;
 using UnityEngine;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry.CommandData.Commands
 {
@@ -19,6 +20,18 @@ namespace HK.Ferry.CommandData.Commands
         /// </summary>
         [SerializeField]
         private float rate;
+
+        /// <summary>
+        /// <inheritdoc cref="AttackAttribute"/>
+        /// </summary>
+        [SerializeField]
+        private AttackAttribute attackAttribute;
+
+        /// <summary>
+        /// <inheritdoc cref="ElementAttribute"/>
+        /// </summary>
+        [SerializeField]
+        private ElementAttribute elementAttribute;
 
         public override IObservable<Unit> Invoke(Actor invoker, IReadOnlyList<Actor> targets)
         {

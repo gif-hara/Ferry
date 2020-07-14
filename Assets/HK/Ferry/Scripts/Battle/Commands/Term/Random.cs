@@ -7,10 +7,10 @@ using UnityEngine.Assertions;
 namespace HK.Ferry.CommandData.Terms
 {
     /// <summary>
-    /// ランダムな対戦相手を選出する<see cref="ITerm"/>
+    /// ランダムな<see cref="Actor"/>を選出する<see cref="ITerm"/>
     /// </summary>
     [Serializable]
-    public sealed class RandomOpponent : Term
+    public sealed class Random : Term
     {
         public override IReadOnlyList<Actor> GetTargets(IReadOnlyList<Actor> targets)
         {

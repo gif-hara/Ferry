@@ -25,7 +25,7 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: CommandTerm/RandomOpponent
+    - Term: CommandTerm/Random
       TermType: 0
       Description: 
       Languages:
