@@ -5,14 +5,14 @@ namespace HK.Ferry.StateControllers
     /// <summary>
     /// ステートのインターフェイス
     /// </summary>
-    public interface IState
+    public interface IState<TStateName>
     {
-        void Enter(StateController owner);
+        void Enter(StateController<TStateName> owner);
 
         void Exit();
 
         CompositeDisposable Disposables { get; }
 
-        string StateName { get; }
+        TStateName StateName { get; }
     }
 }
