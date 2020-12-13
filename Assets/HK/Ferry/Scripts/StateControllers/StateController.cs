@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -8,7 +9,7 @@ namespace HK.Ferry.StateControllers
     /// <summary>
     /// <see cref="IState"/>の切り替えを行うクラス
     /// </summary>
-    public sealed class StateController<TStateName>
+    public sealed class StateController<TStateName> : IDisposable
     {
         private readonly Dictionary<TStateName, IState<TStateName>> states;
 
@@ -31,6 +32,10 @@ namespace HK.Ferry.StateControllers
             Assert.IsTrue(this.states.ContainsKey(stateName), $"{stateName}という{nameof(IState<TStateName>)}は存在しません");
             this.current = this.states[stateName];
             this.current.Enter(this, argument);
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

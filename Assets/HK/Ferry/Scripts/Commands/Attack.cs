@@ -21,7 +21,7 @@ namespace HK.Ferry
             {
                 var damage = BattleCalcurator.GetDamage(attacker.CurrentSpec.Status, target.CurrentSpec.Status, rate);
                 target.CurrentSpec.Status.hitPoint.Value -= damage;
-                Debug.Log($"damage = {damage}");
+                Debug.Log($"damage = {damage}, TODO Attack Effect");
 
                 return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });

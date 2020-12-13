@@ -43,7 +43,7 @@ namespace HK.Ferry.BattleSystems
             Enemy = new BattleCharacter(debugBattleData.Enemy);
             Player = new BattleCharacter(debugBattleData.Player);
 
-            this.stateController = new StateController<BattlePhase>(
+            stateController = new StateController<BattlePhase>(
                 new List<IState<BattlePhase>>
                 {
                     new BattleState.Begin(this),
@@ -52,6 +52,11 @@ namespace HK.Ferry.BattleSystems
                 },
                 BattlePhase.Begin
                 );
+        }
+
+        private void OnDestroy()
+        {
+            stateController.Dispose();
         }
 
         public IObservable<Unit> InvokeCommand(BattleCharacter attacker, MasterDataCommand.Record command)
