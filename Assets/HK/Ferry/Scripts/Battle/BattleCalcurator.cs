@@ -15,13 +15,13 @@ namespace HK.Ferry.BattleSystems
 
         public static float GetDamageFloat(CharacterStatus attacker, CharacterStatus defenser)
         {
-            var attack = attacker.attack;
-            var defenserG = Mathf.Max(defenser.greatPower, 0.1f);
-            var defenserB = Mathf.Max(defenser.bravePower, 0.1f);
-            var defenserN = Mathf.Max(defenser.neatlyPower, 0.1f);
-            var g = attacker.greatPower / defenserG;
-            var b = attacker.bravePower / defenserB;
-            var n = attacker.neatlyPower / defenserN;
+            var attack = attacker.attack.Value;
+            var defenserG = Mathf.Max(defenser.greatPower.Value, 0.1f);
+            var defenserB = Mathf.Max(defenser.artistPower.Value, 0.1f);
+            var defenserN = Mathf.Max(defenser.wisdomPower.Value, 0.1f);
+            var g = attacker.greatPower.Value / defenserG;
+            var b = attacker.artistPower.Value / defenserB;
+            var n = attacker.wisdomPower.Value / defenserN;
 
             return attack * g * b * n;
         }

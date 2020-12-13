@@ -33,6 +33,38 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: UI/Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u653B:{0}"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/ArtistPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6280:{0}"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/GreatPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u529B:{0}"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/WisdomPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u667A:{0}"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 

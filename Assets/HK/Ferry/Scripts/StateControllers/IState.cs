@@ -11,7 +11,7 @@ namespace HK.Ferry.StateControllers
 
         void Exit();
 
-        CompositeDisposable Disposables { get; }
+        CompositeDisposable ActiveDisposables { get; }
 
         TStateName StateName { get; }
     }

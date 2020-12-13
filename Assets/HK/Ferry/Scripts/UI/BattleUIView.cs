@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HK.Ferry.Database;
 using HK.Ferry.Extensions;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 namespace HK.Ferry
 {
@@ -18,8 +21,22 @@ namespace HK.Ferry
         [SerializeField]
         private CommandButtonController commandButtonPrefab = default;
 
+        [SerializeField]
+        private CharacterStatusView enemyStatusView = default;
+        public CharacterStatusView EnemyStatusView => enemyStatusView;
+
+        [SerializeField]
+        public CharacterStatusView playerStatusView = default;
+        public CharacterStatusView PlayerStatusView => playerStatusView;
+
+        private Subject<MasterDataCommand.Record> selectCommandSubject = new Subject<MasterDataCommand.Record>();
+        public IObservable<MasterDataCommand.Record> SelectCommandAsObservable() => selectCommandSubject;
+
+        private List<CommandButtonController> commandButtons = new List<CommandButtonController>();
+
         public void CreateCommandButton(IReadOnlyList<MasterDataCommand.Record> commands)
         {
+            commandButtons.Clear();
             foreach (var command in commands)
             {
                 var commandButton = Instantiate(commandButtonPrefab, commandButtonRoot, false);
@@ -27,9 +44,18 @@ namespace HK.Ferry
                 commandButton.Button.OnClickAsObservable()
                     .Subscribe(_ =>
                     {
-                        Debug.Log($"TODO {command.Id.AsLocalize()}");
+                        selectCommandSubject.OnNext(command);
                     })
                     .AddTo(commandButton);
+                commandButtons.Add(commandButton);
+            }
+        }
+
+        public void SetCommandButtonInteractable(bool isInteractable)
+        {
+            foreach (var c in commandButtons)
+            {
+                c.Button.interactable = isInteractable;
             }
         }
     }

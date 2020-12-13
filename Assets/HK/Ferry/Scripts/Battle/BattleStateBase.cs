@@ -8,7 +8,7 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public abstract class BattleStateBase : IState<BattleManager.BattlePhase>
     {
-        public CompositeDisposable Disposables { get; private set; } = new CompositeDisposable();
+        public CompositeDisposable ActiveDisposables { get; private set; } = new CompositeDisposable();
 
         public abstract BattleManager.BattlePhase StateName { get; }
 
@@ -24,7 +24,7 @@ namespace HK.Ferry.BattleSystems
         public void Exit()
         {
             OnExit();
-            Disposables.Clear();
+            ActiveDisposables.Clear();
         }
 
         protected virtual void OnExit()

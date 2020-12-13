@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using HK.Ferry.Database;
 using HK.Ferry.StateControllers;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -47,6 +51,26 @@ namespace HK.Ferry.BattleSystems
                 },
                 BattlePhase.Begin
                 );
+        }
+
+        public IObservable<Unit> InvokeCommand(BattleCharacter battleCharacter, MasterDataCommand.Record command)
+        {
+            return Observable.Concat(command.Commands.Select(x => x.Invoke())).AsUnitObservable();
+        }
+
+        public BattleCharacter GetOpponent(BattleCharacter battleCharacter)
+        {
+            if (battleCharacter == Enemy)
+            {
+                return Player;
+            }
+            else if (battleCharacter == Player)
+            {
+                return Enemy;
+            }
+
+            Assert.IsTrue(false, $"{battleCharacter}は未対応です");
+            return null;
         }
     }
 }

@@ -8,7 +8,13 @@ namespace HK.Ferry
     /// </summary>
     public sealed class BattleCharacter
     {
-        public CharacterSpec CharacterSpec
+        public CharacterSpec CurrentSpec
+        {
+            get;
+            private set;
+        }
+
+        public CharacterSpec BaseSpec
         {
             get;
             private set;
@@ -16,7 +22,10 @@ namespace HK.Ferry
 
         public BattleCharacter(CharacterSpec characterSpec)
         {
-            CharacterSpec = characterSpec;
+            CurrentSpec = characterSpec;
+            BaseSpec = characterSpec;
         }
+
+        public float HitPointRate => (float)CurrentSpec.Status.hitPoint.Value / BaseSpec.Status.hitPoint.Value;
     }
 }

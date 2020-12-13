@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
+﻿using System;
+using UniRx;
 
 namespace HK.Ferry
 {
@@ -8,6 +8,6 @@ namespace HK.Ferry
     /// </summary>
     public interface ICommand
     {
-        void Invoke();
+        IObservable<Unit> Invoke();
     }
 }

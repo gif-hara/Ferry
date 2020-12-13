@@ -15,11 +15,11 @@ namespace HK.Ferry
     {
         [SerializeField]
         private string name = default;
-        public string Name => this.name;
+        public string Name => name;
 
         [SerializeField]
         private CharacterStatus status = default;
-        public CharacterStatus Status => this.Status;
+        public CharacterStatus Status => status;
 
         [SerializeField, TermsPopup]
         private List<string> commands = default;

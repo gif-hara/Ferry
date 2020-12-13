@@ -9,5 +9,10 @@
         {
             return I2.Loc.LocalizationManager.GetTranslation(self);
         }
+
+        public static string Format(this string self, params object[] args)
+        {
+            return string.Format(self, args);
+        }
     }
 }

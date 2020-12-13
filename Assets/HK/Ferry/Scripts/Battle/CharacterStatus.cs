@@ -1,4 +1,5 @@
 ﻿using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -8,38 +9,43 @@ namespace HK.Ferry
     /// 
     /// </summary>
     [Serializable]
-    public struct CharacterStatus
+    public class CharacterStatus
     {
-        public int attack;
+        public IntReactiveProperty hitPoint;
 
-        public float greatPower;
+        public IntReactiveProperty attack;
 
-        public float bravePower;
+        public FloatReactiveProperty greatPower;
 
-        public float neatlyPower;
+        public FloatReactiveProperty artistPower;
 
-        public CharacterStatus(int attack, float greatPower, float bravePower, float neatlyPower)
+        public FloatReactiveProperty wisdomPower;
+
+        public CharacterStatus(int hitPoint, int attack, float greatPower, float artistPower, float wisdomPower)
         {
-            this.attack = attack;
-            this.greatPower = greatPower;
-            this.bravePower = bravePower;
-            this.neatlyPower = neatlyPower;
+            this.hitPoint = new IntReactiveProperty(hitPoint);
+            this.attack = new IntReactiveProperty(attack);
+            this.greatPower = new FloatReactiveProperty(greatPower);
+            this.artistPower = new FloatReactiveProperty(artistPower);
+            this.wisdomPower = new FloatReactiveProperty(wisdomPower);
         }
 
         public CharacterStatus(CharacterStatus characterStatus)
         {
+            this.hitPoint = characterStatus.hitPoint;
             this.attack = characterStatus.attack;
             this.greatPower = characterStatus.greatPower;
-            this.bravePower = characterStatus.bravePower;
-            this.neatlyPower = characterStatus.neatlyPower;
+            this.artistPower = characterStatus.artistPower;
+            this.wisdomPower = characterStatus.wisdomPower;
         }
 
         public void Set(CharacterStatus other)
         {
+            this.hitPoint = other.hitPoint;
             this.attack = other.attack;
             this.greatPower = other.greatPower;
-            this.bravePower = other.bravePower;
-            this.neatlyPower = other.neatlyPower;
+            this.artistPower = other.artistPower;
+            this.wisdomPower = other.wisdomPower;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace HK.Ferry.StateControllers
             if (this.current != null)
             {
                 this.current.Exit();
-                this.current.Disposables.Clear();
+                this.current.ActiveDisposables.Clear();
             }
 
             Assert.IsTrue(this.states.ContainsKey(stateName), $"{stateName}という{nameof(IState<TStateName>)}は存在しません");
