@@ -9,17 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 372bd647166e640edaf19262b776fa04, type: 3}
+  m_Script: {fileID: 11500000, guid: bec9c8d20780149b6b078d1fe58c90fc, type: 3}
   m_Name: Command
   m_EditorClassIdentifier: 
   records:
-  - id: 1
-    command:
-      id: 0
+  - name: CommandName/Attack01
+    commands:
+    - id: 0
   references:
     version: 1
     00000000:
-      type: {class: Attack, ns: HK.Ferry.CommandData.Commands, asm: Assembly-CSharp}
+      type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
-        nameLocalizeKey: CommandName/Attack01
         rate: 1

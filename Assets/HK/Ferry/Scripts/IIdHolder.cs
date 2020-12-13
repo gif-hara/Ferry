@@ -3,8 +3,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IIdHolder
+    public interface IIdHolder<T>
     {
-        int Id { get; }
+        T Id { get; }
     }
 }

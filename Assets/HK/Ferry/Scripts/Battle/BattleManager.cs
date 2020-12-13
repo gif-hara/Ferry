@@ -21,15 +21,29 @@ namespace HK.Ferry.BattleSystems
             End,
         }
 
+        [SerializeField]
+        private BattleUIView uiView = default;
+        public BattleUIView UIView => uiView;
+
+        [SerializeField]
+        private DebugBattleData debugBattleData = default;
+
+        public BattleCharacter Enemy { get; private set; }
+
+        public BattleCharacter Player { get; private set; }
+
         private StateController<BattlePhase> stateController;
 
         private void Start()
         {
+            Enemy = new BattleCharacter(debugBattleData.Enemy);
+            Player = new BattleCharacter(debugBattleData.Player);
+
             this.stateController = new StateController<BattlePhase>(
                 new List<IState<BattlePhase>>
                 {
-                    new BattleState.Begin(),
-                    new BattleState.PlayerSelectCommand()
+                    new BattleState.Begin(this),
+                    new BattleState.PlayerSelectCommand(this)
                 },
                 BattlePhase.Begin
                 );

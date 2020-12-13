@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace HK.Ferry
@@ -6,6 +7,7 @@ namespace HK.Ferry
     /// <summary>
     /// 
     /// </summary>
+    [Serializable]
     public struct CharacterStatus
     {
         public int attack;

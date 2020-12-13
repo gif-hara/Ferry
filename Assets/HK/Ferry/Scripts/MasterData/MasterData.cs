@@ -7,16 +7,16 @@ namespace HK.Ferry.Database
     /// <summary>
     /// 
     /// </summary>
-    public abstract class MasterData<T, R> : ScriptableObject where T : MasterData<T, R>, new() where R : IIdHolder
+    public abstract class MasterData<TMasterData, TRecord, TIdType> : ScriptableObject where TMasterData : MasterData<TMasterData, TRecord, TIdType>, new() where TRecord : IIdHolder<TIdType>
     {
-        private static T instance;
-        public static T Get
+        private static TMasterData instance;
+        public static TMasterData Get
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = Resources.Load<T>(ResourcePaths.Get(typeof(T)));
+                    instance = Resources.Load<TMasterData>(ResourcePaths.Get(typeof(TMasterData)));
                     instance.Initialize();
                 }
 
@@ -25,19 +25,19 @@ namespace HK.Ferry.Database
         }
 
         [SerializeField]
-        protected List<R> records = default;
+        protected List<TRecord> records = default;
 
-        public IReadOnlyList<R> All => this.records;
+        public IReadOnlyList<TRecord> All => this.records;
 
-        public R GetRecord(int id)
+        public TRecord GetRecord(TIdType id)
         {
             this.SetupCachedRecordTable();
-            Assert.IsTrue(this.cachedRecordTable.ContainsKey(id), $"{typeof(T)}にid = {id}が存在しません");
+            Assert.IsTrue(this.cachedRecordTable.ContainsKey(id), $"{typeof(TMasterData)}にid = {id}が存在しません");
 
             return this.cachedRecordTable[id];
         }
 
-        public bool Contains(int id)
+        public bool Contains(TIdType id)
         {
             this.SetupCachedRecordTable();
 
@@ -55,13 +55,13 @@ namespace HK.Ferry.Database
                 return;
             }
 
-            this.cachedRecordTable = new Dictionary<int, R>();
+            this.cachedRecordTable = new Dictionary<TIdType, TRecord>();
             foreach (var i in this.records)
             {
-                Assert.IsFalse(this.cachedRecordTable.ContainsKey(i.Id), $"{typeof(T)}のId = {i.Id}が重複しました");
+                Assert.IsFalse(this.cachedRecordTable.ContainsKey(i.Id), $"{typeof(TMasterData)}のId = {i.Id}が重複しました");
                 this.cachedRecordTable.Add(i.Id, i);
             }
         }
-        private Dictionary<int, R> cachedRecordTable = null;
+        private Dictionary<TIdType, TRecord> cachedRecordTable = null;
     }
 }
