@@ -400,21 +400,21 @@ MonoBehaviour:
   uiView: {fileID: 1995126782}
   debugBattleData:
     enemy:
-      name: 
+      name: "\u30A8\u30CD\u30DF\u30FC"
       status:
-        attack: 0
-        greatPower: 0
-        bravePower: 0
-        neatlyPower: 0
+        attack: 100
+        greatPower: 1
+        bravePower: 1
+        neatlyPower: 1
       commands:
       - CommandName/Attack01
     player:
-      name: 
+      name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
       status:
-        attack: 0
-        greatPower: 0
-        bravePower: 0
-        neatlyPower: 0
+        attack: 100
+        greatPower: 1
+        bravePower: 1
+        neatlyPower: 1
       commands:
       - CommandName/Attack01
 --- !u!4 &98694287
@@ -425,7 +425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98694285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
