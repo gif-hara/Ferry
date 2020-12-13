@@ -14,13 +14,13 @@ namespace HK.Ferry.StateControllers
 
         private IState<TStateName> current;
 
-        public StateController(List<IState<TStateName>> states, TStateName initialStateName)
+        public StateController(List<IState<TStateName>> states, TStateName initialStateName, IStateArgument argument = null)
         {
             this.states = states.ToDictionary(x => x.StateName);
-            this.Change(initialStateName);
+            this.Change(initialStateName, argument);
         }
 
-        public void Change(TStateName stateName)
+        public void Change(TStateName stateName, IStateArgument argument = null)
         {
             if (this.current != null)
             {
@@ -30,7 +30,7 @@ namespace HK.Ferry.StateControllers
 
             Assert.IsTrue(this.states.ContainsKey(stateName), $"{stateName}という{nameof(IState<TStateName>)}は存在しません");
             this.current = this.states[stateName];
-            this.current.Enter(this);
+            this.current.Enter(this, argument);
         }
     }
 }

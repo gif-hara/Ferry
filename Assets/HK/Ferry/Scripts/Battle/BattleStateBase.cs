@@ -19,7 +19,7 @@ namespace HK.Ferry.BattleSystems
             this.battleManager = battleManager;
         }
 
-        public abstract void Enter(StateController<BattleManager.BattlePhase> owner);
+        public abstract void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null);
 
         public void Exit()
         {

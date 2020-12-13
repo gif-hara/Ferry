@@ -8,6 +8,6 @@ namespace HK.Ferry
     /// </summary>
     public interface ICommand
     {
-        IObservable<Unit> Invoke();
+        IObservable<Unit> Invoke(BattleCharacter attacker, BattleCharacter target);
     }
 }

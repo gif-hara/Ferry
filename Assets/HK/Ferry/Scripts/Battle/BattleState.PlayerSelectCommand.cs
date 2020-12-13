@@ -18,14 +18,17 @@ namespace HK.Ferry.BattleSystems
 
             public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.PlayerSelectCommand;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner)
+            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
             {
                 battleManager.UIView.SetCommandButtonInteractable(true);
                 battleManager.UIView.SelectCommandAsObservable()
                     .Subscribe(x =>
                     {
-                        battleManager.InvokeCommand(battleManager.Player, x)
-                        .Subscribe();
+                        var arg = new PlayerInvokeCommand.Argument
+                        {
+                            command = x
+                        };
+                        owner.Change(BattleManager.BattlePhase.PlayerInvokeCommand, arg);
                     })
                     .AddTo(ActiveDisposables);
             }

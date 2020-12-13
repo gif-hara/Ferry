@@ -22,7 +22,7 @@ namespace HK.Ferry
 
         public BattleCharacter(CharacterSpec characterSpec)
         {
-            CurrentSpec = characterSpec;
+            CurrentSpec = new CharacterSpec(characterSpec);
             BaseSpec = characterSpec;
         }
 

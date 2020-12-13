@@ -30,22 +30,22 @@ namespace HK.Ferry
             this.wisdomPower = new FloatReactiveProperty(wisdomPower);
         }
 
-        public CharacterStatus(CharacterStatus characterStatus)
+        public CharacterStatus(CharacterStatus other)
         {
-            this.hitPoint = characterStatus.hitPoint;
-            this.attack = characterStatus.attack;
-            this.greatPower = characterStatus.greatPower;
-            this.artistPower = characterStatus.artistPower;
-            this.wisdomPower = characterStatus.wisdomPower;
+            this.hitPoint = new IntReactiveProperty(other.hitPoint.Value);
+            this.attack = new IntReactiveProperty(other.attack.Value);
+            this.greatPower = new FloatReactiveProperty(other.greatPower.Value);
+            this.artistPower = new FloatReactiveProperty(other.artistPower.Value);
+            this.wisdomPower = new FloatReactiveProperty(other.wisdomPower.Value);
         }
 
         public void Set(CharacterStatus other)
         {
-            this.hitPoint = other.hitPoint;
-            this.attack = other.attack;
-            this.greatPower = other.greatPower;
-            this.artistPower = other.artistPower;
-            this.wisdomPower = other.wisdomPower;
+            this.hitPoint.Value = other.hitPoint.Value;
+            this.attack.Value = other.attack.Value;
+            this.greatPower.Value = other.greatPower.Value;
+            this.artistPower.Value = other.artistPower.Value;
+            this.wisdomPower.Value = other.wisdomPower.Value;
         }
     }
 }

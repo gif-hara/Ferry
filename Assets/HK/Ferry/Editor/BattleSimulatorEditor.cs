@@ -30,7 +30,7 @@ namespace HK.Ferry
                     DrawCharacterStatus(simulator.defenser);
                 }
                 Line();
-                var damage = BattleCalcurator.GetDamage(simulator.attacker, simulator.defenser);
+                var damage = BattleCalcurator.GetDamage(simulator.attacker, simulator.defenser, 1.0f);
                 GUILayout.Label($"{beforeDamage} -> {damage}({damage - beforeDamage})");
                 Line();
                 if (GUILayout.Button("Reset Power"))

@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.BattleSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -14,13 +15,15 @@ namespace HK.Ferry
         [SerializeField]
         private float rate = 1.0f;
 
-        public IObservable<Unit> Invoke()
+        public IObservable<Unit> Invoke(BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {
-                Debug.Log("TODO Attack");
+                var damage = BattleCalcurator.GetDamage(attacker.CurrentSpec.Status, target.CurrentSpec.Status, rate);
+                target.CurrentSpec.Status.hitPoint.Value -= damage;
+                Debug.Log($"damage = {damage}");
 
-                return Observable.ReturnUnit();
+                return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });
         }
     }

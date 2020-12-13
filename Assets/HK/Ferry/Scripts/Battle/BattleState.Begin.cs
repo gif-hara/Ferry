@@ -18,7 +18,7 @@ namespace HK.Ferry.BattleSystems
 
             public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.Begin;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner)
+            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
             {
                 var commands = MasterDataCommand.Get.GetRecords(battleManager.Player.BaseSpec.Commands);
                 battleManager.UIView.EnemyStatusView.Setup(battleManager.Enemy);

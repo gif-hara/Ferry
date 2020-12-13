@@ -24,5 +24,12 @@ namespace HK.Ferry
         [SerializeField, TermsPopup]
         private List<string> commands = default;
         public List<string> Commands => commands;
+
+        public CharacterSpec(CharacterSpec other)
+        {
+            name = other.name;
+            status = new CharacterStatus(other.status);
+            commands = new List<string>(other.commands);
+        }
     }
 }

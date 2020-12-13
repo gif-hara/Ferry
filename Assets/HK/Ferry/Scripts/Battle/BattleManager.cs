@@ -47,15 +47,16 @@ namespace HK.Ferry.BattleSystems
                 new List<IState<BattlePhase>>
                 {
                     new BattleState.Begin(this),
-                    new BattleState.PlayerSelectCommand(this)
+                    new BattleState.PlayerSelectCommand(this),
+                    new BattleState.PlayerInvokeCommand(this)
                 },
                 BattlePhase.Begin
                 );
         }
 
-        public IObservable<Unit> InvokeCommand(BattleCharacter battleCharacter, MasterDataCommand.Record command)
+        public IObservable<Unit> InvokeCommand(BattleCharacter attacker, MasterDataCommand.Record command)
         {
-            return Observable.Concat(command.Commands.Select(x => x.Invoke())).AsUnitObservable();
+            return Observable.Concat(command.Commands.Select(x => x.Invoke(attacker, GetOpponent(attacker)))).AsUnitObservable();
         }
 
         public BattleCharacter GetOpponent(BattleCharacter battleCharacter)
