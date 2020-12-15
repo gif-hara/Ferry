@@ -73,15 +73,7 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: UI/ArtistPower
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u6280:{0}"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI/Attack
+    - Term: UI/AttackFormat
       TermType: 0
       Description: 
       Languages:
@@ -89,7 +81,7 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: UI/GreatPower
+    - Term: UI/GreatPowerFormat
       TermType: 0
       Description: 
       Languages:
@@ -97,7 +89,15 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: UI/WisdomPower
+    - Term: UI/ArtistPowerFormat
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6280:{0}"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/WisdomPowerFormat
       TermType: 0
       Description: 
       Languages:
@@ -110,6 +110,46 @@ MonoBehaviour:
       Description: 
       Languages:
       - "{0}\u306F{1}\u306B{2}\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u305F\uFF01"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/Sentence_AddPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "{0}\u306E{1}\u304C{2}\u30A2\u30C3\u30D7\u3057\u305F\uFF01"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u653B\u6483\u529B"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/GreatPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u529B"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/ArtistPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6280"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/WisdomPower
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u667A"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -128,7 +168,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1608043198902
+    Google_LastUpdatedVersion: 1608044786426
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

@@ -87,5 +87,15 @@ namespace HK.Ferry.BattleSystems
         {
             logs.Add(log);
         }
+
+        [ContextMenu("Set All Command")]
+        private void SetAllCommand()
+        {
+            debugBattleData.Player.Commands.Clear();
+            foreach (var record in MasterDataCommand.Get.All)
+            {
+                debugBattleData.Player.Commands.Add(record.Id);
+            }
+        }
     }
 }

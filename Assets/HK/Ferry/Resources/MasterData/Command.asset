@@ -28,6 +28,15 @@ MonoBehaviour:
     commands:
     - id: 5
     - id: 6
+  - name: "CommandName/\u529B\u4E0A\u6607"
+    commands:
+    - id: 7
+  - name: "CommandName/\u6280\u4E0A\u6607"
+    commands:
+    - id: 8
+  - name: "CommandName/\u667A\u4E0A\u6607"
+    commands:
+    - id: 9
   references:
     version: 1
     00000000:
@@ -61,3 +70,18 @@ MonoBehaviour:
       type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
         rate: 1
+    00000007:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 0
+        value: 0.5
+    00000008:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 1
+        value: 0.5
+    00000009:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 2
+        value: 0.5
