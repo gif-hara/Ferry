@@ -1,5 +1,7 @@
 ﻿using System;
 using HK.Ferry.BattleSystems;
+using HK.Ferry.Extensions;
+using I2.Loc;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -21,9 +23,9 @@ namespace HK.Ferry
             {
                 var damage = BattleCalcurator.GetDamage(attacker.CurrentSpec.Status, target.CurrentSpec.Status, rate);
                 target.TakeDamage(damage);
-                battleManager.AddLog($"damage = {damage}, TODO Attack Effect");
+                battleManager.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
 
-                return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
+                return Observable.ReturnUnit();
             });
         }
     }
