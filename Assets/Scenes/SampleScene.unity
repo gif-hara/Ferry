@@ -412,8 +412,7 @@ MonoBehaviour:
           value: 1
         wisdomPower:
           value: 1
-      commands:
-      - CommandName/Attack01
+      commands: []
     player:
       name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
       status:
@@ -428,7 +427,8 @@ MonoBehaviour:
         wisdomPower:
           value: 1
       commands:
-      - CommandName/Attack01
+      - "CommandName/\u901A\u5E38\u653B\u6483"
+      - "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
 --- !u!4 &98694287
 Transform:
   m_ObjectHideFlags: 0

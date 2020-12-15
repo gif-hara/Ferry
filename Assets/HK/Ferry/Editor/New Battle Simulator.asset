@@ -18,19 +18,19 @@ MonoBehaviour:
     attack:
       value: 100
     greatPower:
-      value: 1.4
+      value: 1
     artistPower:
-      value: 1.4000001
+      value: 1
     wisdomPower:
-      value: 1.4000001
+      value: 1
   defenser:
     hitPoint:
       value: 0
     attack:
       value: 100
     greatPower:
-      value: 1
+      value: 1.4
     artistPower:
-      value: 1
+      value: 1.5
     wisdomPower:
-      value: 1
+      value: 1.6

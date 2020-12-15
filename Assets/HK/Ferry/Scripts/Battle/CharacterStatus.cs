@@ -2,6 +2,7 @@
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry
 {
@@ -46,6 +47,25 @@ namespace HK.Ferry
             this.greatPower.Value = other.greatPower.Value;
             this.artistPower.Value = other.artistPower.Value;
             this.wisdomPower.Value = other.wisdomPower.Value;
+        }
+
+        public void AddPower(float value, PowerType powerType)
+        {
+            switch (powerType)
+            {
+                case PowerType.Great:
+                    greatPower.Value = Mathf.Clamp(greatPower.Value + value, 0.1f, 99.0f);
+                    break;
+                case PowerType.Artist:
+                    artistPower.Value = Mathf.Clamp(artistPower.Value + value, 0.1f, 99.0f);
+                    break;
+                case PowerType.Wisdom:
+                    wisdomPower.Value = Mathf.Clamp(wisdomPower.Value + value, 0.1f, 99.0f);
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{powerType}は未対応です");
+                    break;
+            }
         }
     }
 }

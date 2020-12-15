@@ -13,12 +13,51 @@ MonoBehaviour:
   m_Name: Command
   m_EditorClassIdentifier: 
   records:
-  - name: CommandName/Attack01
+  - name: "CommandName/\u901A\u5E38\u653B\u6483"
     commands:
     - id: 0
+  - name: "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
+    commands:
+    - id: 1
+    - id: 2
+  - name: "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
+    commands:
+    - id: 3
+    - id: 4
+  - name: "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
+    commands:
+    - id: 5
+    - id: 6
   references:
     version: 1
     00000000:
+      type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        rate: 1
+    00000001:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 1
+        value: 0.1
+    00000002:
+      type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        rate: 1
+    00000003:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 1
+        value: 0.1
+    00000004:
+      type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        rate: 1
+    00000005:
+      type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
+      data:
+        powerType: 2
+        value: 0.1
+    00000006:
       type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
         rate: 1
