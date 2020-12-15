@@ -15,13 +15,13 @@ namespace HK.Ferry
         [SerializeField]
         private float rate = 1.0f;
 
-        public IObservable<Unit> Invoke(BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {
                 var damage = BattleCalcurator.GetDamage(attacker.CurrentSpec.Status, target.CurrentSpec.Status, rate);
-                target.CurrentSpec.Status.hitPoint.Value -= damage;
-                Debug.Log($"damage = {damage}, TODO Attack Effect");
+                target.TakeDamage(damage);
+                battleManager.AddLog($"damage = {damage}, TODO Attack Effect");
 
                 return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });

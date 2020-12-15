@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.BattleSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -18,7 +19,7 @@ namespace HK.Ferry
         [SerializeField]
         private float value = default;
 
-        public IObservable<Unit> Invoke(BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {

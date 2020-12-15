@@ -38,10 +38,14 @@ namespace HK.Ferry.BattleSystems
 
         private StateController<BattlePhase> stateController;
 
+        private ReactiveCollection<string> logs = new ReactiveCollection<string>();
+        public IReadOnlyReactiveCollection<string> LogsAsObservable() => logs;
+
         private void Start()
         {
             Enemy = new BattleCharacter(debugBattleData.Enemy);
             Player = new BattleCharacter(debugBattleData.Player);
+            uiView.Setup(this);
 
             stateController = new StateController<BattlePhase>(
                 new List<IState<BattlePhase>>
@@ -61,7 +65,7 @@ namespace HK.Ferry.BattleSystems
 
         public IObservable<Unit> InvokeCommand(BattleCharacter attacker, MasterDataCommand.Record command)
         {
-            return Observable.Concat(command.Commands.Select(x => x.Invoke(attacker, GetOpponent(attacker)))).AsUnitObservable();
+            return Observable.Concat(command.Commands.Select(x => x.Invoke(this, attacker, GetOpponent(attacker)))).AsSingleUnitObservable();
         }
 
         public BattleCharacter GetOpponent(BattleCharacter battleCharacter)
@@ -77,6 +81,11 @@ namespace HK.Ferry.BattleSystems
 
             Assert.IsTrue(false, $"{battleCharacter}は未対応です");
             return null;
+        }
+
+        public void AddLog(string log)
+        {
+            logs.Add(log);
         }
     }
 }

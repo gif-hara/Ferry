@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.BattleSystems;
 using UniRx;
 
 namespace HK.Ferry
@@ -8,6 +9,6 @@ namespace HK.Ferry
     /// </summary>
     public interface ICommand
     {
-        IObservable<Unit> Invoke(BattleCharacter attacker, BattleCharacter target);
+        IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target);
     }
 }

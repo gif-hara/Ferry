@@ -27,5 +27,10 @@ namespace HK.Ferry
         }
 
         public float HitPointRate => (float)CurrentSpec.Status.hitPoint.Value / BaseSpec.Status.hitPoint.Value;
+
+        public void TakeDamage(int value)
+        {
+            CurrentSpec.Status.hitPoint.Value -= value;
+        }
     }
 }

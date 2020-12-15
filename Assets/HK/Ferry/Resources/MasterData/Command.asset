@@ -37,7 +37,7 @@ MonoBehaviour:
     00000001:
       type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
-        powerType: 1
+        powerType: 0
         value: 0.1
     00000002:
       type: {class: Attack, ns: HK.Ferry, asm: Assembly-CSharp}

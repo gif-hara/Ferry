@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using HK.Ferry.BattleSystems;
 using HK.Ferry.Database;
 using HK.Ferry.Extensions;
 using TMPro;
@@ -29,10 +30,18 @@ namespace HK.Ferry
         public CharacterStatusView playerStatusView = default;
         public CharacterStatusView PlayerStatusView => playerStatusView;
 
+        [SerializeField]
+        private InformationView informationView = default;
+
         private Subject<MasterDataCommand.Record> selectCommandSubject = new Subject<MasterDataCommand.Record>();
         public IObservable<MasterDataCommand.Record> SelectCommandAsObservable() => selectCommandSubject;
 
         private List<CommandButtonController> commandButtons = new List<CommandButtonController>();
+
+        public void Setup(BattleManager battleManager)
+        {
+            informationView.Setup(battleManager);
+        }
 
         public void CreateCommandButton(IReadOnlyList<MasterDataCommand.Record> commands)
         {
