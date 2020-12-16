@@ -18,9 +18,8 @@ namespace HK.Ferry.BattleSystems
         {
             Begin,
             PlayerSelectCommand,
-            PlayerInvokeCommand,
             EnemySelectCommand,
-            EnemyInvokeCommand,
+            InvokeCommand,
             End,
         }
 
@@ -51,8 +50,8 @@ namespace HK.Ferry.BattleSystems
                 {
                     new BattleState.Begin(this),
                     new BattleState.PlayerSelectCommand(this),
-                    new BattleState.PlayerInvokeCommand(this),
                     new BattleState.EnemySelectCommand(this),
+                    new BattleState.InvokeCommand(this),
                     new BattleState.End(this)
                 },
                 BattlePhase.Begin

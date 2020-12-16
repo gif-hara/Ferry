@@ -24,11 +24,13 @@ namespace HK.Ferry.BattleSystems
                 battleManager.UIView.SelectCommandAsObservable()
                     .Subscribe(x =>
                     {
-                        var arg = new PlayerInvokeCommand.Argument
+                        var arg = new InvokeCommand.Argument
                         {
-                            command = x
+                            command = x,
+                            commandInvoker = battleManager.Player,
+                            completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.EnemySelectCommand)
                         };
-                        owner.Change(BattleManager.BattlePhase.PlayerInvokeCommand, arg);
+                        owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
                     })
                     .AddTo(ActiveDisposables);
             }

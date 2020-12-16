@@ -3,21 +3,22 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UniRx;
 using HK.Ferry.Database;
+using System;
 
 namespace HK.Ferry.BattleSystems
 {
     public partial class BattleState
     {
         /// <summary>
-        /// プレイヤーのコマンドを実行するステート
+        /// コマンドを実行するステート
         /// </summary>
-        public sealed class PlayerInvokeCommand : BattleStateBase
+        public sealed class InvokeCommand : BattleStateBase
         {
-            public PlayerInvokeCommand(BattleManager battleManager) : base(battleManager)
+            public InvokeCommand(BattleManager battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.PlayerInvokeCommand;
+            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.InvokeCommand;
 
             public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
             {
@@ -25,7 +26,7 @@ namespace HK.Ferry.BattleSystems
                 Assert.IsNotNull(arg);
 
                 battleManager.UIView.SetCommandButtonInteractable(false);
-                battleManager.InvokeCommand(battleManager.Player, arg.command)
+                battleManager.InvokeCommand(arg.commandInvoker, arg.command)
                 .Subscribe(x =>
                 {
                     if (battleManager.CanEnd())
@@ -36,7 +37,7 @@ namespace HK.Ferry.BattleSystems
                 {
                     if (!battleManager.CanEnd())
                     {
-                        owner.Change(BattleManager.BattlePhase.EnemySelectCommand);
+                        arg.completeInvokeCommandAction();
                     }
                 })
                 .AddTo(ActiveDisposables);
@@ -45,6 +46,10 @@ namespace HK.Ferry.BattleSystems
             public class Argument : IStateArgument
             {
                 public MasterDataCommand.Record command;
+
+                public BattleCharacter commandInvoker;
+
+                public Action completeInvokeCommandAction;
             }
         }
     }

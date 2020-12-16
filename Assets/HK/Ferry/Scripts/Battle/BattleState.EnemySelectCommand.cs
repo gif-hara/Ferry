@@ -20,10 +20,13 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
             {
-                var command = battleManager.Enemy.GetCommand();
-                Debug.Log($"TODO EnemySelectCommand Id = {command.Id}");
-
-                owner.Change(BattleManager.BattlePhase.PlayerSelectCommand);
+                var arg = new InvokeCommand.Argument
+                {
+                    command = battleManager.Enemy.GetCommand(),
+                    commandInvoker = battleManager.Enemy,
+                    completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.PlayerSelectCommand)
+                };
+                owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
             }
         }
     }
