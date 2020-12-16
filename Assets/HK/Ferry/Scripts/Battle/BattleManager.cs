@@ -21,7 +21,6 @@ namespace HK.Ferry.BattleSystems
             PlayerInvokeCommand,
             EnemySelectCommand,
             EnemyInvokeCommand,
-            Judgement,
             End,
         }
 
@@ -52,7 +51,8 @@ namespace HK.Ferry.BattleSystems
                 {
                     new BattleState.Begin(this),
                     new BattleState.PlayerSelectCommand(this),
-                    new BattleState.PlayerInvokeCommand(this)
+                    new BattleState.PlayerInvokeCommand(this),
+                    new BattleState.End(this)
                 },
                 BattlePhase.Begin
                 );
@@ -65,7 +65,7 @@ namespace HK.Ferry.BattleSystems
 
         public IObservable<Unit> InvokeCommand(BattleCharacter attacker, MasterDataCommand.Record command)
         {
-            return Observable.Concat(command.Commands.Select(x => x.Invoke(this, attacker, GetOpponent(attacker)))).AsSingleUnitObservable();
+            return Observable.Concat(command.Commands.Select(x => x.Invoke(this, attacker, GetOpponent(attacker))));
         }
 
         public BattleCharacter GetOpponent(BattleCharacter battleCharacter)
@@ -86,6 +86,14 @@ namespace HK.Ferry.BattleSystems
         public void AddLog(string log)
         {
             logs.Add(log);
+        }
+
+        /// <summary>
+        /// バトルを終了できるか返す
+        /// </summary>
+        public bool CanEnd()
+        {
+            return Enemy.IsDead || Player.IsDead;
         }
 
         [ContextMenu("Set All Command")]

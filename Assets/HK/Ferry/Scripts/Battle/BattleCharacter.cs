@@ -32,5 +32,7 @@ namespace HK.Ferry
         {
             CurrentSpec.Status.hitPoint.Value -= value;
         }
+
+        public bool IsDead => CurrentSpec.Status.hitPoint.Value <= 0;
     }
 }

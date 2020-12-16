@@ -28,7 +28,16 @@ namespace HK.Ferry.BattleSystems
                 battleManager.InvokeCommand(battleManager.Player, arg.command)
                 .Subscribe(x =>
                 {
-                    owner.Change(BattleManager.BattlePhase.PlayerSelectCommand);
+                    if (battleManager.CanEnd())
+                    {
+                        owner.Change(BattleManager.BattlePhase.End);
+                    }
+                }, () =>
+                {
+                    if (!battleManager.CanEnd())
+                    {
+                        owner.Change(BattleManager.BattlePhase.PlayerSelectCommand);
+                    }
                 })
                 .AddTo(ActiveDisposables);
             }
