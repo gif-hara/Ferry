@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using HK.Ferry.Database;
-using I2.Loc;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace HK.Ferry
 {
@@ -21,15 +17,10 @@ namespace HK.Ferry
         private CharacterStatus status = default;
         public CharacterStatus Status => status;
 
-        [SerializeField, TermsPopup]
-        private List<string> commands = default;
-        public List<string> Commands => commands;
-
         public CharacterSpec(CharacterSpec other)
         {
             name = other.name;
             status = new CharacterStatus(other.status);
-            commands = new List<string>(other.commands);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace HK.Ferry
     /// <summary>
     /// 
     /// </summary>
-    public sealed class BattleCharacter
+    public abstract class BattleCharacter
     {
         public CharacterSpec CurrentSpec
         {

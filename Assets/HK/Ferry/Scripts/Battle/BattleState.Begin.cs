@@ -20,7 +20,7 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
             {
-                var commands = MasterDataCommand.Get.GetRecords(battleManager.Player.BaseSpec.Commands);
+                var commands = MasterDataCommand.Get.GetRecords(battleManager.Player.Commands);
                 battleManager.UIView.EnemyStatusView.Setup(battleManager.Enemy);
                 battleManager.UIView.PlayerStatusView.Setup(battleManager.Player);
                 battleManager.UIView.CreateCommandButton(commands);

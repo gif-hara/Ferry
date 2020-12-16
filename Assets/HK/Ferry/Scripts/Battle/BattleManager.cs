@@ -31,9 +31,9 @@ namespace HK.Ferry.BattleSystems
         [SerializeField]
         private DebugBattleData debugBattleData = default;
 
-        public BattleCharacter Enemy { get; private set; }
+        public BattleEnemy Enemy { get; private set; }
 
-        public BattleCharacter Player { get; private set; }
+        public BattlePlayer Player { get; private set; }
 
         private StateController<BattlePhase> stateController;
 
@@ -42,8 +42,8 @@ namespace HK.Ferry.BattleSystems
 
         private void Start()
         {
-            Enemy = new BattleCharacter(debugBattleData.Enemy);
-            Player = new BattleCharacter(debugBattleData.Player);
+            Enemy = new BattleEnemy(debugBattleData.Enemy.Spec);
+            Player = new BattlePlayer(debugBattleData.Player.Spec, debugBattleData.Player.Commands);
             uiView.Setup(this);
 
             stateController = new StateController<BattlePhase>(
