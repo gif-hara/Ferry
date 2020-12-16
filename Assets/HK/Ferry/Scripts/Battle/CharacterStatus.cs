@@ -49,22 +49,42 @@ namespace HK.Ferry
             this.wisdomPower.Value = other.wisdomPower.Value;
         }
 
-        public void AddPower(float value, PowerType powerType)
+        public float AddPower(float value, PowerType powerType, AddType addType)
+        {
+            var power = GetPower(powerType);
+            const float min = 0.1f;
+            const float max = 99.0f;
+            switch (addType)
+            {
+                case AddType.Fixed:
+                    power.Value = Mathf.Clamp(power.Value + value, min, max);
+                    return value;
+                case AddType.Percentage:
+                    var result = power.Value * value;
+                    power.Value = Mathf.Clamp(result, min, max);
+                    return result;
+                case AddType.Set:
+                    power.Value = Mathf.Clamp(value, min, max);
+                    return value;
+                default:
+                    Assert.IsTrue(false, $"{addType}は未対応です");
+                    return value;
+            }
+        }
+
+        public FloatReactiveProperty GetPower(PowerType powerType)
         {
             switch (powerType)
             {
                 case PowerType.Great:
-                    greatPower.Value = Mathf.Clamp(greatPower.Value + value, 0.1f, 99.0f);
-                    break;
+                    return greatPower;
                 case PowerType.Artist:
-                    artistPower.Value = Mathf.Clamp(artistPower.Value + value, 0.1f, 99.0f);
-                    break;
+                    return artistPower;
                 case PowerType.Wisdom:
-                    wisdomPower.Value = Mathf.Clamp(wisdomPower.Value + value, 0.1f, 99.0f);
-                    break;
+                    return wisdomPower;
                 default:
                     Assert.IsTrue(false, $"{powerType}は未対応です");
-                    break;
+                    return null;
             }
         }
     }

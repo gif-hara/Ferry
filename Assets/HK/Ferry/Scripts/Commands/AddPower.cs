@@ -19,14 +19,22 @@ namespace HK.Ferry
         private PowerType powerType = default;
 
         [SerializeField]
+        private TargetType targetType = default;
+
+        [SerializeField]
+        private AddType addType = default;
+
+        [SerializeField]
         private float value = default;
 
         public IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {
-                attacker.CurrentSpec.Status.AddPower(value, powerType);
-                battleManager.AddLog(ScriptLocalization.UI.Sentence_AddPower.Format(attacker.CurrentSpec.Name, powerType.AsLocalize(), value));
+                var character = targetType == TargetType.Myself ? attacker : target;
+                character.CurrentSpec.Status.AddPower(value, powerType, addType);
+                var resultPower = character.CurrentSpec.Status.GetPower(powerType).Value.ToString("0.00");
+                battleManager.AddLog(ScriptLocalization.UI.Sentence_AddPower.Format(character.CurrentSpec.Name, powerType.AsLocalize(), resultPower));
                 return Observable.ReturnUnit();
             });
         }
