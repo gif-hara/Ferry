@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using HK.Ferry.AI;
 using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -26,6 +27,10 @@ namespace HK.Ferry
             [SerializeField]
             private CharacterSpec spec = default;
             public CharacterSpec Spec => spec;
+
+            [SerializeField]
+            private AIScriptableObject ai = default;
+            public IAI AI => UnityEngine.Object.Instantiate(ai);
         }
 
         [Serializable]

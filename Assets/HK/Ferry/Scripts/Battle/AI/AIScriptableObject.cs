@@ -24,23 +24,26 @@ namespace HK.Ferry.AI
 
         public MasterDataCommand.Record GetCommand()
         {
+            ++ElapsedTurn;
+
             // 現在のSubが無い場合は一番最初のSubに割り当てる
             if (currentSub == null)
             {
                 currentSub = subs[0];
+                currentSub.Activate(this);
             }
 
-            ++ElapsedTurn;
-            var thinkingCount = 0;
 
             // 先にchangeAIsの条件を満たしていた場合はcurrentSubを切り替える
             var nextAIName = GetChangeAIName();
-            if (string.IsNullOrEmpty(nextAIName))
+            if (!string.IsNullOrEmpty(nextAIName))
             {
                 currentSub = GetSub(nextAIName);
+                currentSub.Activate(this);
             }
 
             // Sub側の思考を開始する
+            var thinkingCount = 0;
             nextAIName = currentSub.GetChangeAIName();
             while (!string.IsNullOrEmpty(nextAIName))
             {
@@ -64,7 +67,7 @@ namespace HK.Ferry.AI
         private Sub GetSub(string name)
         {
             var result = subs.FirstOrDefault(x => x.Name == name);
-            Assert.IsNotNull(currentSub, $"\"{name}\"というAIが存在しません");
+            Assert.IsNotNull(result, $"\"{name}\"というAIが存在しません");
 
             return result;
         }

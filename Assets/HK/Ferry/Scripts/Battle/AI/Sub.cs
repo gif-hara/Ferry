@@ -17,7 +17,7 @@ namespace HK.Ferry.AI
 
         [SerializeReference, SubclassSelector]
         private ICommandSelector commandSelector = default;
-        public ICommandSelector CommandSelector => CommandSelector;
+        public ICommandSelector CommandSelector => commandSelector;
 
         public int ElapsedTurn => owner.ElapsedTurn - activateTurn;
 

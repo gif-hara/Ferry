@@ -42,7 +42,7 @@ namespace HK.Ferry.BattleSystems
 
         private void Start()
         {
-            Enemy = new BattleEnemy(debugBattleData.Enemy.Spec);
+            Enemy = new BattleEnemy(debugBattleData.Enemy.Spec, debugBattleData.Enemy.AI);
             Player = new BattlePlayer(debugBattleData.Player.Spec, debugBattleData.Player.Commands);
             uiView.Setup(this);
 
@@ -52,6 +52,7 @@ namespace HK.Ferry.BattleSystems
                     new BattleState.Begin(this),
                     new BattleState.PlayerSelectCommand(this),
                     new BattleState.PlayerInvokeCommand(this),
+                    new BattleState.EnemySelectCommand(this),
                     new BattleState.End(this)
                 },
                 BattlePhase.Begin

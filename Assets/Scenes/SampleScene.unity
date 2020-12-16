@@ -536,7 +536,7 @@ MonoBehaviour:
             value: 1
           wisdomPower:
             value: 1
-        commands: []
+      ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
     player:
       spec:
         name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
@@ -551,14 +551,14 @@ MonoBehaviour:
             value: 1
           wisdomPower:
             value: 1
-        commands:
-        - "CommandName/\u901A\u5E38\u653B\u6483"
-        - "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
-        - "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
-        - "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
-        - "CommandName/\u529B\u4E0A\u6607"
-        - "CommandName/\u6280\u4E0A\u6607"
-        - "CommandName/\u667A\u4E0A\u6607"
+      commands:
+      - "CommandName/\u901A\u5E38\u653B\u6483"
+      - "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
+      - "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
+      - "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
+      - "CommandName/\u529B\u4E0A\u6607"
+      - "CommandName/\u6280\u4E0A\u6607"
+      - "CommandName/\u667A\u4E0A\u6607"
 --- !u!4 &98694287
 Transform:
   m_ObjectHideFlags: 0

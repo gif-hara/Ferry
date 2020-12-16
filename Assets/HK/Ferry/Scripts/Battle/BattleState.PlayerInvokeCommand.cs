@@ -36,7 +36,7 @@ namespace HK.Ferry.BattleSystems
                 {
                     if (!battleManager.CanEnd())
                     {
-                        owner.Change(BattleManager.BattlePhase.PlayerSelectCommand);
+                        owner.Change(BattleManager.BattlePhase.EnemySelectCommand);
                     }
                 })
                 .AddTo(ActiveDisposables);
