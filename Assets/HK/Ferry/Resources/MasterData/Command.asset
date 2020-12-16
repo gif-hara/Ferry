@@ -81,19 +81,19 @@ MonoBehaviour:
       data:
         powerType: 0
         targetType: 0
-        addType: 1
-        value: 1.5
+        addType: 0
+        value: 0.5
     00000008:
       type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
         powerType: 1
         targetType: 0
-        addType: 1
-        value: 1.5
+        addType: 0
+        value: 0.5
     00000009:
       type: {class: AddPower, ns: HK.Ferry, asm: Assembly-CSharp}
       data:
         powerType: 2
         targetType: 0
-        addType: 1
-        value: 1.5
+        addType: 0
+        value: 0.5

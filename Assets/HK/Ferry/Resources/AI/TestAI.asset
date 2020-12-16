@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c08a3e4dc3244ab9b7c23e8320239a4, type: 3}
+  m_Name: TestAI
+  m_EditorClassIdentifier: 
+  subs:
+  - name: A
+    commandSelector:
+      id: 0
+    changeAIs:
+    - condition:
+        id: 1
+      nextAI: B
+  - name: B
+    commandSelector:
+      id: 2
+    changeAIs:
+    - condition:
+        id: 3
+      nextAI: A
+  changeAIs: []
+  references:
+    version: 1
+    00000000:
+      type: {class: Random, ns: HK.Ferry.AI.CommandSelectors, asm: Assembly-CSharp}
+      data:
+        elements:
+        - commandName: "CommandName/\u901A\u5E38\u653B\u6483"
+          weight: 100
+    00000001:
+      type: {class: ElapsedTurn, ns: HK.Ferry.AI.Conditions, asm: Assembly-CSharp}
+      data:
+        compareType: 1
+        turn: 1
+    00000002:
+      type: {class: Random, ns: HK.Ferry.AI.CommandSelectors, asm: Assembly-CSharp}
+      data:
+        elements:
+        - commandName: "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
+          weight: 100
+    00000003:
+      type: {class: ElapsedTurn, ns: HK.Ferry.AI.Conditions, asm: Assembly-CSharp}
+      data:
+        compareType: 1
+        turn: 1

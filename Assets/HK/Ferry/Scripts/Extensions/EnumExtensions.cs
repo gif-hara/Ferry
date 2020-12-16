@@ -25,5 +25,25 @@ namespace HK.Ferry.Extensions
                     return "";
             }
         }
+
+        public static bool IsSatisfy(this CompareType self, int a, int b)
+        {
+            switch (self)
+            {
+                case CompareType.Greater:
+                    return a > b;
+                case CompareType.GreaterEqual:
+                    return a >= b;
+                case CompareType.Lesser:
+                    return a < b;
+                case CompareType.LesserEqual:
+                    return a <= b;
+                case CompareType.Equal:
+                    return a == b;
+                default:
+                    Assert.IsTrue(false, $"{self}は未対応です");
+                    return false;
+            }
+        }
     }
 }

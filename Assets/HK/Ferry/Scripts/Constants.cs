@@ -51,5 +51,33 @@ namespace HK.Ferry
             /// </summary>
             Set
         }
+
+        public enum CompareType
+        {
+            /// <summary>
+            /// a > b
+            /// </summary>
+            Greater,
+
+            /// <summary>
+            /// a >= b
+            /// </summary>
+            GreaterEqual,
+
+            /// <summary>
+            /// a < b
+            /// </summary>
+            Lesser,
+
+            /// <summary>
+            /// a <= b
+            /// </summary>
+            LesserEqual,
+
+            /// <summary>
+            /// a == b
+            /// </summary>
+            Equal,
+        }
     }
 }
