@@ -25,7 +25,7 @@ namespace HK.Ferry
                 target.TakeDamage(damage);
                 battleManager.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
 
-                return Observable.ReturnUnit();
+                return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });
         }
     }

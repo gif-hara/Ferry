@@ -14,27 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   records:
   - name: "CommandName/\u901A\u5E38\u653B\u6483"
+    coolTime: 0
+    initialCoolTime: 0
     commands:
     - id: 0
   - name: "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
+    coolTime: 1
+    initialCoolTime: 1
     commands:
     - id: 1
     - id: 2
   - name: "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
+    coolTime: 1
+    initialCoolTime: 1
     commands:
     - id: 3
     - id: 4
   - name: "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
+    coolTime: 1
+    initialCoolTime: 1
     commands:
     - id: 5
     - id: 6
   - name: "CommandName/\u529B\u4E0A\u6607"
+    coolTime: 3
+    initialCoolTime: 3
     commands:
     - id: 7
   - name: "CommandName/\u6280\u4E0A\u6607"
+    coolTime: 3
+    initialCoolTime: 3
     commands:
     - id: 8
   - name: "CommandName/\u667A\u4E0A\u6607"
+    coolTime: 3
+    initialCoolTime: 3
     commands:
     - id: 9
   references:

@@ -26,10 +26,11 @@ namespace HK.Ferry.BattleSystems
                     {
                         var arg = new InvokeCommand.Argument
                         {
-                            command = x,
+                            command = x.Command,
                             commandInvoker = battleManager.Player,
-                            completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.EnemySelectCommand)
+                            completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.PlayerTurnEnd)
                         };
+                        x.ResetCoolTime();
                         owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
                     })
                     .AddTo(ActiveDisposables);

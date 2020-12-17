@@ -33,8 +33,8 @@ namespace HK.Ferry
         [SerializeField]
         private InformationView informationView = default;
 
-        private Subject<MasterDataCommand.Record> selectCommandSubject = new Subject<MasterDataCommand.Record>();
-        public IObservable<MasterDataCommand.Record> SelectCommandAsObservable() => selectCommandSubject;
+        private Subject<BattlePlayer.CommandData> selectCommandSubject = new Subject<BattlePlayer.CommandData>();
+        public IObservable<BattlePlayer.CommandData> SelectCommandAsObservable() => selectCommandSubject;
 
         private List<CommandButtonController> commandButtons = new List<CommandButtonController>();
 
@@ -43,13 +43,14 @@ namespace HK.Ferry
             informationView.Setup(battleManager);
         }
 
-        public void CreateCommandButton(IReadOnlyList<MasterDataCommand.Record> commands)
+        public void CreateCommandButton(IReadOnlyList<BattlePlayer.CommandData> commands)
         {
             commandButtons.Clear();
             foreach (var command in commands)
             {
                 var commandButton = Instantiate(commandButtonPrefab, commandButtonRoot, false);
-                commandButton.Text.text = command.Id.AsLocalize();
+                commandButton.Setup(command);
+                commandButton.Text.text = command.CommandName.AsLocalize();
                 commandButton.Button.OnClickAsObservable()
                     .Subscribe(_ =>
                     {
@@ -64,7 +65,7 @@ namespace HK.Ferry
         {
             foreach (var c in commandButtons)
             {
-                c.Button.interactable = isInteractable;
+                c.SetButtonInteractable(isInteractable);
             }
         }
     }

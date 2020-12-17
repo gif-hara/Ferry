@@ -17,6 +17,10 @@ namespace HK.Ferry.BattleSystems
         public enum BattlePhase
         {
             Begin,
+            PlayerTurnStart,
+            EnemyTurnStart,
+            PlayerTurnEnd,
+            EnemyTurnEnd,
             PlayerSelectCommand,
             EnemySelectCommand,
             InvokeCommand,
@@ -49,6 +53,10 @@ namespace HK.Ferry.BattleSystems
                 new List<IState<BattlePhase>>
                 {
                     new BattleState.Begin(this),
+                    new BattleState.PlayerTurnStart(this),
+                    new BattleState.EnemyTurnStart(this),
+                    new BattleState.PlayerTurnEnd(this),
+                    new BattleState.EnemyTurnEnd(this),
                     new BattleState.PlayerSelectCommand(this),
                     new BattleState.EnemySelectCommand(this),
                     new BattleState.InvokeCommand(this),

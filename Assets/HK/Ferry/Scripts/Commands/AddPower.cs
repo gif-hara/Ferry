@@ -35,7 +35,8 @@ namespace HK.Ferry
                 character.CurrentSpec.Status.AddPower(value, powerType, addType);
                 var resultPower = character.CurrentSpec.Status.GetPower(powerType).Value.ToString("0.00");
                 battleManager.AddLog(ScriptLocalization.UI.Sentence_AddPower.Format(character.CurrentSpec.Name, powerType.AsLocalize(), resultPower));
-                return Observable.ReturnUnit();
+
+                return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });
         }
     }

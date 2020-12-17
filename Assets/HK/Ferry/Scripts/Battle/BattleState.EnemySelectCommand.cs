@@ -24,7 +24,7 @@ namespace HK.Ferry.BattleSystems
                 {
                     command = battleManager.Enemy.GetCommand(),
                     commandInvoker = battleManager.Enemy,
-                    completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.PlayerSelectCommand)
+                    completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.EnemyTurnEnd)
                 };
                 owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
             }

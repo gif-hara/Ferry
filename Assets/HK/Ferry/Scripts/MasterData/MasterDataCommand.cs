@@ -20,6 +20,14 @@ namespace HK.Ferry.Database
 
             public string Id => name;
 
+            [SerializeField]
+            private int coolTime = default;
+            public int CoolTime => coolTime;
+
+            [SerializeField]
+            private int initialCoolTime = default;
+            public int InitialCoolTime => initialCoolTime;
+
             [SerializeReference, SubclassSelector]
             private List<ICommand> commands = default;
             public List<ICommand> Commands => commands;
