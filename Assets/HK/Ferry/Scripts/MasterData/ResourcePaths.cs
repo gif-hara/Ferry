@@ -12,6 +12,7 @@ namespace HK.Ferry.Database
         public static string Get(Type type)
         {
             if (type == typeof(MasterDataCommand)) return "MasterData/Command";
+            if (type == typeof(MasterDataWeapon)) return "MasterData/Weapon";
 
             Assert.IsTrue(false, $"{type}は未対応です");
             return "";
