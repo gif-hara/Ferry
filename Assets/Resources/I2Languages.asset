@@ -153,7 +153,7 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: Weapon/Weapon001
+    - Term: Weapon/001
       TermType: 0
       Description: 
       Languages:
@@ -176,7 +176,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1608216595010
+    Google_LastUpdatedVersion: 1608217189850
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

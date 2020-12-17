@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Weapon
   m_EditorClassIdentifier: 
   records:
-  - name: Weapon/Weapon001
+  - name: Weapon/001
     attack: 100

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HK.Ferry.AI;
+using HK.Ferry.Database;
 using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -26,23 +27,46 @@ namespace HK.Ferry
         {
             [SerializeField]
             private CharacterSpec spec = default;
-            public CharacterSpec Spec => spec;
 
             [SerializeField]
             private AIScriptableObject ai = default;
-            public IAI AI => UnityEngine.Object.Instantiate(ai);
+
+            public BattleEnemy CreateBattleEnemy()
+            {
+                return new BattleEnemy(spec, UnityEngine.Object.Instantiate(ai));
+            }
         }
 
         [Serializable]
         public sealed class PlayerData
         {
             [SerializeField]
-            private CharacterSpec spec = default;
-            public CharacterSpec Spec => spec;
+            private string name = default;
+
+            [SerializeField, TermsPopup]
+            private string weaponName = default;
+
+            [SerializeField]
+            private int hitPoint = default;
+
+            [SerializeField]
+            private float greatPower = default;
+
+            [SerializeField]
+            private float artistPower = default;
+
+            [SerializeField]
+            private float wisdomPower = default;
 
             [SerializeField, TermsPopup]
             private List<string> commands = default;
             public List<string> Commands => commands;
+
+            public BattlePlayer CreateBattlePlayer()
+            {
+                var weapon = MasterDataWeapon.Get.GetRecord(weaponName);
+                return new BattlePlayer(new CharacterSpec(name, new CharacterStatus(hitPoint, weapon.Attack, greatPower, artistPower, wisdomPower)), commands);
+            }
         }
     }
 }

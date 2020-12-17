@@ -17,10 +17,15 @@ namespace HK.Ferry
         private CharacterStatus status = default;
         public CharacterStatus Status => status;
 
-        public CharacterSpec(CharacterSpec other)
+        public CharacterSpec(string name, CharacterStatus characterStatus)
         {
-            name = other.name;
-            status = new CharacterStatus(other.status);
+            this.name = name;
+            this.status = characterStatus;
+        }
+
+        public CharacterSpec(CharacterSpec other)
+            : this(other.name, new CharacterStatus(other.status))
+        {
         }
     }
 }

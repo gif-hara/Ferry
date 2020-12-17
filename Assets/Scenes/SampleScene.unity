@@ -538,19 +538,12 @@ MonoBehaviour:
             value: 1
       ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
     player:
-      spec:
-        name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
-        status:
-          hitPoint:
-            value: 300
-          attack:
-            value: 100
-          greatPower:
-            value: 1
-          artistPower:
-            value: 1
-          wisdomPower:
-            value: 1
+      name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+      weaponName: Weapon/001
+      hitPoint: 100
+      greatPower: 1
+      artistPower: 1
+      wisdomPower: 1
       commands:
       - "CommandName/\u901A\u5E38\u653B\u6483"
       - "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"

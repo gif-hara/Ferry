@@ -45,8 +45,8 @@ namespace HK.Ferry.BattleSystems
 
         private void Start()
         {
-            Enemy = new BattleEnemy(debugBattleData.Enemy.Spec, debugBattleData.Enemy.AI);
-            Player = new BattlePlayer(debugBattleData.Player.Spec, debugBattleData.Player.Commands);
+            Enemy = debugBattleData.Enemy.CreateBattleEnemy();
+            Player = debugBattleData.Player.CreateBattlePlayer();
             uiView.Setup(this);
 
             stateController = new StateController<BattlePhase>(
