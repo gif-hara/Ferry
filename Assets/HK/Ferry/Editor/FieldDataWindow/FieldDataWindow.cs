@@ -18,6 +18,8 @@ namespace HK.Ferry.Editors
 
         private int editingCellIndex = -1;
 
+        private Vector2 scrollPosition;
+
         [MenuItem("Window/Ferry/FieldData")]
         private static void Open()
         {
@@ -42,10 +44,15 @@ namespace HK.Ferry.Editors
                 serializedFieldData.Update();
                 using (var changeScope = new EditorGUI.ChangeCheckScope())
                 {
-                    using (new EditorGUILayout.HorizontalScope())
+                    using (var scrollViewScope = new EditorGUILayout.ScrollViewScope(scrollPosition))
                     {
-                        DrawField(fieldData);
-                        DrawCellEvent(fieldData);
+                        using (new EditorGUILayout.VerticalScope())
+                        {
+                            DrawField(fieldData);
+                            DrawCellEvent(fieldData);
+                        }
+
+                        scrollPosition = scrollViewScope.scrollPosition;
                     }
 
                     if (changeScope.changed)
@@ -97,10 +104,21 @@ namespace HK.Ferry.Editors
                         {
                             using (new EditorGUILayout.HorizontalScope())
                             {
+                                var tempColor = GUI.color;
                                 for (var x = 0; x < fieldData.width; x++)
                                 {
+                                    GUI.color = GetButtonColor(fieldData, x, y);
                                     if (GUILayout.Button("", GUILayout.Width(20), GUILayout.Height(20)))
                                     {
+                                        if (editingCellIndex != -1)
+                                        {
+                                            var cellData = fieldData.cellDatas[editingCellIndex];
+                                            if (cellData.fieldEvents == null || cellData.fieldEvents.Count <= 0)
+                                            {
+                                                fieldData.cellDatas.RemoveAt(editingCellIndex);
+                                            }
+                                        }
+
                                         editingCellIndex = fieldData.cellDatas.FindIndex(c => c.x == x && c.y == y);
                                         if (editingCellIndex == -1)
                                         {
@@ -114,10 +132,33 @@ namespace HK.Ferry.Editors
                                         }
                                     }
                                 }
+                                GUI.color = tempColor;
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private Color GetButtonColor(FieldData fieldData, int x, int y)
+        {
+            var cellDataIndex = fieldData.GetCellDataIndex(x, y);
+
+            if (cellDataIndex == -1)
+            {
+                return Color.white;
+            }
+            else
+            {
+                var result = Color.red;
+                if (editingCellIndex == cellDataIndex)
+                {
+                    result.r += 0.4f;
+                    result.g += 0.4f;
+                    result.b += 0.4f;
+                }
+
+                return result;
             }
         }
 

@@ -33,6 +33,87 @@ MonoBehaviour:
     y: 1
     fieldEvents:
     - id: 2
+  - x: 4
+    y: 1
+    fieldEvents: []
+  - x: 2
+    y: 0
+    fieldEvents: []
+  - x: 3
+    y: 0
+    fieldEvents: []
+  - x: 9
+    y: 4
+    fieldEvents: []
+  - x: 8
+    y: 4
+    fieldEvents: []
+  - x: 11
+    y: 4
+    fieldEvents: []
+  - x: 11
+    y: 5
+    fieldEvents: []
+  - x: 10
+    y: 5
+    fieldEvents: []
+  - x: 9
+    y: 5
+    fieldEvents: []
+  - x: 9
+    y: 6
+    fieldEvents: []
+  - x: 10
+    y: 6
+    fieldEvents: []
+  - x: 8
+    y: 7
+    fieldEvents: []
+  - x: 9
+    y: 7
+    fieldEvents: []
+  - x: 10
+    y: 7
+    fieldEvents: []
+  - x: 5
+    y: 2
+    fieldEvents: []
+  - x: 6
+    y: 3
+    fieldEvents: []
+  - x: 7
+    y: 4
+    fieldEvents: []
+  - x: 7
+    y: 5
+    fieldEvents: []
+  - x: 8
+    y: 5
+    fieldEvents: []
+  - x: 6
+    y: 6
+    fieldEvents: []
+  - x: 8
+    y: 8
+    fieldEvents:
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+  - x: 10
+    y: 9
+    fieldEvents:
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
+    - id: 3
   references:
     version: 1
     00000000:
@@ -47,3 +128,5 @@ MonoBehaviour:
       type: {class: Log, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
       data:
         message: Hoge
+    00000003:
+      type: {class: , ns: , asm: }

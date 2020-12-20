@@ -15,5 +15,15 @@ namespace HK.Ferry.FieldSystems
         public int height = default;
 
         public List<CellData> cellDatas = default;
+
+        public int GetCellDataIndex(int x, int y)
+        {
+            return cellDatas.FindIndex(c => c.x == x && c.y == y);
+        }
+
+        public bool ContainsCellData(int x, int y)
+        {
+            return GetCellDataIndex(x, y) != -1;
+        }
     }
 }
