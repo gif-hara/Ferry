@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HK.Ferry
+namespace HK.Ferry.Editors
 {
     /// <summary>
     /// 
