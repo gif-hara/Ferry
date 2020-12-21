@@ -22,6 +22,10 @@ namespace HK.Ferry
         [SerializeField]
         private GameObject identifyObject = default;
 
+        [SerializeField]
+        private GameObject eventRoot = default;
+        public GameObject EventRoot => eventRoot;
+
         public void SetIdentifyTypeObject(Constants.IdentifyType identifyType)
         {
             unidentifyObject.SetActive(identifyType == Constants.IdentifyType.Unidentify);

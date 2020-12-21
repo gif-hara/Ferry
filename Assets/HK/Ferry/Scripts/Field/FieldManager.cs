@@ -1,4 +1,5 @@
-﻿using HK.Ferry.Extensions;
+﻿using System.Collections.Generic;
+using HK.Ferry.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -24,6 +25,8 @@ namespace HK.Ferry.FieldSystems
         [SerializeField]
         private FieldCellButtonController fieldCellButtonControllerPrefab = default;
 
+        private List<List<FieldCellButtonController>> controllers = new List<List<FieldCellButtonController>>();
+
         private FieldStatus fieldStatus;
 
         private void Start()
@@ -38,9 +41,11 @@ namespace HK.Ferry.FieldSystems
             fieldStatus = new FieldStatus(fieldData);
             for (var y = 0; y < fieldData.height; y++)
             {
+                controllers.Add(new List<FieldCellButtonController>());
                 for (var x = 0; x < fieldData.width; x++)
                 {
                     var controller = Instantiate(fieldCellButtonControllerPrefab, gridLayoutGroup.transform, false);
+                    controllers[y].Add(controller);
                     var cellX = x;
                     var cellY = y;
                     controller.Button.OnClickAsObservable()
@@ -68,7 +73,7 @@ namespace HK.Ferry.FieldSystems
 
             foreach (var c in fieldData.cellDatas)
             {
-                c.fieldEvent.Register(c.x, c.y, fieldStatus)
+                c.fieldEvent.Register(c.x, c.y, fieldStatus, controllers[c.y][c.x])
                     .AddTo(this);
             }
 

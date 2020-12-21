@@ -9,6 +9,8 @@ namespace HK.Ferry.FieldSystems
     /// </summary>
     public interface IFieldEvent
     {
-        IDisposable Register(int x, int y, FieldStatus fieldStatus);
+        IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller);
+
+        GameObject UIImagePrefab { get; }
     }
 }

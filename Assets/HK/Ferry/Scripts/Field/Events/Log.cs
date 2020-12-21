@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -9,13 +10,14 @@ namespace HK.Ferry.FieldSystems.Events
     /// 
     /// </summary>
     [Serializable]
-    public sealed class Log : IFieldEvent
+    public sealed class Log : FieldEventBase
     {
         [SerializeField]
         private string message = default;
 
-        public IDisposable Register(int x, int y, FieldStatus fieldStatus)
+        public override IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller)
         {
+            this.AddUIImage(controller);
             return fieldStatus.GetAccessed(x, y)
                 .Skip(1)
                 .Where(accessed => accessed)
