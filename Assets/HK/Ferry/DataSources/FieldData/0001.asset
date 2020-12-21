@@ -19,6 +19,34 @@ MonoBehaviour:
     y: 8
     fieldEvent:
       id: 0
+  - x: 0
+    y: 7
+    fieldEvent:
+      id: 1
+  - x: 1
+    y: 7
+    fieldEvent:
+      id: 2
+  - x: 2
+    y: 7
+    fieldEvent:
+      id: 3
+  - x: 2
+    y: 6
+    fieldEvent:
+      id: 4
+  - x: 2
+    y: 5
+    fieldEvent:
+      id: 5
+  - x: 1
+    y: 5
+    fieldEvent:
+      id: 6
+  - x: 0
+    y: 5
+    fieldEvent:
+      id: 7
   references:
     version: 1
     00000000:
@@ -27,3 +55,38 @@ MonoBehaviour:
         uiImage: {fileID: 3594718392086617520, guid: 814c0233b62564e3ba6bc6341add6d89,
           type: 3}
         message: Test
+    00000001:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000002:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000003:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000004:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000005:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000006:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}
+    00000007:
+      type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
+          type: 3}

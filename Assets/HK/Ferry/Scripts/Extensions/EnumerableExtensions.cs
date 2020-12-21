@@ -26,5 +26,23 @@ namespace HK.Ferry.Extensions
 
             return result;
         }
+        public static List<Vector2Int> ExtractIndex<T>(this IReadOnlyList<IReadOnlyList<T>> self, Vector2Int center, params Constants.DirectionType[] directionTypes)
+        {
+            var result = new List<Vector2Int>();
+            foreach (var i in directionTypes)
+            {
+                var position = center + i.AsVector2Int();
+                if (position.y >= 0 && position.y < self.Count)
+                {
+                    var s = self[position.y];
+                    if (position.x >= 0 && position.x < s.Count)
+                    {
+                        result.Add(position);
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }

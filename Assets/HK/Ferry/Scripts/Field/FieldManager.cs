@@ -27,11 +27,13 @@ namespace HK.Ferry.FieldSystems
 
         private List<List<FieldCellButtonController>> controllers = new List<List<FieldCellButtonController>>();
 
+        private FieldData fieldData;
+
         private FieldStatus fieldStatus;
 
         private void Start()
         {
-            var fieldData = debugFieldData.fieldData;
+            fieldData = debugFieldData.fieldData;
             gridLayoutGroup.padding.left = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.right = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.top = Screen.height - (int)gridLayoutGroup.cellSize.y;
@@ -83,11 +85,20 @@ namespace HK.Ferry.FieldSystems
         private void Identify(int x, int y)
         {
             fieldStatus.Identifies[y][x].Value = Constants.IdentifyType.Identify;
-            foreach (var c in fieldStatus.Identifies.Extract(new Vector2Int(x, y), DirectionType.Left, DirectionType.Top, DirectionType.Right, DirectionType.Bottom))
+            foreach (var i in fieldStatus.Identifies.ExtractIndex(new Vector2Int(x, y), DirectionType.Left, DirectionType.Top, DirectionType.Right, DirectionType.Bottom))
             {
+                var c = fieldStatus.Identifies[i.y][i.x];
                 if (c.Value == IdentifyType.Unidentify)
                 {
-                    c.Value = IdentifyType.IdentifyPosible;
+                    var cellData = fieldData.GetCellData(i.x, i.y);
+                    if (cellData != null && cellData.fieldEvent.IsBlock())
+                    {
+                        c.Value = IdentifyType.Identify;
+                    }
+                    else
+                    {
+                        c.Value = IdentifyType.IdentifyPosible;
+                    }
                 }
             }
         }
