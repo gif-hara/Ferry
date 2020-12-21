@@ -24,7 +24,7 @@ namespace HK.Ferry.FieldSystems
         [SerializeField]
         private FieldCellButtonController fieldCellButtonControllerPrefab = default;
 
-        private FieldIdentify fieldIdentify;
+        private FieldStatus fieldStatus;
 
         private void Start()
         {
@@ -34,7 +34,7 @@ namespace HK.Ferry.FieldSystems
             gridLayoutGroup.padding.bottom = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             gridLayoutGroup.constraintCount = debugFieldData.fieldData.width;
-            fieldIdentify = new FieldIdentify(debugFieldData.fieldData);
+            fieldStatus = new FieldStatus(debugFieldData.fieldData);
             for (var y = 0; y < debugFieldData.fieldData.height; y++)
             {
                 for (var x = 0; x < debugFieldData.fieldData.width; x++)
@@ -45,20 +45,29 @@ namespace HK.Ferry.FieldSystems
                     controller.Button.OnClickAsObservable()
                         .Subscribe(_ =>
                         {
-                            if (fieldIdentify.Get(cellX, cellY).Value == IdentifyType.IdentifyPosible)
+                            if (fieldStatus.GetIdentify(cellX, cellY).Value == IdentifyType.IdentifyPosible)
                             {
                                 Identify(cellX, cellY);
                             }
                             else
                             {
+                                fieldStatus.Accessed[cellY][cellX].Value = true;
                             }
                         })
                         .AddTo(controller);
-                    fieldIdentify.Get(x, y)
+                    fieldStatus.GetIdentify(x, y)
                         .Subscribe(type =>
                         {
                             controller.Button.interactable = type != Constants.IdentifyType.Unidentify;
                             controller.SetIdentifyTypeObject(type);
+                        })
+                        .AddTo(controller);
+                    fieldStatus.GetAccessed(x, y)
+                        .Skip(1)
+                        .Where(accessed => accessed)
+                        .Subscribe(_ =>
+                        {
+                            Debug.Log($"({cellX}, {cellY}) Accessed");
                         })
                         .AddTo(controller);
                 }
@@ -69,8 +78,8 @@ namespace HK.Ferry.FieldSystems
 
         private void Identify(int x, int y)
         {
-            fieldIdentify.Identifies[y][x].Value = Constants.IdentifyType.Identify;
-            foreach (var c in fieldIdentify.Identifies.Extract(new Vector2Int(x, y), DirectionType.Left, DirectionType.Top, DirectionType.Right, DirectionType.Bottom))
+            fieldStatus.Identifies[y][x].Value = Constants.IdentifyType.Identify;
+            foreach (var c in fieldStatus.Identifies.Extract(new Vector2Int(x, y), DirectionType.Left, DirectionType.Top, DirectionType.Right, DirectionType.Bottom))
             {
                 if (c.Value == IdentifyType.Unidentify)
                 {
