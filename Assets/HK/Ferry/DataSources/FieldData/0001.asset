@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0001
   m_EditorClassIdentifier: 
   width: 5
-  height: 20
+  height: 10
   cellDatas:
   - x: 2
     y: 3

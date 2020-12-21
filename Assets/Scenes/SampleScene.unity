@@ -168,8 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e933ee4f7304d6289d39be4f87ba3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugFieldData: {fileID: 11400000, guid: 296482d4088eb4f5b858d9ccb1d6d18a, type: 2}
+  debugFieldData:
+    fieldData: {fileID: 11400000, guid: 296482d4088eb4f5b858d9ccb1d6d18a, type: 2}
+    initialX: 2
+    initialY: 9
   gridLayoutGroup: {fileID: 1485887984}
+  scrollRect: {fileID: 0}
   fieldCellButtonControllerPrefab: {fileID: 7383046183923079376, guid: dc0fdcdfeb5904ca0960faca63305cba,
     type: 3}
 --- !u!1 &284989099

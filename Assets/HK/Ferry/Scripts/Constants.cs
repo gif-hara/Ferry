@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace HK.Ferry
@@ -78,6 +79,40 @@ namespace HK.Ferry
             /// a == b
             /// </summary>
             Equal,
+        }
+
+        /// <summary>
+        /// 識別タイプ
+        /// </summary>
+        public enum IdentifyType
+        {
+            /// <summary>
+            /// 未識別
+            /// </summary>
+            Unidentify,
+
+            /// <summary>
+            /// 識別可能
+            /// </summary>
+            IdentifyPosible,
+
+            /// <summary>
+            /// 識別
+            /// </summary>
+            Identify,
+        }
+
+        [Flags]
+        public enum DirectionType
+        {
+            LeftTop = 1,
+            Top = 1 << 1,
+            RightTop = 1 << 2,
+            Right = 1 << 3,
+            RightBottom = 1 << 4,
+            Bottom = 1 << 5,
+            LeftBottom = 1 << 6,
+            Left = 1 << 7
         }
     }
 }
