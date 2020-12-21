@@ -45,7 +45,13 @@ namespace HK.Ferry.FieldSystems
                     controller.Button.OnClickAsObservable()
                         .Subscribe(_ =>
                         {
-                            Identify(cellX, cellY);
+                            if (fieldIdentify.Get(cellX, cellY).Value == IdentifyType.IdentifyPosible)
+                            {
+                                Identify(cellX, cellY);
+                            }
+                            else
+                            {
+                            }
                         })
                         .AddTo(controller);
                     fieldIdentify.Get(x, y)
