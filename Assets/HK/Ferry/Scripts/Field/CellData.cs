@@ -16,6 +16,6 @@ namespace HK.Ferry.FieldSystems
         public int y = default;
 
         [SerializeReference, SubclassSelector]
-        public List<IFieldEvent> fieldEvents = default;
+        public IFieldEvent fieldEvent = default;
     }
 }

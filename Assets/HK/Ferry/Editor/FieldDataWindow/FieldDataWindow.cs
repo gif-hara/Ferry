@@ -113,7 +113,7 @@ namespace HK.Ferry.Editors
                                         if (editingCellIndex != -1)
                                         {
                                             var cellData = fieldData.cellDatas[editingCellIndex];
-                                            if (cellData.fieldEvents == null || cellData.fieldEvents.Count <= 0)
+                                            if (cellData.fieldEvent == null)
                                             {
                                                 fieldData.cellDatas.RemoveAt(editingCellIndex);
                                             }

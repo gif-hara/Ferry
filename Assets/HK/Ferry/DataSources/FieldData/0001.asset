@@ -16,7 +16,12 @@ MonoBehaviour:
   height: 10
   cellDatas:
   - x: 2
-    y: 3
-    fieldEvents: []
+    y: 8
+    fieldEvent:
+      id: 0
   references:
     version: 1
+    00000000:
+      type: {class: Log, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        message: Hello!

@@ -1,4 +1,5 @@
 ﻿using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -13,9 +14,15 @@ namespace HK.Ferry.FieldSystems.Events
         [SerializeField]
         private string message = default;
 
-        public void Invoke()
+        public IDisposable Register(int x, int y, FieldStatus fieldStatus)
         {
-            Debug.Log(message);
+            return fieldStatus.GetAccessed(x, y)
+                .Skip(1)
+                .Where(accessed => accessed)
+                .Subscribe(_ =>
+                {
+                    Debug.Log(message);
+                });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace HK.Ferry.FieldSystems
@@ -8,6 +9,6 @@ namespace HK.Ferry.FieldSystems
     /// </summary>
     public interface IFieldEvent
     {
-        void Invoke();
+        IDisposable Register(int x, int y, FieldStatus fieldStatus);
     }
 }

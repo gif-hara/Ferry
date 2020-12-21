@@ -28,16 +28,17 @@ namespace HK.Ferry.FieldSystems
 
         private void Start()
         {
+            var fieldData = debugFieldData.fieldData;
             gridLayoutGroup.padding.left = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.right = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.top = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.padding.bottom = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            gridLayoutGroup.constraintCount = debugFieldData.fieldData.width;
-            fieldStatus = new FieldStatus(debugFieldData.fieldData);
-            for (var y = 0; y < debugFieldData.fieldData.height; y++)
+            gridLayoutGroup.constraintCount = fieldData.width;
+            fieldStatus = new FieldStatus(fieldData);
+            for (var y = 0; y < fieldData.height; y++)
             {
-                for (var x = 0; x < debugFieldData.fieldData.width; x++)
+                for (var x = 0; x < fieldData.width; x++)
                 {
                     var controller = Instantiate(fieldCellButtonControllerPrefab, gridLayoutGroup.transform, false);
                     var cellX = x;
@@ -62,15 +63,13 @@ namespace HK.Ferry.FieldSystems
                             controller.SetIdentifyTypeObject(type);
                         })
                         .AddTo(controller);
-                    fieldStatus.GetAccessed(x, y)
-                        .Skip(1)
-                        .Where(accessed => accessed)
-                        .Subscribe(_ =>
-                        {
-                            Debug.Log($"({cellX}, {cellY}) Accessed");
-                        })
-                        .AddTo(controller);
                 }
+            }
+
+            foreach (var c in fieldData.cellDatas)
+            {
+                c.fieldEvent.Register(c.x, c.y, fieldStatus)
+                    .AddTo(this);
             }
 
             Identify(debugFieldData.initialX, debugFieldData.initialY);
