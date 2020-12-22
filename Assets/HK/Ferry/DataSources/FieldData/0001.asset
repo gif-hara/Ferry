@@ -52,41 +52,18 @@ MonoBehaviour:
     00000000:
       type: {class: Log, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
       data:
-        uiImage: {fileID: 3594718392086617520, guid: 814c0233b62564e3ba6bc6341add6d89,
-          type: 3}
         message: Test
     00000001:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000002:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000003:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000004:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000005:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000006:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}
     00000007:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
-      data:
-        uiImage: {fileID: 3594718392086617520, guid: 247f49ef09c9246aeb7c4fd2fd5ab93f,
-          type: 3}

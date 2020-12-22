@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.Database;
 using HK.Ferry.Extensions;
 using UniRx;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace HK.Ferry.FieldSystems.Events
     {
         [SerializeField]
         private string message = default;
+
+        public override GameObject UIImagePrefab => MasterDataCellImage.Get.GetLogRecord().CellImage;
 
         public override IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller)
         {

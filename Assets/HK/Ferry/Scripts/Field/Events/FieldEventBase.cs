@@ -10,10 +10,7 @@ namespace HK.Ferry.FieldSystems.Events
     [Serializable]
     public abstract class FieldEventBase : IFieldEvent
     {
-        [SerializeField]
-        private GameObject uiImage = default;
-
-        public GameObject UIImagePrefab => uiImage;
+        public abstract GameObject UIImagePrefab { get; }
 
         public abstract IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller);
     }
