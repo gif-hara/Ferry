@@ -28,3 +28,18 @@ MonoBehaviour:
         wisdomPower:
           value: 1
     ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
+  - id: 100101
+    spec:
+      name: "\u30B9\u30E9\u30A4\u30E0"
+      status:
+        hitPoint:
+          value: 450
+        attack:
+          value: 30
+        greatPower:
+          value: 1
+        artistPower:
+          value: 1
+        wisdomPower:
+          value: 1.4
+    ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}

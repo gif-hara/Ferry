@@ -19,3 +19,6 @@ MonoBehaviour:
   - id: 100200
     cellImage: {fileID: 3594718392086617520, guid: 814c0233b62564e3ba6bc6341add6d89,
       type: 3}
+  - id: 100300
+    cellImage: {fileID: 3594718392086617520, guid: 6de87caf9461f4adaae5e3b84e859b80,
+      type: 3}

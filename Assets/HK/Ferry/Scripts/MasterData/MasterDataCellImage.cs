@@ -35,5 +35,10 @@ namespace HK.Ferry.Database
         {
             return GetRecord(100200);
         }
+
+        public Record GetEnemyRecord()
+        {
+            return GetRecord(100300);
+        }
     }
 }

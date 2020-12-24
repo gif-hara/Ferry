@@ -1,6 +1,7 @@
 ﻿using System;
 using HK.Ferry.Database;
 using HK.Ferry.Extensions;
+using HK.Ferry.GameSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -16,7 +17,7 @@ namespace HK.Ferry.FieldSystems.Events
         [SerializeField]
         private int enemyId = default;
 
-        public override GameObject UIImagePrefab => MasterDataCellImage.Get.GetLogRecord().CellImage;
+        public override GameObject UIImagePrefab => MasterDataCellImage.Get.GetEnemyRecord().CellImage;
 
         public override IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller)
         {
@@ -26,6 +27,7 @@ namespace HK.Ferry.FieldSystems.Events
                 .Where(accessed => accessed > 0)
                 .Subscribe(_ =>
                 {
+                    GameManager.Instance.StateController.Change(GameManager.GameSystemType.Battle, new GameState.Battle.Argument { enemyId = enemyId });
                 });
         }
     }

@@ -35,6 +35,8 @@ namespace HK.Ferry.BattleSystems
         [SerializeField]
         private DebugBattleData debugBattleData = default;
 
+        private bool isDebug = true;
+
         public BattleEnemy Enemy { get; private set; }
 
         public BattlePlayer Player { get; private set; }
@@ -46,8 +48,12 @@ namespace HK.Ferry.BattleSystems
 
         private void Start()
         {
-            Enemy = debugBattleData.Enemy.CreateBattleEnemy();
-            Player = debugBattleData.Player.CreateBattlePlayer();
+            if (isDebug)
+            {
+                Enemy = debugBattleData.Enemy.CreateBattleEnemy();
+                Player = debugBattleData.Player.CreateBattlePlayer();
+            }
+
             uiView.Setup(this);
 
             stateController = new StateController<BattlePhase>(
@@ -70,6 +76,13 @@ namespace HK.Ferry.BattleSystems
         private void OnDestroy()
         {
             stateController.Dispose();
+        }
+
+        public void Setup(int enemyId)
+        {
+            Enemy = MasterDataEnemy.Get.GetRecord(enemyId).CreateBattleEnemy();
+            Player = debugBattleData.Player.CreateBattlePlayer();
+            isDebug = false;
         }
 
         public IObservable<Unit> InvokeCommand(BattleCharacter attacker, MasterDataCommand.Record command)

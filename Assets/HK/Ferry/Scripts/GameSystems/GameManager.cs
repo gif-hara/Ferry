@@ -30,6 +30,7 @@ namespace HK.Ferry.GameSystems
         public static GameManager Instance { get; private set; }
 
         private StateController<GameSystemType> stateController;
+        public StateController<GameSystemType> StateController => stateController;
 
         private void Awake()
         {
