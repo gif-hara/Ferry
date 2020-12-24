@@ -27,7 +27,14 @@ namespace HK.Ferry.GameSystems
         [SerializeField]
         private BattleSystem battleSystemPrefab = default;
 
+        public static GameManager Instance { get; private set; }
+
         private StateController<GameSystemType> stateController;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void Start()
         {
@@ -39,6 +46,11 @@ namespace HK.Ferry.GameSystems
                 },
                 initialType
                 );
+        }
+
+        private void OnDestroy()
+        {
+            stateController.Dispose();
         }
     }
 }

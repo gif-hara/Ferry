@@ -9,7 +9,7 @@ namespace HK.Ferry.GameSystems
     public partial class GameState
     {
         /// <summary>
-        /// バトル開始のステート
+        /// フィールドのステート
         /// </summary>
         public sealed class Field : GameStateBase
         {
