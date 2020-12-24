@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HK.Ferry.Extensions;
+using HK.Ferry.GameSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -11,7 +12,7 @@ namespace HK.Ferry.FieldSystems
     /// <summary>
     /// 
     /// </summary>
-    public sealed class FieldManager : MonoBehaviour
+    public sealed class FieldSystem : GameSystem
     {
         [SerializeField]
         private DebugFieldData debugFieldData = default;

@@ -9,6 +9,6 @@ namespace HK.Ferry
     /// </summary>
     public interface ICommand
     {
-        IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target);
+        IObservable<Unit> Invoke(BattleSystem battleManager, BattleCharacter attacker, BattleCharacter target);
     }
 }

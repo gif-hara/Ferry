@@ -38,7 +38,7 @@ namespace HK.Ferry
 
         private List<CommandButtonController> commandButtons = new List<CommandButtonController>();
 
-        public void Setup(BattleManager battleManager)
+        public void Setup(BattleSystem battleManager)
         {
             informationView.Setup(battleManager);
         }

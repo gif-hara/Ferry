@@ -12,19 +12,19 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class Begin : BattleStateBase
         {
-            public Begin(BattleManager battleManager) : base(battleManager)
+            public Begin(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.Begin;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.Begin;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
                 battleManager.UIView.EnemyStatusView.Setup(battleManager.Enemy);
                 battleManager.UIView.PlayerStatusView.Setup(battleManager.Player);
                 battleManager.UIView.CreateCommandButton(battleManager.Player.Commands);
                 battleManager.UIView.SetCommandButtonInteractable(false);
-                owner.Change(BattleManager.BattlePhase.PlayerTurnStart);
+                owner.Change(BattleSystem.BattlePhase.PlayerTurnStart);
             }
         }
     }

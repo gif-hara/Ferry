@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HK.Ferry.Database;
+using HK.Ferry.GameSystems;
 using HK.Ferry.StateControllers;
 using UniRx;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace HK.Ferry.BattleSystems
     /// <summary>
     /// バトルを管理するクラス
     /// </summary>
-    public sealed class BattleManager : MonoBehaviour
+    public sealed class BattleSystem : GameSystem
     {
         public enum BattlePhase
         {

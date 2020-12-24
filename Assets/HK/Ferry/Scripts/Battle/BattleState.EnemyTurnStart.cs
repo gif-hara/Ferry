@@ -12,15 +12,15 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class EnemyTurnStart : BattleStateBase
         {
-            public EnemyTurnStart(BattleManager battleManager) : base(battleManager)
+            public EnemyTurnStart(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.EnemyTurnStart;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.EnemyTurnStart;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
-                owner.Change(BattleManager.BattlePhase.EnemySelectCommand);
+                owner.Change(BattleSystem.BattlePhase.EnemySelectCommand);
             }
         }
     }

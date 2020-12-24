@@ -12,13 +12,13 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class End : BattleStateBase
         {
-            public End(BattleManager battleManager) : base(battleManager)
+            public End(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.End;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.End;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
                 Debug.Log("TODO End");
             }

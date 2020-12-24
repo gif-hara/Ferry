@@ -6,20 +6,20 @@ namespace HK.Ferry.BattleSystems
     /// <summary>
     /// バトルステートの抽象クラス
     /// </summary>
-    public abstract class BattleStateBase : IState<BattleManager.BattlePhase>
+    public abstract class BattleStateBase : IState<BattleSystem.BattlePhase>
     {
         public CompositeDisposable ActiveDisposables { get; private set; } = new CompositeDisposable();
 
-        public abstract BattleManager.BattlePhase StateName { get; }
+        public abstract BattleSystem.BattlePhase StateName { get; }
 
-        protected BattleManager battleManager;
+        protected BattleSystem battleManager;
 
-        public BattleStateBase(BattleManager battleManager)
+        public BattleStateBase(BattleSystem battleManager)
         {
             this.battleManager = battleManager;
         }
 
-        public abstract void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null);
+        public abstract void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null);
 
         public void Exit()
         {

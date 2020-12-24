@@ -27,7 +27,7 @@ namespace HK.Ferry
         [SerializeField]
         private float value = default;
 
-        public IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> Invoke(BattleSystem battleManager, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {

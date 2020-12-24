@@ -12,13 +12,13 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class PlayerSelectCommand : BattleStateBase
         {
-            public PlayerSelectCommand(BattleManager battleManager) : base(battleManager)
+            public PlayerSelectCommand(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.PlayerSelectCommand;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.PlayerSelectCommand;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
                 battleManager.UIView.SetCommandButtonInteractable(true);
                 battleManager.UIView.SelectCommandAsObservable()
@@ -28,10 +28,10 @@ namespace HK.Ferry.BattleSystems
                         {
                             command = x.Command,
                             commandInvoker = battleManager.Player,
-                            completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.PlayerTurnEnd)
+                            completeInvokeCommandAction = () => owner.Change(BattleSystem.BattlePhase.PlayerTurnEnd)
                         };
                         x.ResetCoolTime();
-                        owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
+                        owner.Change(BattleSystem.BattlePhase.InvokeCommand, arg);
                     })
                     .AddTo(ActiveDisposables);
             }

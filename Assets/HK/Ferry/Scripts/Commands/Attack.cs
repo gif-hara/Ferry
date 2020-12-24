@@ -17,7 +17,7 @@ namespace HK.Ferry
         [SerializeField]
         private float rate = 1.0f;
 
-        public IObservable<Unit> Invoke(BattleManager battleManager, BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> Invoke(BattleSystem battleManager, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {

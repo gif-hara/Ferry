@@ -20,7 +20,7 @@ namespace HK.Ferry
         [SerializeField]
         private ScrollRect scrollRect = default;
 
-        public void Setup(BattleManager battleManager)
+        public void Setup(BattleSystem battleManager)
         {
             battleManager.LogsAsObservable()
                 .ObserveAdd()

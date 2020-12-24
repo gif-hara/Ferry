@@ -14,13 +14,13 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class InvokeCommand : BattleStateBase
         {
-            public InvokeCommand(BattleManager battleManager) : base(battleManager)
+            public InvokeCommand(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.InvokeCommand;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.InvokeCommand;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
                 var arg = (Argument)argument;
                 Assert.IsNotNull(arg);
@@ -31,7 +31,7 @@ namespace HK.Ferry.BattleSystems
                 {
                     if (battleManager.CanEnd())
                     {
-                        owner.Change(BattleManager.BattlePhase.End);
+                        owner.Change(BattleSystem.BattlePhase.End);
                     }
                 }, () =>
                 {

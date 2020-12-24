@@ -12,21 +12,21 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public sealed class EnemySelectCommand : BattleStateBase
         {
-            public EnemySelectCommand(BattleManager battleManager) : base(battleManager)
+            public EnemySelectCommand(BattleSystem battleManager) : base(battleManager)
             {
             }
 
-            public override BattleManager.BattlePhase StateName => BattleManager.BattlePhase.EnemySelectCommand;
+            public override BattleSystem.BattlePhase StateName => BattleSystem.BattlePhase.EnemySelectCommand;
 
-            public override void Enter(StateController<BattleManager.BattlePhase> owner, IStateArgument argument = null)
+            public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
                 var arg = new InvokeCommand.Argument
                 {
                     command = battleManager.Enemy.GetCommand(),
                     commandInvoker = battleManager.Enemy,
-                    completeInvokeCommandAction = () => owner.Change(BattleManager.BattlePhase.EnemyTurnEnd)
+                    completeInvokeCommandAction = () => owner.Change(BattleSystem.BattlePhase.EnemyTurnEnd)
                 };
-                owner.Change(BattleManager.BattlePhase.InvokeCommand, arg);
+                owner.Change(BattleSystem.BattlePhase.InvokeCommand, arg);
             }
         }
     }
