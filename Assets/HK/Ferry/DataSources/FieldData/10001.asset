@@ -51,6 +51,10 @@ MonoBehaviour:
     y: 7
     fieldEvent:
       id: 8
+  - x: 2
+    y: 3
+    fieldEvent:
+      id: 9
   references:
     version: 1
     00000000:
@@ -75,3 +79,8 @@ MonoBehaviour:
       type: {class: Enemy, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
       data:
         enemyId: 100101
+    00000009:
+      type: {class: ChangeField, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        fieldDataId: 10002
+        initialPosition: {x: 0, y: 0}

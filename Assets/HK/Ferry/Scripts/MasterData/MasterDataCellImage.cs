@@ -40,5 +40,10 @@ namespace HK.Ferry.Database
         {
             return GetRecord(100300);
         }
+
+        public Record GetChangeFieldRecord()
+        {
+            return GetRecord(100400);
+        }
     }
 }

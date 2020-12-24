@@ -22,3 +22,6 @@ MonoBehaviour:
   - id: 100300
     cellImage: {fileID: 3594718392086617520, guid: 6de87caf9461f4adaae5e3b84e859b80,
       type: 3}
+  - id: 100400
+    cellImage: {fileID: 3594718392086617520, guid: 0b2429480c2d64377888cb2debffdeee,
+      type: 3}
