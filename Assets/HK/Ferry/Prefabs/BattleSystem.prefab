@@ -2154,21 +2154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiView: {fileID: 4192897004094751350}
   debugBattleData:
-    enemy:
-      spec:
-        name: "\u30A8\u30CD\u30DF\u30FC"
-        status:
-          hitPoint:
-            value: 300
-          attack:
-            value: 100
-          greatPower:
-            value: 1
-          artistPower:
-            value: 1
-          wisdomPower:
-            value: 1
-      ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
+    enemyId: 100100
     player:
       name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
       weaponName: Weapon/001

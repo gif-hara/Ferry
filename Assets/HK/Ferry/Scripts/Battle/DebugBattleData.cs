@@ -15,8 +15,8 @@ namespace HK.Ferry
     public sealed class DebugBattleData
     {
         [SerializeField]
-        private EnemyData enemy = default;
-        public EnemyData Enemy => this.enemy;
+        private int enemyId = default;
+        public MasterDataEnemy.Record Enemy => MasterDataEnemy.Get.GetRecord(enemyId);
 
         [SerializeField]
         private PlayerData player = default;
