@@ -26,15 +26,24 @@ namespace HK.Ferry.FieldSystems
         [SerializeField]
         private FieldCellButtonController fieldCellButtonControllerPrefab = default;
 
+        private bool isDebug = true;
+
         private List<List<FieldCellButtonController>> controllers = new List<List<FieldCellButtonController>>();
 
         private FieldData fieldData;
+
+        private Vector2Int initialPosition;
 
         private FieldStatus fieldStatus;
 
         private void Start()
         {
-            fieldData = debugFieldData.fieldData;
+            if (isDebug)
+            {
+                fieldData = debugFieldData.fieldData;
+                initialPosition = new Vector2Int(debugFieldData.initialX, debugFieldData.initialY);
+            }
+
             gridLayoutGroup.padding.left = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.right = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.top = Screen.height - (int)gridLayoutGroup.cellSize.y;
@@ -80,7 +89,14 @@ namespace HK.Ferry.FieldSystems
                     .AddTo(this);
             }
 
-            Identify(debugFieldData.initialX, debugFieldData.initialY);
+            Identify(initialPosition.x, initialPosition.y);
+        }
+
+        public void Setup(FieldData fieldData, Vector2Int initialPosition)
+        {
+            this.fieldData = fieldData;
+            this.initialPosition = initialPosition;
+            isDebug = false;
         }
 
         private void Identify(int x, int y)

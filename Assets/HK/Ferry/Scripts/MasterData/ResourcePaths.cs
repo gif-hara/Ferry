@@ -15,6 +15,7 @@ namespace HK.Ferry.Database
             if (type == typeof(MasterDataWeapon)) return "MasterData/Weapon";
             if (type == typeof(MasterDataCellImage)) return "MasterData/CellImage";
             if (type == typeof(MasterDataEnemy)) return "MasterData/Enemy";
+            if (type == typeof(MasterDataFieldData)) return "MasterData/FieldData";
 
             Assert.IsTrue(false, $"{type}は未対応です");
             return "";
