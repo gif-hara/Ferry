@@ -1,5 +1,8 @@
-﻿using HK.Ferry.Database;
+﻿using System;
+using HK.Ferry.Database;
+using HK.Ferry.GameSystems;
 using HK.Ferry.StateControllers;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -20,7 +23,13 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
-                Debug.Log("TODO End");
+                battleManager.AddLog("TODO:バトル終了");
+
+                Observable.Timer(TimeSpan.FromSeconds(3.0f))
+                    .Subscribe(_ =>
+                    {
+                        GameManager.Instance.StateController.Change(GameManager.GameSystemType.Field);
+                    });
             }
         }
     }
