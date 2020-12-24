@@ -54,17 +54,17 @@ namespace HK.Ferry.FieldSystems
                     controller.Button.OnClickAsObservable()
                         .Subscribe(_ =>
                         {
-                            if (fieldStatus.GetIdentify(cellX, cellY).Value == IdentifyType.IdentifyPosible)
+                            if (fieldStatus.GetIdentifyAsObservable(cellX, cellY).Value == IdentifyType.IdentifyPosible)
                             {
                                 Identify(cellX, cellY);
                             }
                             else
                             {
-                                fieldStatus.Accessed[cellY][cellX].Value = true;
+                                fieldStatus.AccessCount[cellY][cellX].Value++;
                             }
                         })
                         .AddTo(controller);
-                    fieldStatus.GetIdentify(x, y)
+                    fieldStatus.GetIdentifyAsObservable(x, y)
                         .Subscribe(type =>
                         {
                             controller.Button.interactable = type != Constants.IdentifyType.Unidentify;

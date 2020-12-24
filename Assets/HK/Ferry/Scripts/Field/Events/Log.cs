@@ -21,9 +21,9 @@ namespace HK.Ferry.FieldSystems.Events
         public override IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller)
         {
             this.AddUIImage(controller);
-            return fieldStatus.GetAccessed(x, y)
+            return fieldStatus.GetAccessCountAsObservable(x, y)
                 .Skip(1)
-                .Where(accessed => accessed)
+                .Where(accessed => accessed > 0)
                 .Subscribe(_ =>
                 {
                     Debug.Log(message);

@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec5db3cbc48411aa8ad243252ea746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialType: 1
+  initialType: 0
   fieldSystemPrefab: {fileID: 2334978408241614460, guid: 97ec515f942fd42d5b27bd18f060227f,
     type: 3}
   battleSystemPrefab: {fileID: 4192897004412911878, guid: 06e8518193da44de39a301c04e9b5e95,

@@ -13,30 +13,30 @@ namespace HK.Ferry.FieldSystems
     {
         public readonly List<List<ReactiveProperty<Constants.IdentifyType>>> Identifies = new List<List<ReactiveProperty<Constants.IdentifyType>>>();
 
-        public readonly List<List<ReactiveProperty<bool>>> Accessed = new List<List<ReactiveProperty<bool>>>();
+        public readonly List<List<ReactiveProperty<int>>> AccessCount = new List<List<ReactiveProperty<int>>>();
 
         public FieldStatus(FieldData fieldData)
         {
             for (var y = 0; y < fieldData.height; y++)
             {
                 Identifies.Add(new List<ReactiveProperty<Constants.IdentifyType>>());
-                Accessed.Add(new List<ReactiveProperty<bool>>());
+                AccessCount.Add(new List<ReactiveProperty<int>>());
                 for (var x = 0; x < fieldData.width; x++)
                 {
                     Identifies[y].Add(new ReactiveProperty<Constants.IdentifyType>(Constants.IdentifyType.Unidentify));
-                    Accessed[y].Add(new ReactiveProperty<bool>(false));
+                    AccessCount[y].Add(new ReactiveProperty<int>(0));
                 }
             }
         }
 
-        public IReadOnlyReactiveProperty<Constants.IdentifyType> GetIdentify(int x, int y)
+        public IReadOnlyReactiveProperty<Constants.IdentifyType> GetIdentifyAsObservable(int x, int y)
         {
             return Identifies[y][x];
         }
 
-        public IReadOnlyReactiveProperty<bool> GetAccessed(int x, int y)
+        public IReadOnlyReactiveProperty<int> GetAccessCountAsObservable(int x, int y)
         {
-            return Accessed[y][x];
+            return AccessCount[y][x];
         }
 
         [Serializable]
