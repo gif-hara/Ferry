@@ -12,8 +12,11 @@ namespace HK.Ferry.GameSystems
 
         public abstract GameManager.GameSystemType StateName { get; }
 
-        public GameStateBase()
+        protected readonly GameManager gameManager;
+
+        public GameStateBase(GameManager gameManager)
         {
+            this.gameManager = gameManager;
         }
 
         public abstract void Enter(StateController<GameManager.GameSystemType> owner, IStateArgument argument = null);

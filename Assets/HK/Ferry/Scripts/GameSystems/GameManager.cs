@@ -34,8 +34,8 @@ namespace HK.Ferry.GameSystems
             stateController = new StateController<GameSystemType>(
                 new List<IState<GameSystemType>>
                 {
-                    new GameState.Field(),
-                    new GameState.Battle()
+                    new GameState.Field(this, fieldSystemPrefab),
+                    new GameState.Battle(this, battleSystemPrefab)
                 },
                 initialType
                 );
