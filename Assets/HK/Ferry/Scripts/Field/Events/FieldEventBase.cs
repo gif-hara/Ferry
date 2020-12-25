@@ -12,6 +12,8 @@ namespace HK.Ferry.FieldSystems.Events
     {
         public abstract GameObject UIImagePrefab { get; }
 
+        public abstract Constants.IdentifyType OnIdentifiedType { get; }
+
         public abstract IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller);
     }
 }

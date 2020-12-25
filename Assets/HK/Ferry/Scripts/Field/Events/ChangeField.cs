@@ -22,6 +22,8 @@ namespace HK.Ferry.FieldSystems.Events
 
         public override GameObject UIImagePrefab => MasterDataCellImage.Get.GetChangeFieldRecord().CellImage;
 
+        public override Constants.IdentifyType OnIdentifiedType => Constants.IdentifyType.IdentifyPosible;
+
         public override IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller)
         {
             this.AddUIImage(controller);

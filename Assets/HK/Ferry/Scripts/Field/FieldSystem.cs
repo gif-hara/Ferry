@@ -108,9 +108,9 @@ namespace HK.Ferry.FieldSystems
                 if (c.Value == IdentifyType.Unidentify)
                 {
                     var cellData = fieldData.GetCellData(i.x, i.y);
-                    if (cellData != null && cellData.fieldEvent.IsBlock())
+                    if (cellData != null)
                     {
-                        c.Value = IdentifyType.Identify;
+                        c.Value = cellData.fieldEvent.OnIdentifiedType;
                     }
                     else
                     {

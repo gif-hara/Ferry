@@ -11,6 +11,11 @@ namespace HK.Ferry.FieldSystems
     {
         IDisposable Register(int x, int y, FieldStatus fieldStatus, FieldCellButtonController controller);
 
+        /// <summary>
+        /// 識別される際の状態を返す
+        /// </summary>
+        Constants.IdentifyType OnIdentifiedType { get; }
+
         GameObject UIImagePrefab { get; }
     }
 }
