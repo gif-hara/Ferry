@@ -31,7 +31,7 @@ namespace HK.Ferry.GameSystems
                 var arg = argument as Argument;
                 if (arg != null)
                 {
-                    fieldSystem.Setup(MasterDataFieldData.Get.GetRecord(arg.fieldDataId).FieldData, arg.initialPosition);
+                    fieldSystem.Setup(arg.fieldDataId, arg.initialPosition);
                 }
             }
 

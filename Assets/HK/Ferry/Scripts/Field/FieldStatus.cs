@@ -29,6 +29,22 @@ namespace HK.Ferry.FieldSystems
             }
         }
 
+        public FieldStatus(string json)
+        {
+            var serializedData = JsonUtility.FromJson<SerializedData>(json);
+            for (var y = 0; y < serializedData.height; y++)
+            {
+                Identifies.Add(new List<ReactiveProperty<Constants.IdentifyType>>());
+                AccessCount.Add(new List<ReactiveProperty<int>>());
+                for (var x = 0; x < serializedData.width; x++)
+                {
+                    var index = (y * serializedData.width) + x;
+                    Identifies[y].Add(new ReactiveProperty<Constants.IdentifyType>(serializedData.identifies[index]));
+                    AccessCount[y].Add(new ReactiveProperty<int>(serializedData.accessCount[index]));
+                }
+            }
+        }
+
         public IReadOnlyReactiveProperty<Constants.IdentifyType> GetIdentifyAsObservable(int x, int y)
         {
             return Identifies[y][x];
@@ -39,12 +55,29 @@ namespace HK.Ferry.FieldSystems
             return AccessCount[y][x];
         }
 
-        [Serializable]
-        public class SerializedData
+        public string ToJson()
         {
-            public List<Constants.IdentifyType> identifies = new List<Constants.IdentifyType>();
+            var serializedData = new SerializedData
+            {
+                identifies = Identifies.SelectMany(x => x.Select(y => y.Value)).ToList(),
+                accessCount = AccessCount.SelectMany(x => x.Select(y => y.Value)).ToList(),
+                width = Identifies[0].Count,
+                height = Identifies.Count
+            };
 
-            public int width;
+            return JsonUtility.ToJson(serializedData);
         }
+    }
+
+    [Serializable]
+    public class SerializedData
+    {
+        public List<Constants.IdentifyType> identifies = new List<Constants.IdentifyType>();
+
+        public List<int> accessCount = new List<int>();
+
+        public int width;
+
+        public int height;
     }
 }

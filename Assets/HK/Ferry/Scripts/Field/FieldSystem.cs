@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HK.Ferry.Database;
 using HK.Ferry.Extensions;
 using HK.Ferry.GameSystems;
 using UniRx;
@@ -30,6 +31,8 @@ namespace HK.Ferry.FieldSystems
 
         private List<List<FieldCellButtonController>> controllers = new List<List<FieldCellButtonController>>();
 
+        private int fieldDataId;
+
         private FieldData fieldData;
 
         private Vector2Int initialPosition;
@@ -40,17 +43,18 @@ namespace HK.Ferry.FieldSystems
         {
             if (isDebug)
             {
-                fieldData = debugFieldData.fieldData;
+                fieldDataId = debugFieldData.fieldDataId;
                 initialPosition = new Vector2Int(debugFieldData.initialX, debugFieldData.initialY);
             }
 
+            fieldData = MasterDataFieldData.Get.GetRecord(fieldDataId).FieldData;
             gridLayoutGroup.padding.left = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.right = Screen.width - (int)gridLayoutGroup.cellSize.x;
             gridLayoutGroup.padding.top = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.padding.bottom = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             gridLayoutGroup.constraintCount = fieldData.width;
-            fieldStatus = new FieldStatus(fieldData);
+            fieldStatus = UserData.Instance.LoadFieldStatus(fieldDataId);
             for (var y = 0; y < fieldData.height; y++)
             {
                 controllers.Add(new List<FieldCellButtonController>());
@@ -92,9 +96,9 @@ namespace HK.Ferry.FieldSystems
             Identify(initialPosition.x, initialPosition.y);
         }
 
-        public void Setup(FieldData fieldData, Vector2Int initialPosition)
+        public void Setup(int fieldDataId, Vector2Int initialPosition)
         {
-            this.fieldData = fieldData;
+            this.fieldDataId = fieldDataId;
             this.initialPosition = initialPosition;
             isDebug = false;
         }
@@ -118,6 +122,8 @@ namespace HK.Ferry.FieldSystems
                     }
                 }
             }
+
+            UserData.Instance.SaveFieldStatus(fieldDataId, fieldStatus);
         }
     }
 }

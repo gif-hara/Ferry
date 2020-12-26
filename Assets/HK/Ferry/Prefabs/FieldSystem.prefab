@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugFieldData:
-    fieldData: {fileID: 11400000, guid: 296482d4088eb4f5b858d9ccb1d6d18a, type: 2}
+    fieldDataId: 10001
     initialX: 2
     initialY: 9
   gridLayoutGroup: {fileID: 2334978409116140399}

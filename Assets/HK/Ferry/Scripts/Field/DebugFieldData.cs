@@ -10,7 +10,7 @@ namespace HK.Ferry.FieldSystems
     [Serializable]
     public sealed class DebugFieldData
     {
-        public FieldData fieldData = default;
+        public int fieldDataId = default;
 
         public int initialX = default;
 
