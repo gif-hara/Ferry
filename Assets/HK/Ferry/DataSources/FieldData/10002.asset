@@ -75,6 +75,10 @@ MonoBehaviour:
     y: 1
     fieldEvent:
       id: 14
+  - x: 1
+    y: 0
+    fieldEvent:
+      id: 15
   references:
     version: 1
     00000000:
@@ -109,3 +113,8 @@ MonoBehaviour:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
     0000000E:
       type: {class: Block, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+    0000000F:
+      type: {class: ChangeField, ns: HK.Ferry.FieldSystems.Events, asm: Assembly-CSharp}
+      data:
+        fieldDataId: 10001
+        initialPosition: {x: 2, y: 9}
