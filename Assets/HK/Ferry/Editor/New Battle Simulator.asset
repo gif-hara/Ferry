@@ -17,8 +17,14 @@ MonoBehaviour:
       value: 0
     attack:
       value: 100
+    defense:
+      value: 0
+    evasion:
+      value: 0
+    critical:
+      value: 0
     greatPower:
-      value: 1
+      value: 1.5
     artistPower:
       value: 1
     wisdomPower:
@@ -28,9 +34,15 @@ MonoBehaviour:
       value: 0
     attack:
       value: 100
+    defense:
+      value: 0
+    evasion:
+      value: 0
+    critical:
+      value: 0
     greatPower:
-      value: 1.4
+      value: 1
     artistPower:
       value: 1.5
     wisdomPower:
-      value: 1.6
+      value: 1

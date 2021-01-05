@@ -22,15 +22,6 @@ namespace HK.Ferry
         [SerializeField]
         private TextMeshProUGUI attackText = default;
 
-        [SerializeField]
-        private TextMeshProUGUI greatPowerText = default;
-
-        [SerializeField]
-        private TextMeshProUGUI artistPowerText = default;
-
-        [SerializeField]
-        private TextMeshProUGUI wisdomPowerText = default;
-
         public void Setup(BattleCharacter battleCharacter)
         {
             battleCharacter.CurrentSpec.Status.hitPoint
@@ -44,24 +35,6 @@ namespace HK.Ferry
                 .Subscribe(x =>
                 {
                     attackText.text = ScriptLocalization.UI.AttackFormat.Format(x.ToString());
-                })
-                .AddTo(this);
-            battleCharacter.CurrentSpec.Status.greatPower
-                .Subscribe(x =>
-                {
-                    greatPowerText.text = ScriptLocalization.UI.GreatPowerFormat.Format(x.ToString("0.00"));
-                })
-                .AddTo(this);
-            battleCharacter.CurrentSpec.Status.artistPower
-                .Subscribe(x =>
-                {
-                    artistPowerText.text = ScriptLocalization.UI.ArtistPowerFormat.Format(x.ToString("0.00"));
-                })
-                .AddTo(this);
-            battleCharacter.CurrentSpec.Status.wisdomPower
-                .Subscribe(x =>
-                {
-                    wisdomPowerText.text = ScriptLocalization.UI.WisdomPowerFormat.Format(x.ToString("0.00"));
                 })
                 .AddTo(this);
         }

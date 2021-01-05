@@ -47,16 +47,7 @@ namespace HK.Ferry
             private string weaponName = default;
 
             [SerializeField]
-            private int hitPoint = default;
-
-            [SerializeField]
-            private float greatPower = default;
-
-            [SerializeField]
-            private float artistPower = default;
-
-            [SerializeField]
-            private float wisdomPower = default;
+            private CharacterStatus characterStatus = default;
 
             [SerializeField, TermsPopup]
             private List<string> commands = default;
@@ -65,7 +56,7 @@ namespace HK.Ferry
             public BattlePlayer CreateBattlePlayer()
             {
                 var weapon = MasterDataWeapon.Get.GetRecord(weaponName);
-                return new BattlePlayer(new CharacterSpec(name, new CharacterStatus(hitPoint, weapon.Attack, greatPower, artistPower, wisdomPower)), commands);
+                return new BattlePlayer(new CharacterSpec(name, characterStatus), commands);
             }
         }
     }

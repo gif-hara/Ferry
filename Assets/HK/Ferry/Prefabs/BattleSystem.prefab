@@ -855,9 +855,6 @@ MonoBehaviour:
   hitPointSlider: {fileID: 4192897004290053322}
   hitPointText: {fileID: 4192897003382095292}
   attackText: {fileID: 4192897003312217670}
-  greatPowerText: {fileID: 4192897004347655851}
-  artistPowerText: {fileID: 4192897004809523793}
-  wisdomPowerText: {fileID: 4192897005130400903}
 --- !u!1 &4192897003738564476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,18 +2155,19 @@ MonoBehaviour:
     player:
       name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
       weaponName: Weapon/001
-      hitPoint: 300
-      greatPower: 1
-      artistPower: 1
-      wisdomPower: 1
+      characterStatus:
+        hitPoint:
+          value: 100
+        attack:
+          value: 10
+        defense:
+          value: 10
+        evasion:
+          value: 0
+        critical:
+          value: 0
       commands:
       - "CommandName/\u901A\u5E38\u653B\u6483"
-      - "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
-      - "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
-      - "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
-      - "CommandName/\u529B\u4E0A\u6607"
-      - "CommandName/\u6280\u4E0A\u6607"
-      - "CommandName/\u667A\u4E0A\u6607"
 --- !u!1 &4192897004550833180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,9 +2309,6 @@ MonoBehaviour:
   hitPointSlider: {fileID: 4192897005172707643}
   hitPointText: {fileID: 4192897003738564477}
   attackText: {fileID: 4192897004062583456}
-  greatPowerText: {fileID: 4192897004660552394}
-  artistPowerText: {fileID: 4192897004864352670}
-  wisdomPowerText: {fileID: 4192897005122261275}
 --- !u!1 &4192897004660552392
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
         hitPoint:
           value: 300
         attack:
-          value: 50
+          value: 100
         greatPower:
           value: 1
         artistPower:

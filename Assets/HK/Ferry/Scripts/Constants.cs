@@ -9,13 +9,6 @@ namespace HK.Ferry
     /// </summary>
     public static class Constants
     {
-        public enum PowerType
-        {
-            Great,
-            Artist,
-            Wisdom,
-        }
-
         /// <summary>
         /// ターゲットタイプ
         /// </summary>

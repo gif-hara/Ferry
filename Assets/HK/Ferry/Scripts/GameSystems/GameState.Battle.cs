@@ -27,9 +27,11 @@ namespace HK.Ferry.GameSystems
             public override void Enter(StateController<GameManager.GameSystemType> owner, IStateArgument argument = null)
             {
                 this.battleSystem = Object.Instantiate(this.battleSystemPrefab);
-                var arg = (Argument)argument;
-                Assert.IsNotNull(arg);
-                battleSystem.Setup(arg.enemyId);
+                var arg = argument as Argument;
+                if (arg != null)
+                {
+                    battleSystem.Setup(arg.enemyId);
+                }
             }
 
             protected override void OnExit()
