@@ -146,6 +146,12 @@ namespace HK.Ferry
             Critical,
         }
 
+        public enum EquipmentType
+        {
+            Weapon,
+            Armor,
+        }
+
         /// <summary>
         /// 状態異常タイプ
         /// </summary>

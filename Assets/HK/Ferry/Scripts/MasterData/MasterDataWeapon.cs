@@ -21,8 +21,28 @@ namespace HK.Ferry.Database
             public string Id => name;
 
             [SerializeField]
+            private int hitPoint = default;
+            public int HitPoint => hitPoint;
+
+            [SerializeField]
             private int attack = default;
             public int Attack => attack;
+
+            [SerializeField]
+            private int defense = default;
+            public int Defense => defense;
+
+            [SerializeField]
+            private int evasion = default;
+            public int Evasion => Evasion;
+
+            [SerializeField]
+            private int critical = default;
+            public int Critical => critical;
+
+            [SerializeField]
+            private List<Constants.SkillType> skills = default;
+            public List<Constants.SkillType> Skills => skills;
         }
     }
 }
