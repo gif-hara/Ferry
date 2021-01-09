@@ -209,6 +209,14 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AbnormalStateTakeDamage(level, AbnormalStateType.FastRunner, TargetType.Opponent);
                 case SkillType.AbnormalStateTakeDamageOpponent_CounterAttack:
                     return new AbnormalStateTakeDamage(level, AbnormalStateType.CounterAttack, TargetType.Opponent);
+                case SkillType.AttackAttributeResistance_Slash:
+                    return new AttackAttributeResistance(level, AttackAttribute.Slash);
+                case SkillType.AttackAttributeResistance_Spear:
+                    return new AttackAttributeResistance(level, AttackAttribute.Spear);
+                case SkillType.AttackAttributeResistance_Blow:
+                    return new AttackAttributeResistance(level, AttackAttribute.Blow);
+                case SkillType.AttackAttributeResistance_Magic:
+                    return new AttackAttributeResistance(level, AttackAttribute.Magic);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

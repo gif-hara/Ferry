@@ -15,8 +15,9 @@ MonoBehaviour:
   records:
   - name: Weapon/001
     hitPoint: 0
-    attack: 15
+    attack: 100
     defense: 0
     evasion: 0
     critical: 0
+    attackAttribute: 0
     skills: a0280000

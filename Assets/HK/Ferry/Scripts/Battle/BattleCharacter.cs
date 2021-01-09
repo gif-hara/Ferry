@@ -69,7 +69,7 @@ namespace HK.Ferry
         /// </summary>
         public int GiveDamage(BattleCharacter target)
         {
-            var damage = BattleCalcurator.GetDamage(CurrentSpec.Status, target.CurrentSpec.Status, 1.0f);
+            var damage = BattleCalcurator.GetDamage(this, target);
             target.TakeDamage(this, damage);
 
             return damage;

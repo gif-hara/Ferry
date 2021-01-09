@@ -35,7 +35,7 @@ namespace HK.Ferry.Database
 
             [SerializeField]
             private int evasion = default;
-            public int Evasion => Evasion;
+            public int Evasion => evasion;
 
             [SerializeField]
             private int critical = default;

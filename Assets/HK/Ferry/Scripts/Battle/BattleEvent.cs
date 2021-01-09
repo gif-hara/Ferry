@@ -1,5 +1,6 @@
 ﻿using System;
 using UniRx;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry.BattleSystems
 {
@@ -30,6 +31,18 @@ namespace HK.Ferry.BattleSystems
         public interface IOnStartBattle
         {
             IObservable<Unit> OnStartBattle();
+        }
+
+        /// <summary>
+        /// <see cref="Constants.AttackAttribute"/>からダメージ軽減率を返すインターフェイス
+        /// </summary>
+        public interface IGetDamageReductionRateFromAttackAttribute
+        {
+            /// <summary>
+            /// ダメージ軽減率を返す
+            /// <c>0</c>ならダメージも<c>0</c>になる
+            /// </summary>
+            float GetReductionRate(AttackAttribute attackerSideAttackAttribute);
         }
     }
 }

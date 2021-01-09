@@ -1,4 +1,5 @@
 ﻿using System;
+using HK.Ferry.Database;
 using UniRx;
 
 namespace HK.Ferry
@@ -46,6 +47,15 @@ namespace HK.Ferry
             this.defense.Value = other.defense.Value;
             this.evasion.Value = other.evasion.Value;
             this.critical.Value = other.critical.Value;
+        }
+
+        public void Add(MasterDataEquipment.Record equipment)
+        {
+            this.hitPoint.Value += equipment.HitPoint;
+            this.attack.Value += equipment.Attack;
+            this.defense.Value += equipment.Defense;
+            this.evasion.Value += equipment.Evasion;
+            this.critical.Value += equipment.Critical;
         }
     }
 }
