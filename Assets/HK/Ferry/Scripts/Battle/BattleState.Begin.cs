@@ -1,5 +1,6 @@
 ﻿using HK.Ferry.Database;
 using HK.Ferry.StateControllers;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -20,6 +21,10 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
+                battleManager.Player.StartBattle()
+                    .Subscribe();
+                battleManager.Enemy.StartBattle()
+                    .Subscribe();
                 battleManager.UIView.EnemyStatusView.Setup(battleManager.Enemy);
                 battleManager.UIView.PlayerStatusView.Setup(battleManager.Player);
                 battleManager.UIView.CreateCommandButton(battleManager.Player.Commands);

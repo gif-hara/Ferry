@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static HK.Ferry.BattleSystems.BattleEvent;
 
 namespace HK.Ferry
 {
@@ -42,6 +45,21 @@ namespace HK.Ferry
 
         public float HitPointRate => (float)CurrentSpec.Status.hitPoint.Value / BaseSpec.Status.hitPoint.Value;
 
+        public virtual IObservable<Unit> StartBattle()
+        {
+            return Observable.Defer(() =>
+            {
+                return Observable.Concat(
+                    Skills.OfType<IOnStartBattle>()
+                        .Select(x => x.OnStartBattle())
+                )
+                .AsSingleUnitObservable();
+            });
+        }
+
+        /// <summary>
+        /// ターン開始時の処理
+        /// </summary>
         public virtual void StartTurn()
         {
         }

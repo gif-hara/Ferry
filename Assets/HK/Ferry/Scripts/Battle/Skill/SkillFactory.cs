@@ -69,6 +69,34 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AbnormalStateGiveDamage(level, AbnormalStateType.FastRunner, TargetType.Opponent);
                 case SkillType.AbnormalStateGiveDamageOpponent_CounterAttack:
                     return new AbnormalStateGiveDamage(level, AbnormalStateType.CounterAttack, TargetType.Opponent);
+                case SkillType.AbnormalStateDisable_Poison:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Poison);
+                case SkillType.AbnormalStateDisable_Paralysis:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Paralysis);
+                case SkillType.AbnormalStateDisable_Confusion:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Confusion);
+                case SkillType.AbnormalStateDisable_BlindEyes:
+                    return new AbnormalStateDisable(level, AbnormalStateType.BlindEyes);
+                case SkillType.AbnormalStateDisable_Flinch:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Flinch);
+                case SkillType.AbnormalStateDisable_Vitals:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Vitals);
+                case SkillType.AbnormalStateDisable_Quilting:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Quilting);
+                case SkillType.AbnormalStateDisable_Tiredness:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Tiredness);
+                case SkillType.AbnormalStateDisable_Seal:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Seal);
+                case SkillType.AbnormalStateDisable_Healing:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Healing);
+                case SkillType.AbnormalStateDisable_MindEyes:
+                    return new AbnormalStateDisable(level, AbnormalStateType.MindEyes);
+                case SkillType.AbnormalStateDisable_Absorption:
+                    return new AbnormalStateDisable(level, AbnormalStateType.Absorption);
+                case SkillType.AbnormalStateDisable_FastRunner:
+                    return new AbnormalStateDisable(level, AbnormalStateType.FastRunner);
+                case SkillType.AbnormalStateDisable_CounterAttack:
+                    return new AbnormalStateDisable(level, AbnormalStateType.CounterAttack);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;
