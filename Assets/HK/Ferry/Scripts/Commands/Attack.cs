@@ -34,6 +34,11 @@ namespace HK.Ferry
                     otherStreams.Add(s.OnGiveDamage(attacker, target));
                 }
 
+                foreach (var s in target.Skills.OfType<IOnTakeDamage>())
+                {
+                    otherStreams.Add(s.OnTakeDamage(attacker, target));
+                }
+
                 otherStreams.Add(Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable());
 
                 return otherStreams.Concat().AsSingleUnitObservable();

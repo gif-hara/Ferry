@@ -153,6 +153,62 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AbnormalStateBattleStart(level, AbnormalStateType.FastRunner);
                 case SkillType.AbnormalStateBattleStart_CounterAttack:
                     return new AbnormalStateBattleStart(level, AbnormalStateType.CounterAttack);
+                case SkillType.AbnormalStateTakeDamageMySelf_Poison:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Poison, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Paralysis:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Paralysis, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Confusion:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Confusion, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_BlindEyes:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.BlindEyes, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Flinch:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Flinch, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Vitals:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Vitals, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Quilting:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Quilting, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Tiredness:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Tiredness, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Seal:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Seal, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Healing:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Healing, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_MindEyes:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.MindEyes, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_Absorption:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Absorption, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_FastRunner:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.FastRunner, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageMySelf_CounterAttack:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.CounterAttack, TargetType.Myself);
+                case SkillType.AbnormalStateTakeDamageOpponent_Poison:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Poison, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Paralysis:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Paralysis, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Confusion:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Confusion, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_BlindEyes:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.BlindEyes, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Flinch:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Flinch, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Vitals:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Vitals, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Quilting:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Quilting, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Tiredness:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Tiredness, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Seal:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Seal, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Healing:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Healing, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_MindEyes:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.MindEyes, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_Absorption:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.Absorption, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_FastRunner:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.FastRunner, TargetType.Opponent);
+                case SkillType.AbnormalStateTakeDamageOpponent_CounterAttack:
+                    return new AbnormalStateTakeDamage(level, AbnormalStateType.CounterAttack, TargetType.Opponent);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;
