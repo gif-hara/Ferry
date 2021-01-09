@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.UI;
+﻿using System;
+using UniRx;
 
 namespace HK.Ferry.BattleSystems
 {
@@ -14,7 +13,7 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public interface IOnGiveDamage
         {
-            void OnGiveDamage(BattleCharacter attacker, BattleCharacter target);
+            IObservable<Unit> OnGiveDamage(BattleCharacter attacker, BattleCharacter target);
         }
     }
 }

@@ -5,6 +5,9 @@ using I2.Loc;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System.Linq;
+using static HK.Ferry.BattleSystems.BattleEvent;
+using System.Collections.Generic;
 
 namespace HK.Ferry
 {
@@ -21,11 +24,19 @@ namespace HK.Ferry
         {
             return Observable.Defer(() =>
             {
-                var damage = BattleCalcurator.GetDamage(attacker.CurrentSpec.Status, target.CurrentSpec.Status, rate);
-                target.TakeDamage(damage);
+                var damage = attacker.GiveDamage(target);
                 battleManager.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
 
-                return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
+                var otherStreams = new List<IObservable<Unit>>();
+
+                foreach (var s in attacker.Skills.OfType<IOnGiveDamage>())
+                {
+                    otherStreams.Add(s.OnGiveDamage(attacker, target));
+                }
+
+                otherStreams.Add(Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable());
+
+                return otherStreams.Concat().AsSingleUnitObservable();
             });
         }
     }

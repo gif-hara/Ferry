@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -45,7 +46,30 @@ namespace HK.Ferry
         {
         }
 
-        public void TakeDamage(int value)
+        /// <summary>
+        /// 通常攻撃で<paramref name="target"/>にダメージを与える
+        /// </summary>
+        public int GiveDamage(BattleCharacter target)
+        {
+            var damage = BattleCalcurator.GetDamage(CurrentSpec.Status, target.CurrentSpec.Status, 1.0f);
+            target.TakeDamage(this, damage);
+
+            return damage;
+        }
+
+        /// <summary>
+        /// 通常攻撃でダメージを受ける
+        /// </summary>
+        /// <param name="value"></param>
+        public void TakeDamage(BattleCharacter attacker, int value)
+        {
+            TakeDamageRaw(value);
+        }
+
+        /// <summary>
+        /// 実際にダメージを受けた際の処理
+        /// </summary>
+        public void TakeDamageRaw(int value)
         {
             CurrentSpec.Status.hitPoint.Value -= value;
         }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UniRx;
+using UnityEngine;
 using UnityEngine.Assertions;
 using static HK.Ferry.BattleSystems.BattleEvent;
 using static HK.Ferry.Constants;
@@ -20,9 +22,13 @@ namespace HK.Ferry.BattleSystems.Skills
             this.targetType = targetType;
         }
 
-        public void OnGiveDamage(BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> OnGiveDamage(BattleCharacter attacker, BattleCharacter target)
         {
-            throw new System.NotImplementedException();
+            return Observable.Defer(() =>
+            {
+                Debug.Log($"TODO {abnormalStateType}, {targetType}");
+                return Observable.ReturnUnit();
+            });
         }
     }
 }
