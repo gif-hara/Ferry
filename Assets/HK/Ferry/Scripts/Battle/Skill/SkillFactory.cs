@@ -97,6 +97,34 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AbnormalStateDisable(level, AbnormalStateType.FastRunner);
                 case SkillType.AbnormalStateDisable_CounterAttack:
                     return new AbnormalStateDisable(level, AbnormalStateType.CounterAttack);
+                case SkillType.AbnormalStateAllTheWay_Poison:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Poison);
+                case SkillType.AbnormalStateAllTheWay_Paralysis:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Paralysis);
+                case SkillType.AbnormalStateAllTheWay_Confusion:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Confusion);
+                case SkillType.AbnormalStateAllTheWay_BlindEyes:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.BlindEyes);
+                case SkillType.AbnormalStateAllTheWay_Flinch:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Flinch);
+                case SkillType.AbnormalStateAllTheWay_Vitals:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Vitals);
+                case SkillType.AbnormalStateAllTheWay_Quilting:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Quilting);
+                case SkillType.AbnormalStateAllTheWay_Tiredness:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Tiredness);
+                case SkillType.AbnormalStateAllTheWay_Seal:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Seal);
+                case SkillType.AbnormalStateAllTheWay_Healing:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Healing);
+                case SkillType.AbnormalStateAllTheWay_MindEyes:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.MindEyes);
+                case SkillType.AbnormalStateAllTheWay_Absorption:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Absorption);
+                case SkillType.AbnormalStateAllTheWay_FastRunner:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.FastRunner);
+                case SkillType.AbnormalStateAllTheWay_CounterAttack:
+                    return new AbnormalStateAllTheWay(level, AbnormalStateType.CounterAttack);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;
