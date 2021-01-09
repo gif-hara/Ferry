@@ -16,6 +16,10 @@ namespace HK.Ferry
         public string Name => name;
 
         [SerializeField]
+        private AttackAttribute attackAttribute = default;
+        public AttackAttribute AttackAttribute => attackAttribute;
+
+        [SerializeField]
         private CharacterStatus status = default;
         public CharacterStatus Status => status;
 
@@ -23,15 +27,16 @@ namespace HK.Ferry
         private List<SkillType> skillTypes = default;
         public List<SkillType> SkillTypes => skillTypes;
 
-        public CharacterSpec(string name, CharacterStatus characterStatus, List<SkillType> skillTypes)
+        public CharacterSpec(string name, AttackAttribute attackAttribute, CharacterStatus characterStatus, List<SkillType> skillTypes)
         {
             this.name = name;
+            this.attackAttribute = attackAttribute;
             this.status = characterStatus;
             this.skillTypes = skillTypes;
         }
 
         public CharacterSpec(CharacterSpec other)
-            : this(other.name, new CharacterStatus(other.status), other.skillTypes)
+            : this(other.name, other.attackAttribute, new CharacterStatus(other.status), other.skillTypes)
         {
         }
     }

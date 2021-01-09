@@ -62,7 +62,7 @@ namespace HK.Ferry
                 var weapon = MasterDataEquipment.Get.GetRecord(weaponName);
                 var instanceSkillTypes = new List<SkillType>(skillTypes);
                 instanceSkillTypes.AddRange(weapon.Skills);
-                return new BattlePlayer(new CharacterSpec(name, characterStatus, instanceSkillTypes), commands);
+                return new BattlePlayer(new CharacterSpec(name, weapon.AttackAttribute, characterStatus, instanceSkillTypes), commands);
             }
         }
     }

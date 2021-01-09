@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry.Database
 {
@@ -39,6 +40,10 @@ namespace HK.Ferry.Database
             [SerializeField]
             private int critical = default;
             public int Critical => critical;
+
+            [SerializeField]
+            private AttackAttribute attackAttribute = default;
+            public AttackAttribute AttackAttribute => attackAttribute;
 
             [SerializeField]
             private List<Constants.SkillType> skills = default;
