@@ -5,6 +5,7 @@ using HK.Ferry.Database;
 using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry
 {
@@ -53,10 +54,15 @@ namespace HK.Ferry
             private List<string> commands = default;
             public List<string> Commands => commands;
 
+            [SerializeField]
+            private List<SkillType> skillTypes = default;
+
             public BattlePlayer CreateBattlePlayer()
             {
                 var weapon = MasterDataEquipment.Get.GetRecord(weaponName);
-                return new BattlePlayer(new CharacterSpec(name, characterStatus), commands);
+                var instanceSkillTypes = new List<SkillType>(skillTypes);
+                instanceSkillTypes.AddRange(weapon.Skills);
+                return new BattlePlayer(new CharacterSpec(name, characterStatus, instanceSkillTypes), commands);
             }
         }
     }
