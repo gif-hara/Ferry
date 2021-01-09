@@ -9,8 +9,8 @@ namespace HK.Ferry.Database
     /// <summary>
     /// 
     /// </summary>
-    [CreateAssetMenu(menuName = "Ferry/MasterData/Weapon")]
-    public sealed class MasterDataWeapon : MasterData<MasterDataWeapon, MasterDataWeapon.Record, string>
+    [CreateAssetMenu(menuName = "Ferry/MasterData/Equipment")]
+    public sealed class MasterDataEquipment : MasterData<MasterDataEquipment, MasterDataEquipment.Record, string>
     {
         [Serializable]
         public class Record : IIdHolder<string>

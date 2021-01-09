@@ -55,7 +55,7 @@ namespace HK.Ferry
 
             public BattlePlayer CreateBattlePlayer()
             {
-                var weapon = MasterDataWeapon.Get.GetRecord(weaponName);
+                var weapon = MasterDataEquipment.Get.GetRecord(weaponName);
                 return new BattlePlayer(new CharacterSpec(name, characterStatus), commands);
             }
         }

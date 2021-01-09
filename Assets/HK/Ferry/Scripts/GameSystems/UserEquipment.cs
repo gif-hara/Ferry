@@ -9,8 +9,8 @@ namespace HK.Ferry
     /// </summary>
     public sealed class UserEquipment
     {
-        public MasterDataWeapon.Record LeftHand { get; private set; }
+        public MasterDataEquipment.Record LeftHand { get; private set; }
 
-        public MasterDataWeapon.Record RightHand { get; private set; }
+        public MasterDataEquipment.Record RightHand { get; private set; }
     }
 }
