@@ -29,7 +29,7 @@ namespace HK.Ferry.BattleSystems
                     var x = attacker.CurrentSpec.Status.attack.Value;
                     var a = target.CurrentSpec.Status.defense.Value;
 
-                    var damage = x * (x - (a / 3.0f)) / 100.0f;
+                    var damage = x * (x - (a / 1.0f)) / 100.0f;
                     damage = damage < 0 ? 0 : damage;
                     var rate = 1.0f;
 
