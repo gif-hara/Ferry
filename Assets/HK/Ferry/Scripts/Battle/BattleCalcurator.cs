@@ -118,5 +118,25 @@ namespace HK.Ferry.BattleSystems
                     return 0;
             }
         }
+
+        public static int GetStatusUpTakeDamageAddValue(StatusType statusType, int level)
+        {
+            switch (statusType)
+            {
+                case StatusType.HitPoint:
+                    return 20 * level + 30;
+                case StatusType.Attack:
+                    return 2 * level + 3;
+                case StatusType.Defense:
+                    return 2 * level + 3;
+                case StatusType.Evasion:
+                    return 1 * level;
+                case StatusType.Critical:
+                    return 1 * level;
+                default:
+                    Assert.IsTrue(false, $"{statusType}は未対応です");
+                    return 0;
+            }
+        }
     }
 }

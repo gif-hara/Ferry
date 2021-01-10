@@ -245,6 +245,16 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new StatusUpGiveDamage(level, StatusType.Evasion);
                 case SkillType.StatusUp_GiveDamage_Critical:
                     return new StatusUpGiveDamage(level, StatusType.Critical);
+                case SkillType.StatusUp_TakeDamage_HitPoint:
+                    return new StatusUpTakeDamage(level, StatusType.HitPoint);
+                case SkillType.StatusUp_TakeDamage_Attack:
+                    return new StatusUpTakeDamage(level, StatusType.Attack);
+                case SkillType.StatusUp_TakeDamage_Defense:
+                    return new StatusUpTakeDamage(level, StatusType.Defense);
+                case SkillType.StatusUp_TakeDamage_Evasion:
+                    return new StatusUpTakeDamage(level, StatusType.Evasion);
+                case SkillType.StatusUp_TakeDamage_Critical:
+                    return new StatusUpTakeDamage(level, StatusType.Critical);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;
