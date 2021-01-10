@@ -10,20 +10,20 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public static class BattleCalcurator
     {
-        public static int GetDamage(BattleCharacter attacker, BattleCharacter defenser)
+        public static int GetDamage(BattleCharacter attacker, BattleCharacter target)
         {
             try
             {
                 checked
                 {
                     var x = attacker.CurrentSpec.Status.attack.Value;
-                    var a = defenser.CurrentSpec.Status.defense.Value;
+                    var a = target.CurrentSpec.Status.defense.Value;
 
                     var damage = x * (x - (a / 3.0f)) / 100.0f;
                     damage = damage < 0 ? 0 : damage;
                     var rate = 1.0f;
 
-                    foreach (var s in defenser.Skills.OfType<BattleEvent.IGetDamageReductionRateFromAttackAttribute>())
+                    foreach (var s in target.Skills.OfType<BattleEvent.IGetDamageReductionRateFromAttackAttribute>())
                     {
                         rate -= s.GetReductionRate(attacker.CurrentSpec.AttackAttribute);
                     }

@@ -8,7 +8,7 @@ using static HK.Ferry.Constants;
 namespace HK.Ferry.BattleSystems.Skills
 {
     /// <summary>
-    /// ダメージを与えた際に状態異常を付与する<see cref="ISkill"/>
+    /// ずっと状態異常を付与する<see cref="ISkill"/>
     /// </summary>
     public sealed class AbnormalStateAllTheWay : Skill, IOnStartBattle
     {
