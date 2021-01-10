@@ -14,7 +14,7 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public interface IOnGiveDamage
         {
-            IObservable<Unit> OnGiveDamage(BattleCharacter attacker, BattleCharacter target);
+            IObservable<Unit> OnGiveDamage(BattleSystem battleSystem, BattleCharacter attacker, BattleCharacter target);
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public interface IOnTakeDamage
         {
-            IObservable<Unit> OnTakeDamage(BattleCharacter attacker, BattleCharacter target);
+            IObservable<Unit> OnTakeDamage(BattleSystem battleSystem, BattleCharacter attacker, BattleCharacter target);
         }
 
         /// <summary>

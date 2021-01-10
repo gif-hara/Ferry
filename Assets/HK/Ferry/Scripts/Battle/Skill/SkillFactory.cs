@@ -255,6 +255,14 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new StatusUpTakeDamage(level, StatusType.Evasion);
                 case SkillType.StatusUp_TakeDamage_Critical:
                     return new StatusUpTakeDamage(level, StatusType.Critical);
+                case SkillType.Barrage_Slash:
+                    return new Barrage(level, AttackAttribute.Slash);
+                case SkillType.Barrage_Spear:
+                    return new Barrage(level, AttackAttribute.Spear);
+                case SkillType.Barrage_Blow:
+                    return new Barrage(level, AttackAttribute.Blow);
+                case SkillType.Barrage_Magic:
+                    return new Barrage(level, AttackAttribute.Magic);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

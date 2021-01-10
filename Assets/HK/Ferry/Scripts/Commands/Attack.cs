@@ -20,26 +20,26 @@ namespace HK.Ferry
         [SerializeField]
         private float rate = 1.0f;
 
-        public IObservable<Unit> Invoke(BattleSystem battleManager, BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> Invoke(BattleSystem battleSystem, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {
                 var damage = attacker.GiveDamage(target);
-                battleManager.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
+                battleSystem.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
 
                 var otherStreams = new List<IObservable<Unit>>();
 
+                otherStreams.Add(Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable());
+
                 foreach (var s in attacker.Skills.OfType<IOnGiveDamage>())
                 {
-                    otherStreams.Add(s.OnGiveDamage(attacker, target));
+                    otherStreams.Add(s.OnGiveDamage(battleSystem, attacker, target));
                 }
 
                 foreach (var s in target.Skills.OfType<IOnTakeDamage>())
                 {
-                    otherStreams.Add(s.OnTakeDamage(attacker, target));
+                    otherStreams.Add(s.OnTakeDamage(battleSystem, attacker, target));
                 }
-
-                otherStreams.Add(Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable());
 
                 return otherStreams.Concat().AsSingleUnitObservable();
             });

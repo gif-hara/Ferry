@@ -10,7 +10,7 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public static class BattleCalcurator
     {
-        public static int GetDamage(BattleCharacter attacker, BattleCharacter target)
+        public static int GetDamage(BattleCharacter attacker, BattleCharacter target, AttackAttribute attackerSideAttackAttribute, float rate)
         {
             try
             {
@@ -20,7 +20,7 @@ namespace HK.Ferry.BattleSystems
                     // TODO: 無効化した旨を返せるようにしたほうがいいかも
                     foreach (var s in target.Skills.OfType<BattleEvent.IGetDamageDisableFromAttackAttribute>())
                     {
-                        if (s.IsDisable(attacker.CurrentSpec.AttackAttribute))
+                        if (s.IsDisable(attackerSideAttackAttribute))
                         {
                             return 0;
                         }
@@ -31,12 +31,11 @@ namespace HK.Ferry.BattleSystems
 
                     var damage = x * (x - (a / 1.0f)) / 100.0f;
                     damage = damage < 0 ? 0 : damage;
-                    var rate = 1.0f;
 
                     // ダメージを受ける側が軽減率を所持している場合は適用する
                     foreach (var s in target.Skills.OfType<BattleEvent.IGetDamageReductionRateFromAttackAttribute>())
                     {
-                        rate -= s.GetReductionRate(attacker.CurrentSpec.AttackAttribute);
+                        rate -= s.GetReductionRate(attackerSideAttackAttribute);
                     }
 
                     return Mathf.FloorToInt(damage * rate);
@@ -137,6 +136,11 @@ namespace HK.Ferry.BattleSystems
                     Assert.IsTrue(false, $"{statusType}は未対応です");
                     return 0;
             }
+        }
+
+        public static float GetBarrageDamageRate(int level)
+        {
+            return 0.05f * level + 0.05f;
         }
     }
 }

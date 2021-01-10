@@ -17,7 +17,7 @@ namespace HK.Ferry.BattleSystems.Skills
             this.statusType = statusType;
         }
 
-        public IObservable<Unit> OnGiveDamage(BattleCharacter attacker, BattleCharacter target)
+        public IObservable<Unit> OnGiveDamage(BattleSystem battleSystem, BattleCharacter attacker, BattleCharacter target)
         {
             return Observable.Defer(() =>
             {
