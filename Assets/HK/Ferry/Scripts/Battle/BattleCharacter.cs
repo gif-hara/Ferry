@@ -7,6 +7,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
 using static HK.Ferry.BattleSystems.BattleEvent;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry
 {
@@ -90,5 +91,10 @@ namespace HK.Ferry
         }
 
         public bool IsDead => CurrentSpec.Status.hitPoint.Value <= 0;
+
+        public void AddStatus(StatusType statusType, int value)
+        {
+            CurrentSpec.Status.Add(statusType, value);
+        }
     }
 }

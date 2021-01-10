@@ -802,52 +802,52 @@ namespace HK.Ferry
             /// <summary>
             /// 与ダメで体力上昇
             /// </summary>
-            Sadism_HitPoint = 11000,
+            StatusUp_GiveDamage_HitPoint = 11000,
 
             /// <summary>
             /// 与ダメで攻撃力上昇
             /// </summary>
-            Sadism_Attack,
+            StatusUp_GiveDamage_Attack,
 
             /// <summary>
             /// 与ダメで防御力上昇
             /// </summary>
-            Sadism_Defense,
+            StatusUp_GiveDamage_Defense,
 
             /// <summary>
             /// 与ダメで回避率上昇
             /// </summary>
-            Sadism_Evasion,
+            StatusUp_GiveDamage_Evasion,
 
             /// <summary>
             /// 与ダメで会心率上昇
             /// </summary>
-            Sadism_Critical,
+            StatusUp_GiveDamage_Critical,
 
             /// <summary>
             /// 被ダメで体力上昇
             /// </summary>
-            Masochism_HitPoint = 11100,
+            StatusUp_TakeDamage_HitPoint = 11100,
 
             /// <summary>
             /// 被ダメで攻撃力上昇
             /// </summary>
-            Masochism_Attack,
+            StatusUp_TakeDamage_Attack,
 
             /// <summary>
             /// 被ダメで防御力上昇
             /// </summary>
-            Masochism_Defense,
+            StatusUp_TakeDamage_Defense,
 
             /// <summary>
             /// 被ダメで回避率上昇
             /// </summary>
-            Masochism_Evasion,
+            StatusUp_TakeDamage_Evasion,
 
             /// <summary>
             /// 被ダメで会心率上昇
             /// </summary>
-            Masochism_Critical,
+            StatusUp_TakeDamage_Critical,
 
             /// <summary>
             /// 通常攻撃に斬撃の追加ダメージ

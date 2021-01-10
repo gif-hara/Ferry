@@ -78,6 +78,11 @@ namespace HK.Ferry
             }
         }
 
+        public void Add(StatusType statusType, int value)
+        {
+            Get(statusType).Value += value;
+        }
+
         public IntReactiveProperty Get(StatusType statusType)
         {
             switch (statusType)
