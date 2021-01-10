@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using HK.Ferry.AI;
+using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
 using I2.Loc;
 using UnityEngine;
@@ -34,7 +36,7 @@ namespace HK.Ferry
 
             public BattleEnemy CreateBattleEnemy()
             {
-                return new BattleEnemy(spec, UnityEngine.Object.Instantiate(ai));
+                return new BattleEnemy(spec, spec.CreateSkills(), UnityEngine.Object.Instantiate(ai));
             }
         }
 
@@ -64,7 +66,11 @@ namespace HK.Ferry
                 instanceSkillTypes.AddRange(weapon.Skills);
                 var instanceCharacterStatus = new CharacterStatus(characterStatus);
                 instanceCharacterStatus.Add(weapon);
-                return new BattlePlayer(new CharacterSpec(name, weapon.AttackAttribute, instanceCharacterStatus, instanceSkillTypes), commands);
+                var characterSpec = new CharacterSpec(name, weapon.AttackAttribute, instanceCharacterStatus, instanceSkillTypes);
+                var skills = characterSpec.CreateSkills();
+                instanceCharacterStatus.Add(skills);
+
+                return new BattlePlayer(characterSpec, skills, commands);
             }
         }
     }

@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
 using UniRx;
+using UnityEngine.Assertions;
+using static HK.Ferry.BattleSystems.BattleEvent;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry
 {
@@ -49,6 +55,9 @@ namespace HK.Ferry
             this.critical.Value = other.critical.Value;
         }
 
+        /// <summary>
+        /// 装備品のステータスを加算する
+        /// </summary>
         public void Add(MasterDataEquipment.Record equipment)
         {
             this.hitPoint.Value += equipment.HitPoint;
@@ -56,6 +65,37 @@ namespace HK.Ferry
             this.defense.Value += equipment.Defense;
             this.evasion.Value += equipment.Evasion;
             this.critical.Value += equipment.Critical;
+        }
+
+        /// <summary>
+        /// スキルからステータスを加算する
+        /// </summary>
+        public void Add(List<ISkill> skills)
+        {
+            foreach (var s in skills.OfType<IStatusUp>())
+            {
+                Get(s.StatusType).Value += s.GetAddValue();
+            }
+        }
+
+        public IntReactiveProperty Get(StatusType statusType)
+        {
+            switch (statusType)
+            {
+                case StatusType.HitPoint:
+                    return hitPoint;
+                case StatusType.Attack:
+                    return attack;
+                case StatusType.Defense:
+                    return defense;
+                case StatusType.Evasion:
+                    return evasion;
+                case StatusType.Critical:
+                    return critical;
+                default:
+                    Assert.IsTrue(false, $"{statusType}は未対応です");
+                    return null;
+            }
         }
     }
 }

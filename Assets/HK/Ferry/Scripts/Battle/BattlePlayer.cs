@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
 using UniRx;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace HK.Ferry
     {
         public readonly List<CommandData> Commands;
 
-        public BattlePlayer(CharacterSpec characterSpec, List<string> commands) : base(characterSpec)
+        public BattlePlayer(CharacterSpec characterSpec, List<ISkill> skills, List<string> commands) : base(characterSpec, skills)
         {
             Commands = commands.Select(x => new CommandData(x)).ToList();
         }

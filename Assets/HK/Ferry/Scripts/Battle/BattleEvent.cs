@@ -55,5 +55,18 @@ namespace HK.Ferry.BattleSystems
             /// </summary>
             bool IsDisable(AttackAttribute attackerSideAttackAttribute);
         }
+
+        /// <summary>
+        /// ステータスを上昇させるインターフェイス
+        /// </summary>
+        public interface IStatusUp
+        {
+            /// <summary>
+            /// 加算される値を返す
+            /// </summary>
+            int GetAddValue();
+
+            StatusType StatusType { get; }
+        }
     }
 }

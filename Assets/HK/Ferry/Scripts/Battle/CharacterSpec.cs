@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using HK.Ferry.BattleSystems.Skills;
 using UnityEngine;
 using static HK.Ferry.Constants;
 
@@ -38,6 +40,14 @@ namespace HK.Ferry
         public CharacterSpec(CharacterSpec other)
             : this(other.name, other.attackAttribute, new CharacterStatus(other.status), other.skillTypes)
         {
+        }
+
+        public List<ISkill> CreateSkills()
+        {
+            return SkillTypes
+                .GroupBy(x => x)
+                .Select(x => SkillFactory.Create(x.Key, x.Count()))
+                .ToList();
         }
     }
 }

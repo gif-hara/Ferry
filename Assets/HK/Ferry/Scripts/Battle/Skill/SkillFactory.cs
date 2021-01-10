@@ -225,6 +225,16 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AttackAttributeDisable(level, AttackAttribute.Blow);
                 case SkillType.AttackAttributeDisable_Magic:
                     return new AttackAttributeDisable(level, AttackAttribute.Magic);
+                case SkillType.StatusUp_HitPoint:
+                    return new StatusUp(level, StatusType.HitPoint);
+                case SkillType.StatusUp_Attack:
+                    return new StatusUp(level, StatusType.Attack);
+                case SkillType.StatusUp_Defense:
+                    return new StatusUp(level, StatusType.Defense);
+                case SkillType.StatusUp_Evasion:
+                    return new StatusUp(level, StatusType.Evasion);
+                case SkillType.StatusUp_Critical:
+                    return new StatusUp(level, StatusType.Critical);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

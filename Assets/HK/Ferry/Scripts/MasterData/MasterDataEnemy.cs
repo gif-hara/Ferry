@@ -29,7 +29,7 @@ namespace HK.Ferry.Database
             private AIScriptableObject ai = default;
             public AIScriptableObject CreateAI() => Instantiate(ai);
 
-            public BattleEnemy CreateBattleEnemy() => new BattleEnemy(spec, CreateAI());
+            public BattleEnemy CreateBattleEnemy() => new BattleEnemy(spec, spec.CreateSkills(), CreateAI());
         }
     }
 }

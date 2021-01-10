@@ -33,14 +33,11 @@ namespace HK.Ferry
             private set;
         }
 
-        public BattleCharacter(CharacterSpec characterSpec)
+        public BattleCharacter(CharacterSpec characterSpec, List<ISkill> skills)
         {
             CurrentSpec = new CharacterSpec(characterSpec);
             BaseSpec = characterSpec;
-            Skills = CurrentSpec.SkillTypes
-                .GroupBy(x => x)
-                .Select(x => SkillFactory.Create(x.Key, x.Count()))
-                .ToList();
+            Skills = skills;
         }
 
         public float HitPointRate => (float)CurrentSpec.Status.hitPoint.Value / BaseSpec.Status.hitPoint.Value;

@@ -75,5 +75,28 @@ namespace HK.Ferry.BattleSystems
 
             return false;
         }
+
+        /// <summary>
+        /// ステータス上昇系スキルの上昇量を返す
+        /// </summary>
+        public static int GetStatusUpAddValue(StatusType statusType, int level)
+        {
+            switch (statusType)
+            {
+                case StatusType.HitPoint:
+                    return 100 * level;
+                case StatusType.Attack:
+                    return 20 * level;
+                case StatusType.Defense:
+                    return 20 * level;
+                case StatusType.Evasion:
+                    return 10 * level;
+                case StatusType.Critical:
+                    return 10 * level;
+                default:
+                    Assert.IsTrue(false, $"{statusType}は未対応です");
+                    return 0;
+            }
+        }
     }
 }
