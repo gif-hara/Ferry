@@ -34,7 +34,7 @@ namespace HK.Ferry.BattleSystems
         }
 
         /// <summary>
-        /// <see cref="Constants.AttackAttribute"/>からダメージ軽減率を返すインターフェイス
+        /// <see cref="AttackAttribute"/>からダメージ軽減率を返すインターフェイス
         /// </summary>
         public interface IGetDamageReductionRateFromAttackAttribute
         {
@@ -43,6 +43,17 @@ namespace HK.Ferry.BattleSystems
             /// <c>0</c>ならダメージも<c>0</c>になる
             /// </summary>
             float GetReductionRate(AttackAttribute attackerSideAttackAttribute);
+        }
+
+        /// <summary>
+        /// <see cref="AttackAttribute"/>からダメージを無効化するインターフェイス
+        /// </summary>
+        public interface IGetDamageDisableFromAttackAttribute
+        {
+            /// <summary>
+            /// ダメージを無効化するか返す
+            /// </summary>
+            bool IsDisable(AttackAttribute attackerSideAttackAttribute);
         }
     }
 }

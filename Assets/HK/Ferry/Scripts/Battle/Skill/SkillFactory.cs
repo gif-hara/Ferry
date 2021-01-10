@@ -217,6 +217,14 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new AttackAttributeResistance(level, AttackAttribute.Blow);
                 case SkillType.AttackAttributeResistance_Magic:
                     return new AttackAttributeResistance(level, AttackAttribute.Magic);
+                case SkillType.AttackAttributeDisable_Slash:
+                    return new AttackAttributeDisable(level, AttackAttribute.Slash);
+                case SkillType.AttackAttributeDisable_Spear:
+                    return new AttackAttributeDisable(level, AttackAttribute.Spear);
+                case SkillType.AttackAttributeDisable_Blow:
+                    return new AttackAttributeDisable(level, AttackAttribute.Blow);
+                case SkillType.AttackAttributeDisable_Magic:
+                    return new AttackAttributeDisable(level, AttackAttribute.Magic);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;
