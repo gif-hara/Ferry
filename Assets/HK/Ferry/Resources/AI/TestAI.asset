@@ -16,17 +16,7 @@ MonoBehaviour:
   - name: A
     commandSelector:
       id: 0
-    changeAIs:
-    - condition:
-        id: 1
-      nextAI: B
-  - name: B
-    commandSelector:
-      id: 2
-    changeAIs:
-    - condition:
-        id: 3
-      nextAI: A
+    changeAIs: []
   changeAIs: []
   references:
     version: 1
@@ -36,19 +26,3 @@ MonoBehaviour:
         elements:
         - commandName: "CommandName/\u901A\u5E38\u653B\u6483"
           weight: 100
-    00000001:
-      type: {class: ElapsedTurn, ns: HK.Ferry.AI.Conditions, asm: Assembly-CSharp}
-      data:
-        compareType: 1
-        turn: 1
-    00000002:
-      type: {class: Random, ns: HK.Ferry.AI.CommandSelectors, asm: Assembly-CSharp}
-      data:
-        elements:
-        - commandName: "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
-          weight: 100
-    00000003:
-      type: {class: ElapsedTurn, ns: HK.Ferry.AI.Conditions, asm: Assembly-CSharp}
-      data:
-        compareType: 1
-        turn: 1
