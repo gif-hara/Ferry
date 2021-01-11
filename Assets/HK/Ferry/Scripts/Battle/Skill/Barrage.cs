@@ -23,9 +23,9 @@ namespace HK.Ferry.BattleSystems.Skills
         {
             return Observable.Defer(() =>
             {
-                var damage = BattleCalcurator.GetDamage(attacker, target, attackAttribute, BattleCalcurator.GetBarrageDamageRate(Level));
-                target.TakeDamageRaw(damage);
-                battleSystem.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
+                var damageResult = BattleCalcurator.GetDamage(attacker, target, attackAttribute, BattleCalcurator.GetBarrageDamageRate(Level), false);
+                target.TakeDamageRaw(damageResult.damage);
+                battleSystem.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damageResult.damage));
 
                 return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
             });

@@ -10,8 +10,15 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public static class BattleCalcurator
     {
-        public static int GetDamage(BattleCharacter attacker, BattleCharacter target, AttackAttribute attackerSideAttackAttribute, float rate)
+        public static DamageResult GetDamage(
+            BattleCharacter attacker,
+            BattleCharacter target,
+            AttackAttribute attackerSideAttackAttribute,
+            float rate,
+            bool calcurateCritical
+            )
         {
+            var result = new DamageResult();
             try
             {
                 checked
@@ -22,7 +29,8 @@ namespace HK.Ferry.BattleSystems
                     {
                         if (s.IsDisable(attackerSideAttackAttribute))
                         {
-                            return 0;
+                            result.damage = 0;
+                            return result;
                         }
                     }
 
@@ -38,12 +46,28 @@ namespace HK.Ferry.BattleSystems
                         rate -= s.GetReductionRate(attackerSideAttackAttribute);
                     }
 
-                    return Mathf.FloorToInt(damage * rate);
+                    var criticalRate = 1.0f;
+
+                    if (calcurateCritical)
+                    {
+                        var random = Random.value;
+                        var critical = attacker.CurrentSpec.Status.critical.Value / 100.0f;
+                        if (critical > random)
+                        {
+                            damage *= 1.5f;
+                            result.isCritical = true;
+                        }
+                    }
+
+                    result.damage = Mathf.FloorToInt(damage * rate);
+
+                    return result;
                 }
             }
             catch
             {
-                return 99999;
+                result.damage = 99999;
+                return result;
             }
         }
 

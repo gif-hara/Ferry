@@ -76,12 +76,12 @@ namespace HK.Ferry
         /// <summary>
         /// 通常攻撃で<paramref name="target"/>にダメージを与える
         /// </summary>
-        public int GiveDamage(BattleCharacter target)
+        public DamageResult GiveDamage(BattleCharacter target)
         {
-            var damage = BattleCalcurator.GetDamage(this, target, CurrentSpec.AttackAttribute, 1.0f);
-            target.TakeDamage(this, damage);
+            var damageResult = BattleCalcurator.GetDamage(this, target, CurrentSpec.AttackAttribute, 1.0f, true);
+            target.TakeDamage(this, damageResult.damage);
 
-            return damage;
+            return damageResult;
         }
 
         /// <summary>
