@@ -47,8 +47,6 @@ namespace HK.Ferry.BattleSystems
                         rate -= s.GetReductionRate(attackerSideAttackAttribute);
                     }
 
-                    var criticalRate = 1.0f;
-
                     if (calcurateCritical)
                     {
                         var random = Random.value;
