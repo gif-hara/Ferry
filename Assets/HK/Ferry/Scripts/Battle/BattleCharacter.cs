@@ -52,7 +52,7 @@ namespace HK.Ferry
             {
                 return Observable.Concat(
                     Skills.OfType<IOnStartBattle>()
-                        .Select(x => x.OnStartBattle())
+                        .Select(x => x.OnStartBattle(this))
                 )
                 .AsSingleUnitObservable();
             });

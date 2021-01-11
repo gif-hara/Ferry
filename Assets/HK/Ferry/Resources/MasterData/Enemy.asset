@@ -28,6 +28,8 @@ MonoBehaviour:
           value: 0
         critical:
           value: 0
+        abnormalStateResistance:
+          elements: []
       skillTypes: 
     ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
   - id: 100100
@@ -45,6 +47,8 @@ MonoBehaviour:
           value: 0
         critical:
           value: 0
+        abnormalStateResistance:
+          elements: []
       skillTypes: 
     ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
   - id: 100101
@@ -62,5 +66,7 @@ MonoBehaviour:
           value: 0
         critical:
           value: 0
+        abnormalStateResistance:
+          elements: []
       skillTypes: 
     ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}

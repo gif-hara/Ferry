@@ -2166,9 +2166,11 @@ MonoBehaviour:
           value: 0
         critical:
           value: 0
+        abnormalStateResistance:
+          elements: []
       commands:
       - "CommandName/\u901A\u5E38\u653B\u6483"
-      skillTypes: a0280000
+      skillTypes: a0280000a0280000a0280000a0280000a0280000
 --- !u!1 &4192897004550833180
 GameObject:
   m_ObjectHideFlags: 0

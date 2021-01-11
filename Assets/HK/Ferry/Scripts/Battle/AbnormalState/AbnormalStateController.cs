@@ -34,6 +34,17 @@ namespace HK.Ferry.BattleSystems
             return true;
         }
 
+        /// <summary>
+        /// 状態異常を付与できるか抽選を行う
+        /// </summary>
+        public bool Lottery(AbnormalStateType abnormalStateType, float rate)
+        {
+            rate *= 1.0f - owner.CurrentSpec.Status.abnormalStateResistance.Get(abnormalStateType);
+            var random = UnityEngine.Random.value;
+
+            return rate > random;
+        }
+
         public bool Contains(AbnormalStateType abnormalStateType)
         {
             return elements.FindIndex(x => x.AbnormalStateType == abnormalStateType) >= 0;

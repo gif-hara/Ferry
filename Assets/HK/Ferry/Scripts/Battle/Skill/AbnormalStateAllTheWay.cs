@@ -19,7 +19,7 @@ namespace HK.Ferry.BattleSystems.Skills
             this.abnormalStateType = abnormalStateType;
         }
 
-        public IObservable<Unit> OnStartBattle()
+        public IObservable<Unit> OnStartBattle(BattleCharacter owner)
         {
             return Observable.Defer(() =>
             {

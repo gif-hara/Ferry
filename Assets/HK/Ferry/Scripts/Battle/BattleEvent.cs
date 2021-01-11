@@ -30,7 +30,7 @@ namespace HK.Ferry.BattleSystems
         /// </summary>
         public interface IOnStartBattle
         {
-            IObservable<Unit> OnStartBattle();
+            IObservable<Unit> OnStartBattle(BattleCharacter owner);
         }
 
         /// <summary>

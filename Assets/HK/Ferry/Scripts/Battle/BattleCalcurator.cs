@@ -150,5 +150,76 @@ namespace HK.Ferry.BattleSystems
         {
             return 0.05f * level + 0.05f;
         }
+
+        /// <summary>
+        /// スキルによる状態異常の耐性値を返す
+        /// </summary>
+        public static float GetAbnormalStateResistanceFromSkill(int level)
+        {
+            var resistances = new float[] { 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+            var index = Mathf.Clamp(level - 1, 0, resistances.Length - 1);
+
+            return resistances[index];
+        }
+
+        /// <summary>
+        /// 与ダメ、被ダメ時に状態異常を付与する確率を返す
+        /// </summary>
+        public static float GetAbnormalStateAddRate(AbnormalStateType abnormalStateType, int level)
+        {
+            float[] resistances;
+            switch (abnormalStateType)
+            {
+                case AbnormalStateType.Poison:
+                    resistances = new float[] { 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                    break;
+                case AbnormalStateType.Paralysis:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.Confusion:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.BlindEyes:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.Flinch:
+                    resistances = new float[] { 0.1f, 0.15f, 0.2f, 0.25f, 0.3f };
+                    break;
+                case AbnormalStateType.Vitals:
+                    resistances = new float[] { 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                    break;
+                case AbnormalStateType.Quilting:
+                    resistances = new float[] { 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                    break;
+                case AbnormalStateType.Tiredness:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.Seal:
+                    resistances = new float[] { 0.1f, 0.15f, 0.2f, 0.25f, 0.3f };
+                    break;
+                case AbnormalStateType.Healing:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.MindEyes:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.Absorption:
+                    resistances = new float[] { 0.1f, 0.2f, 0.3f, 0.4f, 0.5f };
+                    break;
+                case AbnormalStateType.FastRunner:
+                    resistances = new float[] { 0.1f, 0.15f, 0.2f, 0.25f, 0.3f };
+                    break;
+                case AbnormalStateType.CounterAttack:
+                    resistances = new float[] { 0.2f, 0.4f, 0.6f, 0.8f, 1.0f };
+                    break;
+                default:
+                    Assert.IsTrue(false, $"{abnormalStateType}は未対応です");
+                    resistances = new float[0];
+                    break;
+            }
+
+            var index = Mathf.Clamp(level - 1, 0, resistances.Length - 1);
+            return resistances[index];
+        }
     }
 }

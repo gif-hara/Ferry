@@ -18,11 +18,11 @@ namespace HK.Ferry.BattleSystems.Skills
             this.abnormalStateType = abnormalStateType;
         }
 
-        public IObservable<Unit> OnStartBattle()
+        public IObservable<Unit> OnStartBattle(BattleCharacter owner)
         {
             return Observable.Defer(() =>
             {
-                Debug.Log($"TODO: バトル開始時に{abnormalStateType}の耐性を上げる");
+                owner.CurrentSpec.Status.abnormalStateResistance.Set(abnormalStateType, BattleCalcurator.GetAbnormalStateResistanceFromSkill(Level));
                 return Observable.ReturnUnit();
             });
         }

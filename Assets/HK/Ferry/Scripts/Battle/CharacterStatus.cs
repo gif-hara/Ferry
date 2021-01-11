@@ -26,13 +26,16 @@ namespace HK.Ferry
 
         public IntReactiveProperty critical;
 
-        public CharacterStatus(int hitPoint, int attack, int defense, int evasion, int critical)
+        public AbnormalStateResistance abnormalStateResistance;
+
+        public CharacterStatus(int hitPoint, int attack, int defense, int evasion, int critical, AbnormalStateResistance abnormalStateResistance)
         {
             this.hitPoint = new IntReactiveProperty(hitPoint);
             this.attack = new IntReactiveProperty(attack);
             this.defense = new IntReactiveProperty(defense);
             this.evasion = new IntReactiveProperty(evasion);
             this.critical = new IntReactiveProperty(critical);
+            this.abnormalStateResistance = abnormalStateResistance;
         }
 
         public CharacterStatus(CharacterStatus other)
@@ -41,18 +44,10 @@ namespace HK.Ferry
                   other.attack.Value,
                   other.defense.Value,
                   other.evasion.Value,
-                  other.critical.Value
+                  other.critical.Value,
+                  new AbnormalStateResistance(other.abnormalStateResistance)
                  )
         {
-        }
-
-        public void Set(CharacterStatus other)
-        {
-            this.hitPoint.Value = other.hitPoint.Value;
-            this.attack.Value = other.attack.Value;
-            this.defense.Value = other.defense.Value;
-            this.evasion.Value = other.evasion.Value;
-            this.critical.Value = other.critical.Value;
         }
 
         /// <summary>
