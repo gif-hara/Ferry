@@ -21,7 +21,7 @@ MonoBehaviour:
         hitPoint:
           value: 9999
         attack:
-          value: 1
+          value: 999
         defense:
           value: 0
         evasion:

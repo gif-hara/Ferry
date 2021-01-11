@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
+using HK.Ferry.Extensions;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -129,10 +130,7 @@ namespace HK.Ferry
 
         public int GetSkillLevel(SkillType skillType)
         {
-            return Skills
-                .OfType<SkillTypeHolder>()
-                .Where(x => x.SkillType == skillType)
-                .Sum(x => x.Level);
+            return Skills.GetSkillLevel(skillType);
         }
     }
 }

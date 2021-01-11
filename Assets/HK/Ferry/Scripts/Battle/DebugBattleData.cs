@@ -69,7 +69,7 @@ namespace HK.Ferry
                 instanceCharacterStatus.Add(weapon);
                 var characterSpec = new CharacterSpec(name, weapon.AttackAttribute, instanceCharacterStatus, instanceSkillTypes);
                 var skills = characterSpec.CreateSkills();
-                instanceCharacterStatus.Add(skills);
+                instanceCharacterStatus.Add(skills, characterStatus);
 
                 return new BattlePlayer(battleSystem, characterSpec, skills, commands);
             }

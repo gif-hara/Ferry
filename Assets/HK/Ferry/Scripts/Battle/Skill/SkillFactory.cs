@@ -274,9 +274,13 @@ namespace HK.Ferry.BattleSystems.Skills
                 case SkillType.StatusUp_OnDebuff_Critical:
                     return new StatusUpOnDebuff(level, StatusType.Critical);
                 case SkillType.SuperCritical:
-                    return new SkillTypeHolder(level, SkillType.SuperCritical);
                 case SkillType.Spirit:
-                    return new SkillTypeHolder(level, SkillType.Spirit);
+                case SkillType.Motionless:
+                case SkillType.Fighting:
+                case SkillType.SamuraiTechnique:
+                case SkillType.ShinobiTechnique:
+                case SkillType.ItemDropUp:
+                    return new SkillTypeHolder(level, skillType);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

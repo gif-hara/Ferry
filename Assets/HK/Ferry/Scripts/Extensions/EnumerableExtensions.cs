@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using HK.Ferry.BattleSystems.Skills;
 using UnityEngine;
+using static HK.Ferry.Constants;
 
 namespace HK.Ferry.Extensions
 {
@@ -26,6 +29,7 @@ namespace HK.Ferry.Extensions
 
             return result;
         }
+
         public static List<Vector2Int> ExtractIndex<T>(this IReadOnlyList<IReadOnlyList<T>> self, Vector2Int center, params Constants.DirectionType[] directionTypes)
         {
             var result = new List<Vector2Int>();
@@ -43,6 +47,16 @@ namespace HK.Ferry.Extensions
             }
 
             return result;
+        }
+
+
+        public static int GetSkillLevel(this IList<ISkill> skills, SkillType skillType)
+        {
+            return skills
+                .OfType<SkillTypeHolder>()
+                .Where(x => x.SkillType == skillType)
+                .Sum(x => x.Level);
+
         }
     }
 }

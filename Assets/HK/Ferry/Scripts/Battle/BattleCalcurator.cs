@@ -260,5 +260,37 @@ namespace HK.Ferry.BattleSystems
 
             return rates[level];
         }
+
+        public static float GetMotionLessAddRate(int level)
+        {
+            var rates = new float[] { 1.05f, 1.1f, 1.2f };
+            var index = Mathf.Clamp(level - 1, 0, rates.Length - 1);
+
+            return rates[index];
+        }
+
+        public static float GetFightingAddRate(int level)
+        {
+            var rates = new float[] { 1.05f, 1.1f, 1.2f };
+            var index = Mathf.Clamp(level - 1, 0, rates.Length - 1);
+
+            return rates[index];
+        }
+
+        public static float GetSamuraiTechniqueAddRate(int level)
+        {
+            var rates = new float[] { 1.05f, 1.1f, 1.2f };
+            var index = Mathf.Clamp(level - 1, 0, rates.Length - 1);
+
+            return rates[index];
+        }
+
+        public static float GetShinobiTechniqueAddRate(int level)
+        {
+            var rates = new float[] { 1.05f, 1.1f, 1.2f };
+            var index = Mathf.Clamp(level - 1, 0, rates.Length - 1);
+
+            return rates[index];
+        }
     }
 }

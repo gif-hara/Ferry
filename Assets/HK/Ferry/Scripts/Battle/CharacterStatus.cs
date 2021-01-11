@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
+using HK.Ferry.Extensions;
 using UniRx;
+using UnityEngine;
 using UnityEngine.Assertions;
 using static HK.Ferry.BattleSystems.BattleEvent;
 using static HK.Ferry.Constants;
@@ -65,11 +68,39 @@ namespace HK.Ferry
         /// <summary>
         /// スキルからステータスを加算する
         /// </summary>
-        public void Add(List<ISkill> skills)
+        public void Add(List<ISkill> skills, CharacterStatus baseStatus)
         {
             foreach (var s in skills.OfType<IStatusUp>())
             {
                 Get(s.StatusType).Value += s.GetAddValue();
+            }
+
+            var fightingLevel = skills.GetSkillLevel(SkillType.Fighting);
+            if (fightingLevel > 0)
+            {
+                Add(StatusType.HitPoint, -Get(StatusType.HitPoint).Value / 2);
+                Add(StatusType.Attack, Mathf.FloorToInt(baseStatus.Get(StatusType.Attack).Value * BattleCalcurator.GetFightingAddRate(fightingLevel)));
+            }
+
+            var samuraiTechniqueLevel = skills.GetSkillLevel(SkillType.SamuraiTechnique);
+            if (samuraiTechniqueLevel > 0)
+            {
+                Add(StatusType.Defense, -Get(StatusType.Defense).Value / 2);
+                Add(StatusType.Attack, Mathf.FloorToInt(baseStatus.Get(StatusType.Attack).Value * BattleCalcurator.GetSamuraiTechniqueAddRate(samuraiTechniqueLevel)));
+            }
+
+            var shinobiTechniqueLevel = skills.GetSkillLevel(SkillType.SamuraiTechnique);
+            if (shinobiTechniqueLevel > 0)
+            {
+                Add(StatusType.Defense, -Get(StatusType.Defense).Value / 2);
+                Add(StatusType.Evasion, Mathf.FloorToInt(baseStatus.Get(StatusType.Evasion).Value * BattleCalcurator.GetShinobiTechniqueAddRate(shinobiTechniqueLevel)));
+            }
+
+            var motionLessLevel = skills.GetSkillLevel(SkillType.Motionless);
+            if (motionLessLevel > 0)
+            {
+                Add(StatusType.Evasion, -Get(StatusType.Evasion).Value);
+                Add(StatusType.Attack, Mathf.FloorToInt(baseStatus.Get(StatusType.Attack).Value * BattleCalcurator.GetMotionLessAddRate(motionLessLevel)));
             }
         }
 
