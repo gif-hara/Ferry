@@ -9,13 +9,13 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public static class AbnormalStateElementFactory
     {
-        public static IAbnormalStateElement Create(AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
+        public static IAbnormalStateElement Create(AbnormalStateType abnormalStateType, bool isAllTheWay, BattleCharacter owner, BattleSystem battleSystem)
         {
             var remainingTurn = GetRemainingTurn(abnormalStateType);
             switch (abnormalStateType)
             {
                 case AbnormalStateType.Poison:
-                    return new AbnormalStateElementPoison(remainingTurn, abnormalStateType, owner, battleSystem);
+                    return new AbnormalStateElementPoison(remainingTurn, isAllTheWay, abnormalStateType, owner, battleSystem);
                 case AbnormalStateType.Paralysis:
                 case AbnormalStateType.Confusion:
                 case AbnormalStateType.BlindEyes:
@@ -29,7 +29,7 @@ namespace HK.Ferry.BattleSystems
                 case AbnormalStateType.Absorption:
                 case AbnormalStateType.FastRunner:
                 case AbnormalStateType.CounterAttack:
-                    return new AbnormalStateElement(remainingTurn, abnormalStateType, owner, battleSystem);
+                    return new AbnormalStateElement(remainingTurn, isAllTheWay, abnormalStateType, owner, battleSystem);
                 default:
                     Assert.IsTrue(false, $"{abnormalStateType}は未対応です");
                     return null;

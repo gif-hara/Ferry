@@ -13,8 +13,8 @@ namespace HK.Ferry.BattleSystems
     /// </summary>
     public sealed class AbnormalStateElementPoison : AbnormalStateElement
     {
-        public AbnormalStateElementPoison(int remainingTurn, AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
-            : base(remainingTurn, abnormalStateType, owner, battleSystem)
+        public AbnormalStateElementPoison(int remainingTurn, bool isAllTheWay, AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
+            : base(remainingTurn, isAllTheWay, abnormalStateType, owner, battleSystem)
         {
         }
 

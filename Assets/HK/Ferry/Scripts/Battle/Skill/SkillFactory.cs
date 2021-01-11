@@ -98,61 +98,61 @@ namespace HK.Ferry.BattleSystems.Skills
                 case SkillType.AbnormalStateDisable_CounterAttack:
                     return new AbnormalStateDisable(level, AbnormalStateType.CounterAttack);
                 case SkillType.AbnormalStateAllTheWay_Poison:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Poison);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Poison, true);
                 case SkillType.AbnormalStateAllTheWay_Paralysis:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Paralysis);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Paralysis, true);
                 case SkillType.AbnormalStateAllTheWay_Confusion:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Confusion);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Confusion, true);
                 case SkillType.AbnormalStateAllTheWay_BlindEyes:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.BlindEyes);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.BlindEyes, true);
                 case SkillType.AbnormalStateAllTheWay_Flinch:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Flinch);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Flinch, true);
                 case SkillType.AbnormalStateAllTheWay_Vitals:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Vitals);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Vitals, true);
                 case SkillType.AbnormalStateAllTheWay_Quilting:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Quilting);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Quilting, true);
                 case SkillType.AbnormalStateAllTheWay_Tiredness:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Tiredness);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Tiredness, true);
                 case SkillType.AbnormalStateAllTheWay_Seal:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Seal);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Seal, true);
                 case SkillType.AbnormalStateAllTheWay_Healing:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Healing);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Healing, true);
                 case SkillType.AbnormalStateAllTheWay_MindEyes:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.MindEyes);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.MindEyes, true);
                 case SkillType.AbnormalStateAllTheWay_Absorption:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.Absorption);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Absorption, true);
                 case SkillType.AbnormalStateAllTheWay_FastRunner:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.FastRunner);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.FastRunner, true);
                 case SkillType.AbnormalStateAllTheWay_CounterAttack:
-                    return new AbnormalStateAllTheWay(level, AbnormalStateType.CounterAttack);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.CounterAttack, true);
                 case SkillType.AbnormalStateBattleStart_Poison:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Poison);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Poison, false);
                 case SkillType.AbnormalStateBattleStart_Paralysis:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Paralysis);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Paralysis, false);
                 case SkillType.AbnormalStateBattleStart_Confusion:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Confusion);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Confusion, false);
                 case SkillType.AbnormalStateBattleStart_BlindEyes:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.BlindEyes);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.BlindEyes, false);
                 case SkillType.AbnormalStateBattleStart_Flinch:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Flinch);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Flinch, false);
                 case SkillType.AbnormalStateBattleStart_Vitals:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Vitals);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Vitals, false);
                 case SkillType.AbnormalStateBattleStart_Quilting:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Quilting);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Quilting, false);
                 case SkillType.AbnormalStateBattleStart_Tiredness:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Tiredness);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Tiredness, false);
                 case SkillType.AbnormalStateBattleStart_Seal:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Seal);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Seal, false);
                 case SkillType.AbnormalStateBattleStart_Healing:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Healing);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Healing, false);
                 case SkillType.AbnormalStateBattleStart_MindEyes:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.MindEyes);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.MindEyes, false);
                 case SkillType.AbnormalStateBattleStart_Absorption:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.Absorption);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.Absorption, false);
                 case SkillType.AbnormalStateBattleStart_FastRunner:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.FastRunner);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.FastRunner, false);
                 case SkillType.AbnormalStateBattleStart_CounterAttack:
-                    return new AbnormalStateBattleStart(level, AbnormalStateType.CounterAttack);
+                    return new AbnormalStateBattleStart(level, AbnormalStateType.CounterAttack, false);
                 case SkillType.AbnormalStateTakeDamageMySelf_Poison:
                     return new AbnormalStateTakeDamage(level, AbnormalStateType.Poison, TargetType.Myself);
                 case SkillType.AbnormalStateTakeDamageMySelf_Paralysis:

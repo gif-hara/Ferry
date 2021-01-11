@@ -14,16 +14,22 @@ namespace HK.Ferry.BattleSystems.Skills
     {
         private AbnormalStateType abnormalStateType;
 
-        public AbnormalStateBattleStart(int level, AbnormalStateType abnormalStateType) : base(level)
+        /// <summary>
+        /// ずっと付与するか
+        /// </summary>
+        private bool isAllTheWay;
+
+        public AbnormalStateBattleStart(int level, AbnormalStateType abnormalStateType, bool isAllTheWay) : base(level)
         {
             this.abnormalStateType = abnormalStateType;
+            this.isAllTheWay = isAllTheWay;
         }
 
         public IObservable<Unit> OnStartBattle(BattleCharacter owner)
         {
             return Observable.Defer(() =>
             {
-                Debug.Log($"TODO: バトル開始時に{abnormalStateType}付与");
+                owner.AbnormalStateController.Add(abnormalStateType, isAllTheWay);
 
                 return Observable.ReturnUnit();
             });

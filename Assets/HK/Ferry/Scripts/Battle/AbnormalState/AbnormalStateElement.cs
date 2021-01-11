@@ -17,7 +17,12 @@ namespace HK.Ferry.BattleSystems
             private set;
         }
 
-        public bool CanRemove => RemainingTurn <= 0;
+        /// <summary>
+        /// ずっと付与するか
+        /// </summary>
+        private readonly bool isAllTheWay;
+
+        public bool CanRemove => !isAllTheWay && RemainingTurn <= 0;
 
         public AbnormalStateType AbnormalStateType { get; }
 
@@ -25,9 +30,10 @@ namespace HK.Ferry.BattleSystems
 
         protected BattleSystem BattleSystem { get; }
 
-        public AbnormalStateElement(int remainingTurn, AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
+        public AbnormalStateElement(int remainingTurn, bool isAllTheWay, AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
         {
             RemainingTurn = remainingTurn;
+            this.isAllTheWay = isAllTheWay;
             AbnormalStateType = abnormalStateType;
             Owner = owner;
             BattleSystem = battleSystem;

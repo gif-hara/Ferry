@@ -23,14 +23,14 @@ namespace HK.Ferry.BattleSystems
             this.battleSystem = battleSystem;
         }
 
-        public bool Add(AbnormalStateType abnormalStateType)
+        public bool Add(AbnormalStateType abnormalStateType, bool isAllTheWay = false)
         {
             if (Contains(abnormalStateType))
             {
                 return false;
             }
 
-            elements.Add(AbnormalStateElementFactory.Create(abnormalStateType, owner, battleSystem));
+            elements.Add(AbnormalStateElementFactory.Create(abnormalStateType, isAllTheWay, owner, battleSystem));
             return true;
         }
 
