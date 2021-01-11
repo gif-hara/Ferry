@@ -76,5 +76,15 @@ namespace HK.Ferry.BattleSystems
         {
             IObservable<Unit> OnEndTurn();
         }
+
+        /// <summary>
+        /// 状態異常が付与、削除された際のインターフェイス
+        /// </summary>
+        public interface IModifiedAbnormalState
+        {
+            void OnAddedAbnormalState(AbnormalStateType abnormalStateType, BattleCharacter owner);
+
+            void OnRemovedAbnormalState(AbnormalStateType abnormalStateType, BattleCharacter owner);
+        }
     }
 }

@@ -57,5 +57,31 @@ namespace HK.Ferry.Extensions
         {
             return directionType.HasFlag(DirectionType.Bottom) || directionType.HasFlag(DirectionType.LeftBottom) || directionType.HasFlag(DirectionType.RightBottom);
         }
+
+        public static bool IsBuff(this AbnormalStateType abnormalStateType)
+        {
+            switch (abnormalStateType)
+            {
+                case AbnormalStateType.Poison:
+                case AbnormalStateType.Paralysis:
+                case AbnormalStateType.Confusion:
+                case AbnormalStateType.BlindEyes:
+                case AbnormalStateType.Flinch:
+                case AbnormalStateType.Vitals:
+                case AbnormalStateType.Quilting:
+                case AbnormalStateType.Tiredness:
+                case AbnormalStateType.Seal:
+                    return false;
+                case AbnormalStateType.Healing:
+                case AbnormalStateType.MindEyes:
+                case AbnormalStateType.Absorption:
+                case AbnormalStateType.FastRunner:
+                case AbnormalStateType.CounterAttack:
+                    return true;
+                default:
+                    Assert.IsTrue(false, $"{abnormalStateType}は未対応です");
+                    return false;
+            }
+        }
     }
 }

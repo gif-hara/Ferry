@@ -263,6 +263,16 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new Barrage(level, AttackAttribute.Blow);
                 case SkillType.Barrage_Magic:
                     return new Barrage(level, AttackAttribute.Magic);
+                case SkillType.StatusUp_OnDebuff_HitPoint:
+                    return new StatusUpOnDebuff(level, StatusType.HitPoint);
+                case SkillType.StatusUp_OnDebuff_Attack:
+                    return new StatusUpOnDebuff(level, StatusType.Attack);
+                case SkillType.StatusUp_OnDebuff_Defense:
+                    return new StatusUpOnDebuff(level, StatusType.Defense);
+                case SkillType.StatusUp_OnDebuff_Evasion:
+                    return new StatusUpOnDebuff(level, StatusType.Evasion);
+                case SkillType.StatusUp_OnDebuff_Critical:
+                    return new StatusUpOnDebuff(level, StatusType.Critical);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

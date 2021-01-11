@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UniRx;
+using static HK.Ferry.BattleSystems.BattleEvent;
 using static HK.Ferry.Constants;
 
 namespace HK.Ferry.BattleSystems
@@ -31,6 +32,10 @@ namespace HK.Ferry.BattleSystems
             }
 
             elements.Add(AbnormalStateElementFactory.Create(abnormalStateType, isAllTheWay, owner, battleSystem));
+            foreach (var s in owner.Skills.OfType<IModifiedAbnormalState>())
+            {
+                s.OnAddedAbnormalState(abnormalStateType, owner);
+            }
             return true;
         }
 
@@ -59,9 +64,14 @@ namespace HK.Ferry.BattleSystems
                 {
                     for (var i = 0; i < elements.Count;)
                     {
-                        if (elements[i].CanRemove)
+                        var e = elements[i];
+                        if (e.CanRemove)
                         {
                             elements.RemoveAt(i);
+                            foreach (var s in owner.Skills.OfType<IModifiedAbnormalState>())
+                            {
+                                s.OnRemovedAbnormalState(e.AbnormalStateType, owner);
+                            }
                         }
                         else
                         {

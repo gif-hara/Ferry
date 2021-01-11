@@ -221,5 +221,11 @@ namespace HK.Ferry.BattleSystems
             var index = Mathf.Clamp(level - 1, 0, resistances.Length - 1);
             return resistances[index];
         }
+
+        public static int GetStatusUpOnDebuffAddValue(BattleCharacter owner, StatusType statusType, int level)
+        {
+            var value = owner.BaseSpec.Status.Get(statusType).Value;
+            return Mathf.FloorToInt(value * level * 0.1f);
+        }
     }
 }
