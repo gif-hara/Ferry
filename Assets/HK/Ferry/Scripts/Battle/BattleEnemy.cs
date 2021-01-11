@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HK.Ferry.AI;
+using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace HK.Ferry
     {
         private IAI ai;
 
-        public BattleEnemy(CharacterSpec characterSpec, List<ISkill> skills, IAI ai) : base(characterSpec, skills)
+        public BattleEnemy(BattleSystem battleSystem, CharacterSpec characterSpec, List<ISkill> skills, IAI ai) : base(battleSystem, characterSpec, skills)
         {
             this.ai = ai;
         }

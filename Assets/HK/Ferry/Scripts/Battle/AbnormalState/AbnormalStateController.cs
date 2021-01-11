@@ -13,6 +13,16 @@ namespace HK.Ferry.BattleSystems
     {
         private readonly List<IAbnormalStateElement> elements = new List<IAbnormalStateElement>();
 
+        private readonly BattleCharacter owner;
+
+        private readonly BattleSystem battleSystem;
+
+        public AbnormalStateController(BattleCharacter owner, BattleSystem battleSystem)
+        {
+            this.owner = owner;
+            this.battleSystem = battleSystem;
+        }
+
         public bool Add(AbnormalStateType abnormalStateType)
         {
             if (Contains(abnormalStateType))
@@ -20,7 +30,7 @@ namespace HK.Ferry.BattleSystems
                 return false;
             }
 
-            elements.Add(AbnormalStateElementFactory.Create(abnormalStateType));
+            elements.Add(AbnormalStateElementFactory.Create(abnormalStateType, owner, battleSystem));
             return true;
         }
 

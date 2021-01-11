@@ -13,6 +13,23 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   records:
+  - id: 100000
+    spec:
+      name: "\u30C6\u30B9\u30C8\u541B"
+      attackAttribute: 0
+      status:
+        hitPoint:
+          value: 9999
+        attack:
+          value: 1
+        defense:
+          value: 0
+        evasion:
+          value: 0
+        critical:
+          value: 0
+      skillTypes: 
+    ai: {fileID: 11400000, guid: 3ec887903fd9a49d48f767776f141149, type: 2}
   - id: 100100
     spec:
       name: "\u30B4\u30D6\u30EA\u30F3"

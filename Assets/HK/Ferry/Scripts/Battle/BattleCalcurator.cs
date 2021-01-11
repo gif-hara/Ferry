@@ -48,6 +48,14 @@ namespace HK.Ferry.BattleSystems
         }
 
         /// <summary>
+        /// 毒によるダメージ量を返す
+        /// </summary>
+        public static int GetDamageFromPoison(BattleCharacter target)
+        {
+            return target.CurrentSpec.Status.hitPoint.Value / 10;
+        }
+
+        /// <summary>
         /// 攻撃属性によるダメージ軽減率を返す
         /// </summary>
         public static float GetAttackAttributeReductionRate(AttackAttribute attacker, AttackAttribute defense, int level)

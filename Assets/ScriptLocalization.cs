@@ -43,7 +43,6 @@ namespace I2.Loc
 
 		public static class UI
 		{
-			public static string AddedAbnormalState 		{ get{ return LocalizationManager.GetTranslation ("UI/AddedAbnormalState"); } }
 			public static string ArtistPower 		{ get{ return LocalizationManager.GetTranslation ("UI/ArtistPower"); } }
 			public static string ArtistPowerFormat 		{ get{ return LocalizationManager.GetTranslation ("UI/ArtistPowerFormat"); } }
 			public static string Attack 		{ get{ return LocalizationManager.GetTranslation ("UI/Attack"); } }
@@ -51,7 +50,9 @@ namespace I2.Loc
 			public static string GreatPower 		{ get{ return LocalizationManager.GetTranslation ("UI/GreatPower"); } }
 			public static string GreatPowerFormat 		{ get{ return LocalizationManager.GetTranslation ("UI/GreatPowerFormat"); } }
 			public static string Sentence_AddPower 		{ get{ return LocalizationManager.GetTranslation ("UI/Sentence_AddPower"); } }
+			public static string Sentence_AddedAbnormalState 		{ get{ return LocalizationManager.GetTranslation ("UI/Sentence_AddedAbnormalState"); } }
 			public static string Sentence_Attack 		{ get{ return LocalizationManager.GetTranslation ("UI/Sentence_Attack"); } }
+			public static string Sentence_DamageFromPoison 		{ get{ return LocalizationManager.GetTranslation ("UI/Sentence_DamageFromPoison"); } }
 			public static string WisdomPower 		{ get{ return LocalizationManager.GetTranslation ("UI/WisdomPower"); } }
 			public static string WisdomPowerFormat 		{ get{ return LocalizationManager.GetTranslation ("UI/WisdomPowerFormat"); } }
 		}
@@ -103,7 +104,6 @@ namespace I2.Loc
 
 		public static class UI
 		{
-		    public const string AddedAbnormalState = "UI/AddedAbnormalState";
 		    public const string ArtistPower = "UI/ArtistPower";
 		    public const string ArtistPowerFormat = "UI/ArtistPowerFormat";
 		    public const string Attack = "UI/Attack";
@@ -111,7 +111,9 @@ namespace I2.Loc
 		    public const string GreatPower = "UI/GreatPower";
 		    public const string GreatPowerFormat = "UI/GreatPowerFormat";
 		    public const string Sentence_AddPower = "UI/Sentence_AddPower";
+		    public const string Sentence_AddedAbnormalState = "UI/Sentence_AddedAbnormalState";
 		    public const string Sentence_Attack = "UI/Sentence_Attack";
+		    public const string Sentence_DamageFromPoison = "UI/Sentence_DamageFromPoison";
 		    public const string WisdomPower = "UI/WisdomPower";
 		    public const string WisdomPowerFormat = "UI/WisdomPowerFormat";
 		}

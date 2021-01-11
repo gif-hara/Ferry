@@ -50,8 +50,8 @@ namespace HK.Ferry.BattleSystems
         {
             if (isDebug)
             {
-                Enemy = debugBattleData.Enemy.CreateBattleEnemy();
-                Player = debugBattleData.Player.CreateBattlePlayer();
+                Enemy = debugBattleData.Enemy.CreateBattleEnemy(this);
+                Player = debugBattleData.Player.CreateBattlePlayer(this);
             }
 
             uiView.Setup(this);
@@ -80,8 +80,8 @@ namespace HK.Ferry.BattleSystems
 
         public void Setup(int enemyId)
         {
-            Enemy = MasterDataEnemy.Get.GetRecord(enemyId).CreateBattleEnemy();
-            Player = debugBattleData.Player.CreateBattlePlayer();
+            Enemy = MasterDataEnemy.Get.GetRecord(enemyId).CreateBattleEnemy(this);
+            Player = debugBattleData.Player.CreateBattlePlayer(this);
             isDebug = false;
         }
 

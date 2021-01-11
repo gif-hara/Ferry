@@ -21,10 +21,16 @@ namespace HK.Ferry.BattleSystems
 
         public AbnormalStateType AbnormalStateType { get; }
 
-        public AbnormalStateElement(int remainingTurn, AbnormalStateType abnormalStateType)
+        protected BattleCharacter Owner { get; }
+
+        protected BattleSystem BattleSystem { get; }
+
+        public AbnormalStateElement(int remainingTurn, AbnormalStateType abnormalStateType, BattleCharacter owner, BattleSystem battleSystem)
         {
             RemainingTurn = remainingTurn;
             AbnormalStateType = abnormalStateType;
+            Owner = owner;
+            BattleSystem = battleSystem;
         }
 
         public IObservable<Unit> OnEndTurn()

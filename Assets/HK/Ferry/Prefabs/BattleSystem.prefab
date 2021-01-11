@@ -2151,7 +2151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiView: {fileID: 4192897004094751350}
   debugBattleData:
-    enemyId: 100100
+    enemyId: 100000
     player:
       name: "\u30D7\u30EC\u30A4\u30E4\u30FC"
       weaponName: Weapon/001

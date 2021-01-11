@@ -34,13 +34,14 @@ namespace HK.Ferry
             private set;
         }
 
-        public readonly AbnormalStateController AbnormalStateController = new AbnormalStateController();
+        public readonly AbnormalStateController AbnormalStateController;
 
-        public BattleCharacter(CharacterSpec characterSpec, List<ISkill> skills)
+        public BattleCharacter(BattleSystem battleSystem, CharacterSpec characterSpec, List<ISkill> skills)
         {
             CurrentSpec = new CharacterSpec(characterSpec);
             BaseSpec = characterSpec;
             Skills = skills;
+            AbnormalStateController = new AbnormalStateController(this, battleSystem);
         }
 
         public float HitPointRate => (float)CurrentSpec.Status.hitPoint.Value / BaseSpec.Status.hitPoint.Value;
@@ -64,10 +65,12 @@ namespace HK.Ferry
         {
         }
 
-        public virtual void EndTurn()
+        /// <summary>
+        /// ターン終了時の処理
+        /// </summary>
+        public virtual IObservable<Unit> EndTurn()
         {
-            AbnormalStateController.EndTurn()
-                .Subscribe();
+            return AbnormalStateController.EndTurn();
         }
 
         /// <summary>

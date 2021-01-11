@@ -377,11 +377,19 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: UI/AddedAbnormalState
+    - Term: UI/Sentence_AddedAbnormalState
       TermType: 0
       Description: 
       Languages:
       - "\u3055\u3089\u306B{0}\u306B{1}\u3092\u4ED8\u4E0E\u3057\u305F\uFF01"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/Sentence_DamageFromPoison
+      TermType: 0
+      Description: 
+      Languages:
+      - "{0}\u306F\u6BD2\u3067{1}\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u53D7\u3051\u305F\uFF01"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -408,7 +416,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1610345035198
+    Google_LastUpdatedVersion: 1610349841267
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

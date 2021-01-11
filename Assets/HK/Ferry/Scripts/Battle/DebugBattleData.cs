@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HK.Ferry.AI;
+using HK.Ferry.BattleSystems;
 using HK.Ferry.BattleSystems.Skills;
 using HK.Ferry.Database;
 using I2.Loc;
@@ -34,9 +35,9 @@ namespace HK.Ferry
             [SerializeField]
             private AIScriptableObject ai = default;
 
-            public BattleEnemy CreateBattleEnemy()
+            public BattleEnemy CreateBattleEnemy(BattleSystem battleSystem)
             {
-                return new BattleEnemy(spec, spec.CreateSkills(), UnityEngine.Object.Instantiate(ai));
+                return new BattleEnemy(battleSystem, spec, spec.CreateSkills(), UnityEngine.Object.Instantiate(ai));
             }
         }
 
@@ -59,7 +60,7 @@ namespace HK.Ferry
             [SerializeField]
             private List<SkillType> skillTypes = default;
 
-            public BattlePlayer CreateBattlePlayer()
+            public BattlePlayer CreateBattlePlayer(BattleSystem battleSystem)
             {
                 var weapon = MasterDataEquipment.Get.GetRecord(weaponName);
                 var instanceSkillTypes = new List<SkillType>(skillTypes);
@@ -70,7 +71,7 @@ namespace HK.Ferry
                 var skills = characterSpec.CreateSkills();
                 instanceCharacterStatus.Add(skills);
 
-                return new BattlePlayer(characterSpec, skills, commands);
+                return new BattlePlayer(battleSystem, characterSpec, skills, commands);
             }
         }
     }

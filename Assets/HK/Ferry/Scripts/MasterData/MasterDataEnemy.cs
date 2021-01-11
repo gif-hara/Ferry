@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HK.Ferry.AI;
+using HK.Ferry.BattleSystems;
 using I2.Loc;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -29,7 +30,7 @@ namespace HK.Ferry.Database
             private AIScriptableObject ai = default;
             public AIScriptableObject CreateAI() => Instantiate(ai);
 
-            public BattleEnemy CreateBattleEnemy() => new BattleEnemy(spec, spec.CreateSkills(), CreateAI());
+            public BattleEnemy CreateBattleEnemy(BattleSystem battleSystem) => new BattleEnemy(battleSystem, spec, spec.CreateSkills(), CreateAI());
         }
     }
 }

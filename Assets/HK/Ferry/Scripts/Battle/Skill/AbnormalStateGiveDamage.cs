@@ -31,7 +31,7 @@ namespace HK.Ferry.BattleSystems.Skills
                 var battleCharacter = BattleUtility.GetBattleCharacter(attacker, target, targetType);
                 if (battleCharacter.AbnormalStateController.Add(abnormalStateType))
                 {
-                    battleSystem.AddLog(ScriptLocalization.UI.AddedAbnormalState.Format(battleCharacter.CurrentSpec.Name, abnormalStateType));
+                    battleSystem.AddLog(ScriptLocalization.UI.Sentence_AddedAbnormalState.Format(battleCharacter.CurrentSpec.Name, abnormalStateType));
                     return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
                 }
                 else
