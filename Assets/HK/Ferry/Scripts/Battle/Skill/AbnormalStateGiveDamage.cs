@@ -1,4 +1,6 @@
 ﻿using System;
+using HK.Ferry.Extensions;
+using I2.Loc;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -26,8 +28,16 @@ namespace HK.Ferry.BattleSystems.Skills
         {
             return Observable.Defer(() =>
             {
-                Debug.Log($"TODO {abnormalStateType}, {targetType}");
-                return Observable.ReturnUnit();
+                var battleCharacter = BattleUtility.GetBattleCharacter(attacker, target, targetType);
+                if (battleCharacter.AbnormalStateController.Add(abnormalStateType))
+                {
+                    battleSystem.AddLog(ScriptLocalization.UI.AddedAbnormalState.Format(battleCharacter.CurrentSpec.Name, abnormalStateType));
+                    return Observable.Timer(TimeSpan.FromSeconds(1.0f)).AsUnitObservable();
+                }
+                else
+                {
+                    return Observable.ReturnUnit();
+                }
             });
         }
     }

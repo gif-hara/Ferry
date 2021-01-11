@@ -73,6 +73,230 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: AbnormalStateName/Poison
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u731B\u6BD2"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Paralysis
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u9EBB\u75FA"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Confusion
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6DF7\u4E71"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/BlindEyes
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u76EE\u6F70\u3057"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Flinch
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u602F\u307F"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Vitals
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6025\u6240"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Quilting
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5F71\u7E2B"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Tiredness
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u75B2\u52B4"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Seal
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5C01\u5370"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Healing
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6CBB\u7642"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/MindEyes
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5FC3\u773C"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/Absorption
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5438\u53CE"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/FastRunner
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u4FCA\u8DB3"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateName/CounterAttack
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u53CD\u6483"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Poison
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u731B\u6BD2"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Paralysis
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u9EBB\u75FA"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Confusion
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6DF7\u4E71"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/BlindEyes
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u76EE\u6F70\u3057"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Flinch
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u602F\u307F"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Vitals
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6025\u6240"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Quilting
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5F71\u7E2B"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Tiredness
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u75B2\u52B4"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Seal
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5C01\u5370"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Healing
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u6CBB\u7642"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/MindEyes
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5FC3\u773C"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/Absorption
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u5438\u53CE"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/FastRunner
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u4FCA\u8DB3"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: AbnormalStateDescription/CounterAttack
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u53CD\u6483"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: UI/AttackFormat
       TermType: 0
       Description: 
@@ -153,6 +377,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: UI/AddedAbnormalState
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u3055\u3089\u306B{0}\u306B{1}\u3092\u4ED8\u4E0E\u3057\u305F\uFF01"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: Weapon/001
       TermType: 0
       Description: 
@@ -176,7 +408,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1608217189850
+    Google_LastUpdatedVersion: 1610345035198
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

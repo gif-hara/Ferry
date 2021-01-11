@@ -20,6 +20,7 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
+                battleSystem.Player.EndTurn();
                 owner.Change(BattleSystem.BattlePhase.EnemyTurnStart);
             }
         }

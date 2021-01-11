@@ -20,14 +20,14 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
-                battleManager.UIView.SetCommandButtonInteractable(true);
-                battleManager.UIView.SelectCommandAsObservable()
+                battleSystem.UIView.SetCommandButtonInteractable(true);
+                battleSystem.UIView.SelectCommandAsObservable()
                     .Subscribe(x =>
                     {
                         var arg = new InvokeCommand.Argument
                         {
                             command = x.Command,
-                            commandInvoker = battleManager.Player,
+                            commandInvoker = battleSystem.Player,
                             completeInvokeCommandAction = () => owner.Change(BattleSystem.BattlePhase.PlayerTurnEnd)
                         };
                         x.ResetCoolTime();

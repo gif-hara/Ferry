@@ -34,6 +34,8 @@ namespace HK.Ferry
             private set;
         }
 
+        public readonly AbnormalStateController AbnormalStateController = new AbnormalStateController();
+
         public BattleCharacter(CharacterSpec characterSpec, List<ISkill> skills)
         {
             CurrentSpec = new CharacterSpec(characterSpec);
@@ -60,6 +62,12 @@ namespace HK.Ferry
         /// </summary>
         public virtual void StartTurn()
         {
+        }
+
+        public virtual void EndTurn()
+        {
+            AbnormalStateController.EndTurn()
+                .Subscribe();
         }
 
         /// <summary>

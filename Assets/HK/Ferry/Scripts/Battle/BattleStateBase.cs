@@ -12,11 +12,11 @@ namespace HK.Ferry.BattleSystems
 
         public abstract BattleSystem.BattlePhase StateName { get; }
 
-        protected BattleSystem battleManager;
+        protected BattleSystem battleSystem;
 
         public BattleStateBase(BattleSystem battleManager)
         {
-            this.battleManager = battleManager;
+            this.battleSystem = battleManager;
         }
 
         public abstract void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null);

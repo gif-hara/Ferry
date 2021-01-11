@@ -2168,7 +2168,7 @@ MonoBehaviour:
           value: 0
       commands:
       - "CommandName/\u901A\u5E38\u653B\u6483"
-      skillTypes: c02b0000
+      skillTypes: a0280000
 --- !u!1 &4192897004550833180
 GameObject:
   m_ObjectHideFlags: 0

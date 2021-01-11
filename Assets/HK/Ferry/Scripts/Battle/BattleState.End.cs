@@ -23,7 +23,7 @@ namespace HK.Ferry.BattleSystems
 
             public override void Enter(StateController<BattleSystem.BattlePhase> owner, IStateArgument argument = null)
             {
-                battleManager.AddLog("TODO:バトル終了");
+                battleSystem.AddLog("TODO:バトル終了");
 
                 Observable.Timer(TimeSpan.FromSeconds(3.0f))
                     .Subscribe(_ =>

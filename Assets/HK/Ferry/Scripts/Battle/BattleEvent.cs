@@ -68,5 +68,13 @@ namespace HK.Ferry.BattleSystems
 
             StatusType StatusType { get; }
         }
+
+        /// <summary>
+        /// ターン終了時のインターフェイス
+        /// </summary>
+        public interface IOnEndTurn
+        {
+            IObservable<Unit> OnEndTurn();
+        }
     }
 }

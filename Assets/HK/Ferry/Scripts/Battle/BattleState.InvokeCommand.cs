@@ -25,17 +25,17 @@ namespace HK.Ferry.BattleSystems
                 var arg = (Argument)argument;
                 Assert.IsNotNull(arg);
 
-                battleManager.UIView.SetCommandButtonInteractable(false);
-                battleManager.InvokeCommand(arg.commandInvoker, arg.command)
+                battleSystem.UIView.SetCommandButtonInteractable(false);
+                battleSystem.InvokeCommand(arg.commandInvoker, arg.command)
                 .Subscribe(x =>
                 {
-                    if (battleManager.CanEnd())
+                    if (battleSystem.CanEnd())
                     {
                         owner.Change(BattleSystem.BattlePhase.End);
                     }
                 }, () =>
                 {
-                    if (!battleManager.CanEnd())
+                    if (!battleSystem.CanEnd())
                     {
                         arg.completeInvokeCommandAction();
                     }
