@@ -107,5 +107,13 @@ namespace HK.Ferry
         {
             CurrentSpec.Status.Add(statusType, value);
         }
+
+        public int GetSkillLevel(SkillType skillType)
+        {
+            return Skills
+                .OfType<SkillTypeHolder>()
+                .Where(x => x.SkillType == skillType)
+                .Sum(x => x.Level);
+        }
     }
 }

@@ -24,8 +24,8 @@ namespace HK.Ferry
         {
             return Observable.Defer(() =>
             {
-                var damage = attacker.GiveDamage(target);
-                battleSystem.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damage));
+                var damageResult = attacker.GiveDamage(target);
+                battleSystem.AddLog(ScriptLocalization.UI.Sentence_Attack.Format(attacker.CurrentSpec.Name, target.CurrentSpec.Name, damageResult.damage));
 
                 var otherStreams = new List<IObservable<Unit>>();
 

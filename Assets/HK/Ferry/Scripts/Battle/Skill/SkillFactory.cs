@@ -273,6 +273,8 @@ namespace HK.Ferry.BattleSystems.Skills
                     return new StatusUpOnDebuff(level, StatusType.Evasion);
                 case SkillType.StatusUp_OnDebuff_Critical:
                     return new StatusUpOnDebuff(level, StatusType.Critical);
+                case SkillType.SuperCritical:
+                    return new SkillTypeHolder(level, SkillType.SuperCritical);
                 default:
                     Assert.IsTrue(false, $"{skillType}は未対応です");
                     return null;

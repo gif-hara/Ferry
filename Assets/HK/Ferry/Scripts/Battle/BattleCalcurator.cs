@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using HK.Ferry.BattleSystems.Skills;
 using UnityEngine;
 using UnityEngine.Assertions;
 using static HK.Ferry.Constants;
@@ -54,7 +55,7 @@ namespace HK.Ferry.BattleSystems
                         var critical = attacker.CurrentSpec.Status.critical.Value / 100.0f;
                         if (critical > random)
                         {
-                            damage *= 1.5f;
+                            damage *= GetCriticalRate(attacker);
                             result.isCritical = true;
                         }
                     }
@@ -250,6 +251,14 @@ namespace HK.Ferry.BattleSystems
         {
             var value = owner.BaseSpec.Status.Get(statusType).Value;
             return Mathf.FloorToInt(value * level * 0.1f);
+        }
+
+        public static float GetCriticalRate(BattleCharacter battleCharacter)
+        {
+            var rates = new float[] { 1.5f, 1.6f, 1.75f, 2.0f };
+            var level = Mathf.Clamp(battleCharacter.GetSkillLevel(SkillType.SuperCritical), 0, rates.Length - 1);
+
+            return rates[level];
         }
     }
 }

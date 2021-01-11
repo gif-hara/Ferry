@@ -2165,12 +2165,12 @@ MonoBehaviour:
         evasion:
           value: 0
         critical:
-          value: 0
+          value: 100
         abnormalStateResistance:
           elements: []
       commands:
       - "CommandName/\u901A\u5E38\u653B\u6483"
-      skillTypes: 252c0000
+      skillTypes: 
 --- !u!1 &4192897004550833180
 GameObject:
   m_ObjectHideFlags: 0
