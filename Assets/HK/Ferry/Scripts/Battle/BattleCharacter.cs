@@ -36,6 +36,15 @@ namespace HK.Ferry
 
         public readonly AbnormalStateController AbnormalStateController;
 
+        /// <summary>
+        /// <see cref="SkillType.Spirit"/>を発動したか
+        /// </summary>
+        public bool IsSpirit
+        {
+            get;
+            set;
+        }
+
         public BattleCharacter(BattleSystem battleSystem, CharacterSpec characterSpec, List<ISkill> skills)
         {
             CurrentSpec = new CharacterSpec(characterSpec);
@@ -98,7 +107,17 @@ namespace HK.Ferry
         /// </summary>
         public void TakeDamageRaw(int value)
         {
-            CurrentSpec.Status.hitPoint.Value -= value;
+            var result = CurrentSpec.Status.hitPoint.Value;
+            result = Mathf.Clamp(result - value, 0, 999999);
+
+            // 根性の条件を満たしていたら発動する
+            if (result <= 0 && GetSkillLevel(SkillType.Spirit) > 0 && !IsSpirit)
+            {
+                result = 1;
+                IsSpirit = true;
+            }
+
+            CurrentSpec.Status.hitPoint.Value = result;
         }
 
         public bool IsDead => CurrentSpec.Status.hitPoint.Value <= 0;
