@@ -2,6 +2,7 @@
 using HK.Ferry.Database;
 using HK.Ferry.Extensions;
 using HK.Ferry.GameSystems;
+using HK.Ferry.UserSystems;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -54,7 +55,7 @@ namespace HK.Ferry.FieldSystems
             gridLayoutGroup.padding.bottom = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             gridLayoutGroup.constraintCount = fieldData.width;
-            fieldStatus = UserData.Instance.LoadFieldStatus(fieldDataId);
+            fieldStatus = UserData.Instance.FieldData.Load(fieldDataId);
             for (var y = 0; y < fieldData.height; y++)
             {
                 controllers.Add(new List<FieldCellButtonController>());
@@ -123,7 +124,7 @@ namespace HK.Ferry.FieldSystems
                 }
             }
 
-            UserData.Instance.SaveFieldStatus(fieldDataId, fieldStatus);
+            UserData.Instance.FieldData.Save(fieldDataId, fieldStatus);
         }
     }
 }

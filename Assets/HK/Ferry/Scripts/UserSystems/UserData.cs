@@ -3,7 +3,7 @@ using HK.Ferry.FieldSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace HK.Ferry.GameSystems
+namespace HK.Ferry.UserSystems
 {
     /// <summary>
     /// 
@@ -24,23 +24,9 @@ namespace HK.Ferry.GameSystems
             }
         }
 
-        public void SaveFieldStatus(int fieldDataId, FieldStatus fieldStatus)
-        {
-            PlayerPrefs.SetString(Key.GetFieldStatus(fieldDataId), fieldStatus.ToJson());
-        }
+        public readonly UserFieldData FieldData = new UserFieldData();
 
-        public FieldStatus LoadFieldStatus(int fieldDataId)
-        {
-            var fieldData = MasterDataFieldData.Get.GetRecord(fieldDataId).FieldData;
-            if (PlayerPrefs.HasKey(Key.GetFieldStatus(fieldDataId)))
-            {
-                return new FieldStatus(PlayerPrefs.GetString(Key.GetFieldStatus(fieldDataId)));
-            }
-
-            return new FieldStatus(fieldData);
-        }
-
-        private static class Key
+        public static class Key
         {
             public static string GetFieldStatus(int fieldDataId)
             {
