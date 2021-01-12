@@ -41,6 +41,16 @@ namespace I2.Loc
 			public static string Vitals 		{ get{ return LocalizationManager.GetTranslation ("AbnormalStateName/Vitals"); } }
 		}
 
+		public static class CommandName
+		{
+			public static string Attack 		{ get{ return LocalizationManager.GetTranslation ("CommandName/Attack"); } }
+		}
+
+		public static class Item
+		{
+			public static string _1001001 		{ get{ return LocalizationManager.GetTranslation ("Item/1001001"); } }
+		}
+
 		public static class UI
 		{
 			public static string ArtistPower 		{ get{ return LocalizationManager.GetTranslation ("UI/ArtistPower"); } }
@@ -100,6 +110,16 @@ namespace I2.Loc
 		    public const string Seal = "AbnormalStateName/Seal";
 		    public const string Tiredness = "AbnormalStateName/Tiredness";
 		    public const string Vitals = "AbnormalStateName/Vitals";
+		}
+
+		public static class CommandName
+		{
+		    public const string Attack = "CommandName/Attack";
+		}
+
+		public static class Item
+		{
+		    public const string _1001001 = "Item/1001001";
 		}
 
 		public static class UI

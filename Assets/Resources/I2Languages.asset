@@ -17,59 +17,11 @@ MonoBehaviour:
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
     mTerms:
-    - Term: "CommandName/\u901A\u5E38\u653B\u6483"
+    - Term: CommandName/Attack
       TermType: 0
       Description: 
       Languages:
       - "\u901A\u5E38\u653B\u6483"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u529B\u306E\u901A\u5E38\u653B\u6483"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u529B\u306E\u901A\u5E38\u653B\u6483"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u6280\u306E\u901A\u5E38\u653B\u6483"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u6280\u306E\u901A\u5E38\u653B\u6483"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u667A\u306E\u901A\u5E38\u653B\u6483"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u667A\u306E\u901A\u5E38\u653B\u6483"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u529B\u4E0A\u6607"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u529B\u4E0A\u6607"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u6280\u4E0A\u6607"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u6280\u4E0A\u6607"
-      - 
-      Flags: 0000
-      Languages_Touch: []
-    - Term: "CommandName/\u667A\u4E0A\u6607"
-      TermType: 0
-      Description: 
-      Languages:
-      - "\u667A\u4E0A\u6607"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -401,6 +353,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: Item/1001001
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B4\u30D6\u30EA\u30F3\u306E\u9B42"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -416,7 +376,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1610349841267
+    Google_LastUpdatedVersion: 1610453087773
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

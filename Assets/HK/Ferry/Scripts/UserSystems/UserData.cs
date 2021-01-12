@@ -26,11 +26,13 @@ namespace HK.Ferry.UserSystems
 
         public readonly UserFieldData FieldData = new UserFieldData();
 
+        public readonly UserItem Item = new UserItem();
+
         public static class Key
         {
             public static string GetFieldStatus(int fieldDataId)
             {
-                return $"{nameof(FieldStatus)}[{fieldDataId}]";
+                return $"{nameof(UserFieldData)}[{fieldDataId}]";
             }
         }
     }
