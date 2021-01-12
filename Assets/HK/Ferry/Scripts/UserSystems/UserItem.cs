@@ -11,18 +11,18 @@ namespace HK.Ferry.UserSystems
     /// </summary>
     public sealed class UserItem
     {
-        private readonly Dictionary<string, int> itemNumbers = new Dictionary<string, int>();
+        private readonly Dictionary<int, int> itemNumbers = new Dictionary<int, int>();
 
         public UserItem()
         {
         }
 
-        public UserItem(List<string> itemNames, List<int> itemNumbers)
+        public UserItem(List<int> itemIds, List<int> itemNumbers)
         {
-            Assert.AreEqual(itemNames.Count, itemNumbers.Count);
-            for (var i = 0; i < itemNames.Count; i++)
+            Assert.AreEqual(itemIds.Count, itemNumbers.Count);
+            for (var i = 0; i < itemIds.Count; i++)
             {
-                this.itemNumbers.Add(itemNames[i], itemNumbers[i]);
+                this.itemNumbers.Add(itemIds[i], itemNumbers[i]);
             }
         }
 
@@ -30,7 +30,7 @@ namespace HK.Ferry.UserSystems
         {
             var serializedData = new SerializedData()
             {
-                itemNames = itemNumbers.Keys.ToList(),
+                itemIds = itemNumbers.Keys.ToList(),
                 itemNumbers = itemNumbers.Values.ToList()
             };
 
@@ -42,26 +42,26 @@ namespace HK.Ferry.UserSystems
             var data = serializeData[SerializedData.Key];
             var serializedData = JsonUtility.FromJson<SerializedData>(data);
 
-            return new UserItem(serializedData.itemNames, serializedData.itemNumbers);
+            return new UserItem(serializedData.itemIds, serializedData.itemNumbers);
         }
 
-        public void Add(string itemName, int value)
+        public void Add(int itemId, int value)
         {
-            if (itemNumbers.ContainsKey(itemName))
+            if (itemNumbers.ContainsKey(itemId))
             {
-                itemNumbers[itemName] += value;
+                itemNumbers[itemId] += value;
             }
             else
             {
-                itemNumbers.Add(itemName, value);
+                itemNumbers.Add(itemId, value);
             }
         }
 
-        public int Get(string itemName)
+        public int Get(int itemId)
         {
-            if (itemNumbers.ContainsKey(itemName))
+            if (itemNumbers.ContainsKey(itemId))
             {
-                return itemNumbers[itemName];
+                return itemNumbers[itemId];
             }
             else
             {
@@ -72,7 +72,7 @@ namespace HK.Ferry.UserSystems
         [Serializable]
         public class SerializedData
         {
-            public List<string> itemNames;
+            public List<int> itemIds;
 
             public List<int> itemNumbers;
 

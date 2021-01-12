@@ -32,6 +32,7 @@ public partial class SROptions
     [Sort(1002)]
     public void AddItem()
     {
-        UserData.Instance.Item.Add(ItemId.AsItemNameLocalizeKey(), ItemNumber);
+        UserData.Instance.Item.Add(ItemId, ItemNumber);
+        UserData.Instance.Save();
     }
 }

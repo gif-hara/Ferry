@@ -1,4 +1,5 @@
-﻿using HK.Ferry.Database;
+﻿using System.Collections.Generic;
+using HK.Ferry.Database;
 using HK.Ferry.FieldSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -27,6 +28,12 @@ namespace HK.Ferry.UserSystems
         public readonly UserFieldData FieldData = new UserFieldData();
 
         public readonly UserItem Item = new UserItem();
+
+        public void Save()
+        {
+            var serializeData = new Dictionary<string, string>();
+            Item.Serialize(serializeData);
+        }
 
         public static class Key
         {

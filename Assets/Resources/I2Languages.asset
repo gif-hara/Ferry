@@ -361,6 +361,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: Item/1001002
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u30B9\u30E9\u30A4\u30E0\u306E\u9B42"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -376,7 +384,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxbhkL7AKH07tjjA91vXaMhz2pLBS46L_h--6q13GN5H_NaNy0/exec
     Google_SpreadsheetKey: 1dVz5b8Iv8BCKJmKzcezKO9ieMBi0OQIn-ouky50lnr0
     Google_SpreadsheetName: I2Loc Ferry Localize
-    Google_LastUpdatedVersion: 1610453087773
+    Google_LastUpdatedVersion: 1610466286393
     Google_Password: ferry
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
