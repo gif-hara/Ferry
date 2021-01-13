@@ -361,7 +361,6 @@ MonoBehaviour:
     initialX: 2
     initialY: 9
   gridLayoutGroup: {fileID: 2334978409116140399}
-  scrollRect: {fileID: 0}
   fieldCellButtonControllerPrefab: {fileID: 7383046183923079376, guid: dc0fdcdfeb5904ca0960faca63305cba,
     type: 3}
 --- !u!1 &2334978409116140402

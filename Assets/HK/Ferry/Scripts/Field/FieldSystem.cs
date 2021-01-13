@@ -23,9 +23,6 @@ namespace HK.Ferry.FieldSystems
         private GridLayoutGroup gridLayoutGroup = default;
 
         [SerializeField]
-        private ScrollRect scrollRect = default;
-
-        [SerializeField]
         private FieldCellButtonController fieldCellButtonControllerPrefab = default;
 
         private bool isDebug = true;
