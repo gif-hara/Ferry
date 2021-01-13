@@ -17,21 +17,16 @@ namespace HK.Ferry.UserSystems
         {
         }
 
-        public UserItem(List<int> itemIds, List<int> itemNumbers)
+        public UserItem(SerializableDictionary<int, int> itemNumbers)
         {
-            Assert.AreEqual(itemIds.Count, itemNumbers.Count);
-            for (var i = 0; i < itemIds.Count; i++)
-            {
-                this.itemNumbers.Add(itemIds[i], itemNumbers[i]);
-            }
+            this.itemNumbers = itemNumbers.ToDictionary();
         }
 
         public void Serialize(Dictionary<string, string> serializeData)
         {
             var serializedData = new SerializedData()
             {
-                itemIds = itemNumbers.Keys.ToList(),
-                itemNumbers = itemNumbers.Values.ToList()
+                itemNumbers = new SerializableDictionary<int, int>(itemNumbers)
             };
 
             serializeData.Add(SerializedData.Key, JsonUtility.ToJson(serializedData));
@@ -42,7 +37,7 @@ namespace HK.Ferry.UserSystems
             var data = serializeData[SerializedData.Key];
             var serializedData = JsonUtility.FromJson<SerializedData>(data);
 
-            return new UserItem(serializedData.itemIds, serializedData.itemNumbers);
+            return new UserItem(serializedData.itemNumbers);
         }
 
         public void Add(int itemId, int value)
@@ -72,9 +67,7 @@ namespace HK.Ferry.UserSystems
         [Serializable]
         public class SerializedData
         {
-            public List<int> itemIds;
-
-            public List<int> itemNumbers;
+            public SerializableDictionary<int, int> itemNumbers;
 
             public static string Key => $"{nameof(UserItem)}";
         }
