@@ -29,7 +29,11 @@ namespace HK.Ferry.ArenaSystems
                 element.Button.OnClickAsObservable()
                     .Subscribe(_ =>
                     {
-                        Debug.Log("TODO バトル");
+                        var argument = new GameState.Battle.Argument()
+                        {
+                            enemyId = e.Id
+                        };
+                        GameManager.Instance.StateController.Change(GameManager.GameSystemType.Battle, argument);
                     })
                     .AddTo(element);
             }
