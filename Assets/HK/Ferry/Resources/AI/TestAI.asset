@@ -24,5 +24,5 @@ MonoBehaviour:
       type: {class: Random, ns: HK.Ferry.AI.CommandSelectors, asm: Assembly-CSharp}
       data:
         elements:
-        - commandName: "CommandName/\u901A\u5E38\u653B\u6483"
+        - commandName: CommandName/Attack
           weight: 100

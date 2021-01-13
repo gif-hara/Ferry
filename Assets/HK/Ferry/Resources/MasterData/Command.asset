@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Command
   m_EditorClassIdentifier: 
   records:
-  - name: "CommandName/\u901A\u5E38\u653B\u6483"
+  - name: CommandName/Attack
     coolTime: 0
     initialCoolTime: 0
     commands:

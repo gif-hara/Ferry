@@ -2169,7 +2169,7 @@ MonoBehaviour:
         abnormalStateResistance:
           elements: []
       commands:
-      - "CommandName/\u901A\u5E38\u653B\u6483"
+      - CommandName/Attack
       skillTypes: 8b2c0000
 --- !u!1 &4192897004550833180
 GameObject:
