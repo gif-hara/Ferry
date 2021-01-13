@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HK.Ferry.Database;
+using HK.Ferry.Extensions;
 using HK.Ferry.FieldSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -19,20 +20,37 @@ namespace HK.Ferry.UserSystems
                 if (instance == null)
                 {
                     instance = new UserData();
+
+                    if (PlayerPrefs.HasKey(SerializedData.Key))
+                    {
+                        var serializedData = JsonUtility.FromJson<SerializedData>(PlayerPrefs.GetString(SerializedData.Key));
+                        var saveData = serializedData.saveData.ToDictionary();
+                        instance.fieldData = UserFieldData.Deserialize(saveData);
+                        instance.item = UserItem.Deserialize(saveData);
+                    }
                 }
 
                 return instance;
             }
         }
 
-        public readonly UserFieldData FieldData = new UserFieldData();
+        private UserFieldData fieldData = new UserFieldData();
+        public UserFieldData FieldData => fieldData;
 
-        public readonly UserItem Item = new UserItem();
+        private UserItem item = new UserItem();
+        public UserItem Item => item;
 
         public void Save()
         {
-            var serializeData = new Dictionary<string, string>();
-            Item.Serialize(serializeData);
+            var saveDara = new Dictionary<string, string>();
+            FieldData.Serialize(saveDara);
+            Item.Serialize(saveDara);
+            var serializedData = new SerializedData()
+            {
+                saveData = saveDara.ToSerializable()
+            };
+
+            PlayerPrefs.SetString(SerializedData.Key, JsonUtility.ToJson(serializedData));
         }
 
         public static class Key
@@ -41,6 +59,13 @@ namespace HK.Ferry.UserSystems
             {
                 return $"{nameof(UserFieldData)}[{fieldDataId}]";
             }
+        }
+
+        public class SerializedData
+        {
+            public SerializableDictionary<string, string> saveData;
+
+            public static string Key => nameof(UserData);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using HK.Ferry.Database;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using HK.Ferry.Database;
 using HK.Ferry.FieldSystems;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -10,20 +13,53 @@ namespace HK.Ferry.UserSystems
     /// </summary>
     public sealed class UserFieldData
     {
-        public void Save(int fieldDataId, FieldStatus fieldStatus)
+        private Dictionary<int, FieldStatus> fieldStatues = new Dictionary<int, FieldStatus>();
+
+        public UserFieldData()
         {
-            PlayerPrefs.SetString(UserData.Key.GetFieldStatus(fieldDataId), fieldStatus.ToJson());
         }
 
-        public FieldStatus Load(int fieldDataId)
+        public UserFieldData(SerializableDictionary<int, string> fieldStatues)
         {
-            var fieldData = MasterDataFieldData.Get.GetRecord(fieldDataId).FieldData;
-            if (PlayerPrefs.HasKey(UserData.Key.GetFieldStatus(fieldDataId)))
+            this.fieldStatues = fieldStatues.ToDictionary().ToDictionary(x => x.Key, x => new FieldStatus(x.Value));
+        }
+
+        public void Serialize(Dictionary<string, string> serializeData)
+        {
+            var serializedData = new SerializedData()
             {
-                return new FieldStatus(PlayerPrefs.GetString(UserData.Key.GetFieldStatus(fieldDataId)));
+                fieldStatuses = new SerializableDictionary<int, string>(fieldStatues.ToDictionary(x => x.Key, x => x.Value.ToJson()))
+            };
+
+            serializeData.Add(SerializedData.Key, JsonUtility.ToJson(serializedData));
+        }
+
+        public static UserFieldData Deserialize(Dictionary<string, string> serializeData)
+        {
+            var data = serializeData[SerializedData.Key];
+
+            return new UserFieldData(JsonUtility.FromJson<SerializedData>(data).fieldStatuses);
+        }
+
+        public FieldStatus Get(int fieldDataId)
+        {
+            if (fieldStatues.ContainsKey(fieldDataId))
+            {
+                return fieldStatues[fieldDataId];
             }
 
-            return new FieldStatus(fieldData);
+            var fieldData = MasterDataFieldData.Get.GetRecord(fieldDataId).FieldData;
+            var result = new FieldStatus(fieldData);
+            fieldStatues.Add(fieldDataId, result);
+            return result;
+        }
+
+        [Serializable]
+        public class SerializedData
+        {
+            public SerializableDictionary<int, string> fieldStatuses;
+
+            public static string Key => nameof(UserFieldData);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace HK.Ferry.FieldSystems
             gridLayoutGroup.padding.bottom = Screen.height - (int)gridLayoutGroup.cellSize.y;
             gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             gridLayoutGroup.constraintCount = fieldData.width;
-            fieldStatus = UserData.Instance.FieldData.Load(fieldDataId);
+            fieldStatus = UserData.Instance.FieldData.Get(fieldDataId);
             for (var y = 0; y < fieldData.height; y++)
             {
                 controllers.Add(new List<FieldCellButtonController>());
@@ -124,7 +124,7 @@ namespace HK.Ferry.FieldSystems
                 }
             }
 
-            UserData.Instance.FieldData.Save(fieldDataId, fieldStatus);
+            UserData.Instance.Save();
         }
     }
 }

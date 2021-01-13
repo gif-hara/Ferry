@@ -15,7 +15,7 @@ namespace HK.Ferry
 
         public List<TValue> values = new List<TValue>();
 
-        public SerializableDictionary(Dictionary<TKey, TValue> dictionary)
+        public SerializableDictionary(IDictionary<TKey, TValue> dictionary)
         {
             foreach (var x in dictionary)
             {

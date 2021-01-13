@@ -58,5 +58,10 @@ namespace HK.Ferry.Extensions
                 .Sum(x => x.Level);
 
         }
+
+        public static SerializableDictionary<TKey, TValue> ToSerializable<TKey, TValue>(this IDictionary<TKey, TValue> self)
+        {
+            return new SerializableDictionary<TKey, TValue>(self);
+        }
     }
 }
