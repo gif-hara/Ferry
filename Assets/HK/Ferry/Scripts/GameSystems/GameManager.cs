@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HK.Ferry.ArenaSystems;
 using HK.Ferry.BattleSystems;
 using HK.Ferry.FieldSystems;
 using HK.Ferry.StateControllers;
@@ -16,6 +17,7 @@ namespace HK.Ferry.GameSystems
         {
             Field,
             Battle,
+            Arena,
         }
 
         [SerializeField]
@@ -26,6 +28,9 @@ namespace HK.Ferry.GameSystems
 
         [SerializeField]
         private BattleSystem battleSystemPrefab = default;
+
+        [SerializeField]
+        private ArenaSystem arenaSystemPrefab = default;
 
         public static GameManager Instance { get; private set; }
 
@@ -43,7 +48,8 @@ namespace HK.Ferry.GameSystems
                 new List<IState<GameSystemType>>
                 {
                     new GameState.Field(this, fieldSystemPrefab),
-                    new GameState.Battle(this, battleSystemPrefab)
+                    new GameState.Battle(this, battleSystemPrefab),
+                    new GameState.Arena(this, arenaSystemPrefab)
                 },
                 initialType
                 );

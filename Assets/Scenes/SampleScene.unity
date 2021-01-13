@@ -302,10 +302,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec5db3cbc48411aa8ad243252ea746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialType: 0
+  initialType: 2
   fieldSystemPrefab: {fileID: 2334978408241614460, guid: 97ec515f942fd42d5b27bd18f060227f,
     type: 3}
   battleSystemPrefab: {fileID: 4192897004412911878, guid: 06e8518193da44de39a301c04e9b5e95,
+    type: 3}
+  arenaSystemPrefab: {fileID: 9090598006642956271, guid: 46055dd1136ac4ea680637e360950e59,
     type: 3}
 --- !u!4 &1371823668
 Transform:
