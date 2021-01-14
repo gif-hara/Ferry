@@ -23,7 +23,14 @@ namespace HK.Ferry.BattleSystems
                 battleSystem.Enemy.EndTurn()
                     .Subscribe(_ =>
                     {
-                        owner.Change(BattleSystem.BattlePhase.PlayerTurnStart);
+                        if (battleSystem.CanEnd())
+                        {
+                            owner.Change(BattleSystem.BattlePhase.End);
+                        }
+                        else
+                        {
+                            owner.Change(BattleSystem.BattlePhase.PlayerTurnStart);
+                        }
                     })
                     .AddTo(ActiveDisposables);
             }
